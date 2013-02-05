@@ -10,7 +10,7 @@ var PlayerEntity = me.ObjectEntity.extend({
 		// set the default horizontal & vertical speed (accel vector)
 		this.setVelocity(3,15);
 
-        this.animationspeed = me.sys.fps / 3;
+        this.animationspeed = me.sys.fps / 15;
 
 		// set the display to follow the position on both axis
 		me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
@@ -20,18 +20,8 @@ var PlayerEntity = me.ObjectEntity.extend({
         this.addAnimation("step", [1]); //first step
         this.addAnimation("run", [2,3,4,5,6,7,8,9,10,11]);  //running
 
+        //variables
         this.isMoving = false;
-
-        /*------
-         if(!this.isCurrentAnimation("stand")){
-            this.setCurrentAnimation("stand", function(){
-                this.setCurrentAnimation("step", function(){
-                    this.setCurrentAnimation("run");
-                });
-            });
-         }
-         */
-
 	},
 
 	/*----------------------------------
@@ -55,18 +45,7 @@ var PlayerEntity = me.ObjectEntity.extend({
 
         } else {
             this.vel.x = 0;
-            //this.setCurrentAnimation("stand");
-            if(!this.isCurrentAnimation("stand")){
-                this.setCurrentAnimation("stand", function(){
-                    if(this.isMoving){
-                        this.setCurrentAnimation("step", function(){
-                            this.setCurrentAnimation("run");
-                        });
-                    }
-                });
-            }
-            this.isMoving = false;
-            this.setAnimationFrame();
+            this.checkAnimation();
         }
         if (me.input.isKeyPressed('jump')) {
             // make sure we are not already jumping or falling
@@ -82,15 +61,26 @@ var PlayerEntity = me.ObjectEntity.extend({
         // check & update player movement
         this.updateMovement();
 
-        // update animation if necessary
-        //if (this.vel.x!=0 || this.vel.y!=0) {
-            // update object animation
-        //}
+        //call the update
         this.parent(this);
         return true;
 
         // else inform the engine we did not perform
         // any update (e.g. position, animation)
         //return false;
+    },
+
+    checkAnimation: function(){
+        if(!this.isCurrentAnimation("stand")){
+            this.setCurrentAnimation("stand", function(){
+                if(this.isMoving){
+                    this.setCurrentAnimation("step", function(){
+                        this.setCurrentAnimation("run");
+                        this.setAnimationFrame();
+                    });
+                }
+            });
+        }
+        this.isMoving = false;
     }
 });
