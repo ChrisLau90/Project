@@ -19,7 +19,7 @@ var g_resources= [{
 }, {
 	name: "player_run_right",
 	type: "image",
-	src: "data/sprites/player_run_right.png"
+	src: "data/sprites/player_right.png"
 }];
 
 
