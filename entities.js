@@ -35,7 +35,7 @@ var PlayerEntity = me.ObjectEntity.extend({
 	-----------------------------------*/
 	update: function() {
 
-        this.checkAnimation();
+        this.stateMachine();
 
         if (me.input.isKeyPressed('left')) {
             // flip the sprite on horizontal axis
@@ -79,25 +79,43 @@ var PlayerEntity = me.ObjectEntity.extend({
         //return false;
     },
 
+    stateMachine: function(){
+        //var velY = this.vel.y;
+        switch (true) {
+            case (this.vel.y < 0):
+                //jump
+                if (this.isCurrentAnimation("stand") || this.isCurrentAnimation("step") ||
+                    this.isCurrentAnimation("run")){
+                    this.setCurrentAnimation("jump", function(){
+                        this.setCurrentAnimation("jump2");
+                        //this.setAnimationFrame();
+                    });
+                }
+                break;
+            case (this.vel.y > 0):
+                //fall
+                if (this.isCurrentAnimation("jump") || this.isCurrentAnimation("jump2") ||
+                    this.isCurrentAnimation("step") || this.isCurrentAnimation("run")){
+                    this.setCurrentAnimation("fall", function(){
+                        this.setCurrentAnimation("fall2");
+                    });
+                }
+                break;
+            case (this.vel.y == 0):
+                //stand
+                //this.checkAnimation();
+                if (this.isCurrentAnimation("fall") || this.isCurrentAnimation("fall2")){
+                    this.setCurrentAnimation("land", this.checkAnimation());
+                }
+                else {
+                    this.checkAnimation();
+                }
+                break;
+        }
+    },
+
     checkAnimation: function(){
-        if(this.falling){
-            this.setCurrentAnimation("fall", function(){
-                this.setCurrentAnimation("fall2", function(){
-                    if(!this.jumping && !this.falling){
-                        this.setCurrentAnimation("land", function(){
-                            this.setCurrentAnimation("run");
-                        });
-                    }
-                });
-            });
-        }
-        else if(this.jumping){
-            this.setCurrentAnimation("jump", function(){
-                this.setCurrentAnimation("jump2");
-                this.setAnimationFrame();
-            });
-        }
-        else if(!this.isMoving){
+        if(!this.isMoving){
             this.setCurrentAnimation("stand", function(){
                 if(this.isMoving){
                     this.setCurrentAnimation("step", function(){
@@ -105,6 +123,12 @@ var PlayerEntity = me.ObjectEntity.extend({
                         this.setAnimationFrame();
                     });
                 }
+            });
+        }
+        else if(this.isCurrentAnimation("land")){
+            this.setCurrentAnimation("step", function(){
+                this.setCurrentAnimation("run");
+                this.setAnimationFrame();
             });
         }
     }
