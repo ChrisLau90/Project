@@ -20,7 +20,7 @@
   </data>
  </layer>
  <objectgroup name="Player Layer" width="45" height="15">
-  <object name="mainPlayer" x="64" y="186" width="33" height="65">
+  <object name="mainPlayer" x="60" y="149" width="45" height="81">
    <properties>
     <property name="image" value="player_run_right"/>
     <property name="spritewidth" value="72"/>

@@ -20,6 +20,18 @@ var g_resources= [{
 	name: "player_run_right",
 	type: "image",
 	src: "data/sprites/player_right.png"
+}, {
+    name: "player_up",
+    type: "image",
+    src: "data/sprites/player_up.png"
+}, {
+    name: "player_down",
+    type: "image",
+    src: "data/sprites/player_down.png"
+}, {
+	name: "bullet",
+	type: "image",
+	src: "data/sprites/bullet.png"
 }];
 
 
@@ -34,7 +46,7 @@ var jsApp	=
 	{
 		
 		// init the video
-		if (!me.video.init('jsapp', 640, 480, false, 1.0))
+		if (!me.video.init('jsapp', 800, 600, false, 1.0))
 		{
 			alert("Sorry but your browser does not support html 5 canvas.");
          	return;
@@ -68,9 +80,12 @@ var jsApp	=
 		me.entityPool.add("mainPlayer", PlayerEntity);
 
 		// enable keyboard
-		me.input.bindKey(me.input.KEY.LEFT, "left");
-		me.input.bindKey(me.input.KEY.RIGHT, "right");
-		me.input.bindKey(me.input.KEY.X, "jump", true);
+		me.input.bindKey(me.input.KEY.A, "left");
+		me.input.bindKey(me.input.KEY.D, "right");
+        me.input.bindKey(me.input.KEY.W, "up");
+        me.input.bindKey(me.input.KEY.S, "down");
+		me.input.bindKey(me.input.KEY.L, "jump");
+        me.input.bindKey(me.input.KEY.K, "shoot", true);
       
       	// start the game 
 		me.state.change(me.state.PLAY);

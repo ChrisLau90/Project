@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd65c92e-5162-4a2c-b5ae-5c49162ed574" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/sprites/player_right.png" afterPath="$PROJECT_DIR$/data/sprites/player_right.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/entities.js" afterPath="$PROJECT_DIR$/entities.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.js" afterPath="$PROJECT_DIR$/main.js" />
     </list>
     <ignored path="Project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,10 +24,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="entities.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="entities.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/entities.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="45" selection-start="371" selection-end="371" vertical-scroll-proportion="0.25245443">
+            <state line="56" column="9" selection-start="1672" selection-end="1672" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -34,10 +35,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="4" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0">
+            <state line="22" column="1" selection-start="362" selection-end="362" vertical-scroll-proportion="0.30991736">
               <folding />
             </state>
           </provider>
@@ -56,8 +57,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/main.js" />
         <option value="$PROJECT_DIR$/entities.js" />
+        <option value="$PROJECT_DIR$/main.js" />
       </list>
     </option>
   </component>
@@ -300,7 +301,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/entities.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="45" selection-start="371" selection-end="371" vertical-scroll-proportion="0.25245443">
+        <state line="56" column="9" selection-start="1672" selection-end="1672" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -309,7 +310,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="4" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0">
+        <state line="22" column="1" selection-start="362" selection-end="362" vertical-scroll-proportion="0.30991736">
           <folding />
         </state>
       </provider>

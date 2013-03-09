@@ -8,7 +8,9 @@ var PlayerEntity = me.ObjectEntity.extend({
 		this.parent(x, y, settings);
 
 		// set the default horizontal & vertical speed (accel vector)
-		this.setVelocity(3,20);
+		this.setVelocity(0.5,7);
+        this.setMaxVelocity(6,7);
+        this.setFriction(0.3, 0);
 
         this.animationspeed = me.sys.fps / 20;
 
@@ -27,7 +29,9 @@ var PlayerEntity = me.ObjectEntity.extend({
 
         //variables
         this.isMoving = false;
-
+        this.aimingUp = false;
+        this.aimingLeft = false;
+        this.aimingDown = false;
 	},
 
 	/*----------------------------------
@@ -43,18 +47,36 @@ var PlayerEntity = me.ObjectEntity.extend({
             // update the entity velocity
             this.vel.x -= this.accel.x * me.timer.tick;
             this.isMoving = true;
-
+            this.aimingLeft = true;
         } else if (me.input.isKeyPressed('right')) {
             // unflip the sprite
             this.flipX(false);
             // update the entity velocity
             this.vel.x += this.accel.x * me.timer.tick;
             this.isMoving = true;
-
+            this.aimingLeft = false;
         } else {
-            this.vel.x = 0;
+            //this.vel.x = 0;
             this.isMoving = false;
         }
+
+        if(me.input.isKeyPressed('up')) {
+            this.image = me.loader.getImage("player_up");
+            this.aimingUp = true;
+            this.aimingDown = false;
+        }
+        else if(me.input.isKeyPressed('down')){
+            this.image = me.loader.getImage("player_down");
+            this.aimingUp = false;
+            this.aimingDown = true;
+        }
+        else {
+            this.image = me.loader.getImage("player_run_right");
+            this.aimingUp = false;
+            this.aimingDown = false;
+        }
+
+        /*
         if (me.input.isKeyPressed('jump')) {
             // make sure we are not already jumping or falling
             if (!this.jumping && !this.falling) {
@@ -63,8 +85,27 @@ var PlayerEntity = me.ObjectEntity.extend({
                 this.vel.y = -this.maxVel.y * me.timer.tick;
                 // set the jumping flag
                 this.jumping = true;
-                this.hasLanded = false;
             }
+        }
+        */
+
+        this.jumpForce *= 0.9;
+
+        if (me.input.isKeyPressed("jump")) {
+            if (!this.jumping && !this.falling) {
+                this.jumpForce = this.maxVel.y;
+                this.jumping = true;
+            }
+        }
+        else {
+            this.jumpForce = 0;
+            this.jumping = false;
+        }
+        this.vel.y -= this.jumpForce * me.timer.tick;
+
+        if (me.input.isKeyPressed('shoot')){
+            //SHOOT
+            this.shoot();
         }
 
         // check & update player movement
@@ -73,10 +114,41 @@ var PlayerEntity = me.ObjectEntity.extend({
         //call the update
         this.parent(this);
         return true;
+    },
 
-        // else inform the engine we did not perform
-        // any update (e.g. position, animation)
-        //return false;
+    shoot: function(){
+        //create new bullet
+
+        var xAdjust = this.pos.x;
+        var yAdjust = this.pos.y;
+
+        if(this.aimingUp && this.isMoving){
+            xAdjust += this.aimingLeft ? 24 : 32;
+            yAdjust += 24;
+        }
+        else if (this.aimingDown && this.isMoving){
+            xAdjust += this.aimingLeft ? 15 : 40;
+            yAdjust += 95;
+        }
+        else if(this.aimingDown){
+            xAdjust += this.aimingLeft ? 24 : 32;
+            yAdjust += 98;
+        }
+        else if(this.aimingUp){
+            xAdjust += 28;
+            yAdjust += 24;
+        }
+        else {
+            xAdjust += this.aimingLeft ? 5 : 55;
+            yAdjust += 60;
+
+        }
+
+        me.game.add(
+            new BulletEntity(xAdjust, yAdjust, this.aimingLeft, this.aimingUp, this.aimingDown),
+            this.z
+        );
+        me.game.sort();
     },
 
     stateMachine: function(){
@@ -131,5 +203,65 @@ var PlayerEntity = me.ObjectEntity.extend({
                 this.setAnimationFrame();
             });
         }
+    }
+});
+
+/**
+ * Bullet Entity.
+ * User: Chris
+ * Date: 06/03/2013
+ * Time: 15:11
+ * To change this template use File | Settings | File Templates.
+ */
+var BulletEntity = me.ObjectEntity.extend({
+
+    init: function(x, y, left, up, down) {
+
+        //apply settings
+        var settings = {
+            name: "bullet",
+            image: "bullet",
+            spritewidth: 16,
+            spriteheight: 12
+        };
+
+        this.parent(x, y, settings); //call the constructor
+        this.gravity = 0;           //remove gravity
+        this.goingLeft = left;      //check if player is going left
+        this.goingUp = up;          //check if player is looking up
+        this.goingDown = down;
+        this.setVelocity(12, 12);   //set the default horizontal & vertical vertical speed (accel vector)
+        this.collidable = true;     //set object to be collidable
+        this.type = me.game.ACTION_OBJECT;  //set the object type
+
+        if (this.goingUp){
+            this.angle = -1.570796327;
+        }
+        else if (this.goingDown){
+            this.angle = 1.570796327;
+        }
+
+    },
+
+    update: function(){
+        this.flipX(this.goingLeft);
+
+        if(this.goingUp){
+            this.vel.y += -this.accel.y * me.timer.tick;
+        }
+        else if (this.goingDown){
+            this.vel.y += this.accel.y * me.timer.tick;
+        }
+        else{
+            this.vel.x += (this.goingLeft)? -this.accel.x * me.timer.tick : this.accel.x * me.timer.tick;
+        }
+
+        if (!me.game.viewport.isVisible(this)) {
+            me.game.remove(this);
+            return false;
+        }
+
+        this.updateMovement();
+        return true;
     }
 });
