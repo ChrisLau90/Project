@@ -8,11 +8,13 @@ var PlayerEntity = me.ObjectEntity.extend({
 		this.parent(x, y, settings);
 
 		// set the default horizontal & vertical speed (accel vector)
-		this.setVelocity(0.5,7);
-        this.setMaxVelocity(6,7);
+		this.setVelocity(0.5,5.5);
+        this.setMaxVelocity(6,5.5);
         this.setFriction(0.3, 0);
 
         this.animationspeed = me.sys.fps / 20;
+
+        this.updateColRect(20, 34, 38, 70);
 
 		// set the display to follow the position on both axis
 		me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
@@ -71,23 +73,10 @@ var PlayerEntity = me.ObjectEntity.extend({
             this.aimingDown = true;
         }
         else {
-            this.image = me.loader.getImage("player_run_right");
+            this.image = me.loader.getImage("player_right");
             this.aimingUp = false;
             this.aimingDown = false;
         }
-
-        /*
-        if (me.input.isKeyPressed('jump')) {
-            // make sure we are not already jumping or falling
-            if (!this.jumping && !this.falling) {
-                // set current vel to the maximum defined value
-                // gravity will then do the rest
-                this.vel.y = -this.maxVel.y * me.timer.tick;
-                // set the jumping flag
-                this.jumping = true;
-            }
-        }
-        */
 
         this.jumpForce *= 0.9;
 
@@ -95,11 +84,13 @@ var PlayerEntity = me.ObjectEntity.extend({
             if (!this.jumping && !this.falling) {
                 this.jumpForce = this.maxVel.y;
                 this.jumping = true;
+                this.updateColRect(20, 28, 38, 70);
             }
         }
         else {
             this.jumpForce = 0;
-            this.jumping = false;
+            this.updateColRect(20, 34, 38, 70);
+            //this.jumping = false;
         }
         this.vel.y -= this.jumpForce * me.timer.tick;
 
@@ -244,7 +235,20 @@ var BulletEntity = me.ObjectEntity.extend({
     },
 
     update: function(){
+        /*
         this.flipX(this.goingLeft);
+
+        if (!this.goingUp && !this.goingDown){
+            this.pos.x += this.goingLeft ? -10: 10;
+        }
+        else {
+            this.pos.y += this.goingUp ? -10: 10;
+        }
+
+        this.computeVelocity(this.vel);
+        this.pos.add(this.vel);
+        */
+
 
         if(this.goingUp){
             this.vel.y += -this.accel.y * me.timer.tick;
@@ -256,12 +260,15 @@ var BulletEntity = me.ObjectEntity.extend({
             this.vel.x += (this.goingLeft)? -this.accel.x * me.timer.tick : this.accel.x * me.timer.tick;
         }
 
-        if (!me.game.viewport.isVisible(this)) {
+        var collision = this.updateMovement();
+
+        if (!this.visible){
             me.game.remove(this);
-            return false;
+        }
+        else if (collision.yprop.isSolid || collision.xprop.isSolid){
+            me.game.remove(this);
         }
 
-        this.updateMovement();
         return true;
     }
 });

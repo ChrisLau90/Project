@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd65c92e-5162-4a2c-b5ae-5c49162ed574" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/sprites/player_right.png" afterPath="$PROJECT_DIR$/data/sprites/player_right.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/enemies.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/maps/test1.tmx" afterPath="$PROJECT_DIR$/data/maps/test1.tmx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/entities.js" afterPath="$PROJECT_DIR$/entities.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.js" afterPath="$PROJECT_DIR$/main.js" />
     </list>
     <ignored path="Project.iws" />
@@ -24,21 +27,37 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="entities.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/entities.js">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="9" selection-start="1672" selection-end="1672" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state line="14" column="62" selection-start="602" selection-end="602" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="1" selection-start="362" selection-end="362" vertical-scroll-proportion="0.30991736">
+            <state line="93" column="0" selection-start="1752" selection-end="1752" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="entities.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/entities.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="234" column="6" selection-start="7209" selection-end="7209" vertical-scroll-proportion="-1.2272727">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="enemies.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/enemies.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="46" selection-start="528" selection-end="528" vertical-scroll-proportion="0.35764375">
               <folding />
             </state>
           </provider>
@@ -57,8 +76,10 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/entities.js" />
         <option value="$PROJECT_DIR$/main.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/entities.js" />
+        <option value="$PROJECT_DIR$/enemies.js" />
       </list>
     </option>
   </component>
@@ -190,25 +211,7 @@
     <entry file="file://$PROJECT_DIR$/entities.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="30" selection-start="924" selection-end="924" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="4" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/entities.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="30" selection-start="924" selection-end="924" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -222,9 +225,7 @@
     <entry file="file://$PROJECT_DIR$/entities.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="93" column="23" selection-start="2833" selection-end="2833" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -238,9 +239,7 @@
     <entry file="file://$PROJECT_DIR$/entities.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="59" column="36" selection-start="1972" selection-end="1972" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -261,9 +260,7 @@
     <entry file="file://$PROJECT_DIR$/entities.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="72" column="31" selection-start="2215" selection-end="2215" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -277,9 +274,7 @@
     <entry file="file://$PROJECT_DIR$/entities.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="84" column="5" selection-start="2632" selection-end="2632" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -293,24 +288,34 @@
     <entry file="file://$PROJECT_DIR$/entities.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="34" selection-start="1037" selection-end="1037" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/entities.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="9" selection-start="1672" selection-end="1672" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="14" column="62" selection-start="602" selection-end="602" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="1" selection-start="362" selection-end="362" vertical-scroll-proportion="0.30991736">
+        <state line="93" column="0" selection-start="1752" selection-end="1752" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="234" column="6" selection-start="7209" selection-end="7209" vertical-scroll-proportion="-1.2272727">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enemies.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="46" selection-start="528" selection-end="528" vertical-scroll-proportion="0.35764375">
           <folding />
         </state>
       </provider>

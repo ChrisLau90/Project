@@ -17,7 +17,15 @@ var g_resources= [{
 	type: "tmx",
 	src: "data/maps/test1.tmx"
 }, {
-	name: "player_run_right",
+    name: "area01_tiles",
+    type: "image",
+    src: "data/tilesets/area01_tiles.png"
+},{
+    name: "test2",
+    type: "tmx",
+    src: "data/maps/test2.tmx"
+}, {
+	name: "player_right",
 	type: "image",
 	src: "data/sprites/player_right.png"
 }, {
@@ -32,6 +40,10 @@ var g_resources= [{
 	name: "bullet",
 	type: "image",
 	src: "data/sprites/bullet.png"
+}, {
+    name: "enemy_soldier",
+    type: "image",
+    src: "data/sprites/enemy_soldier.png"
 }];
 
 
@@ -78,6 +90,7 @@ var jsApp	=
 
 		// add player to entity pool
 		me.entityPool.add("mainPlayer", PlayerEntity);
+        me.entityPool.add("enemy_soldier", SoldierEnemy);
 
 		// enable keyboard
 		me.input.bindKey(me.input.KEY.A, "left");
@@ -101,7 +114,7 @@ var PlayScreen = me.ScreenObject.extend(
 	{	
       	// stuff to reset on state change
       	// load level
-      	me.levelDirector.loadLevel("test1");
+      	me.levelDirector.loadLevel("test2");
 	},
 	
 	
