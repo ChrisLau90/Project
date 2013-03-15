@@ -44,6 +44,10 @@ var g_resources= [{
     name: "enemy_soldier",
     type: "image",
     src: "data/sprites/enemy_soldier.png"
+}, {
+    name: "enemy_roller",
+    type: "image",
+    src: "data/sprites/enemy_roller.png"
 }];
 
 

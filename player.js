@@ -14,7 +14,8 @@ var PlayerEntity = me.ObjectEntity.extend({
 
         this.animationspeed = me.sys.fps / 20;
 
-        this.updateColRect(20, 34, 38, 70);
+        //this.updateColRect(20, 34, 38, 70);
+        this.updateColRect(24, 24, 38, 70);
 
 		// set the display to follow the position on both axis
 		me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
@@ -34,6 +35,7 @@ var PlayerEntity = me.ObjectEntity.extend({
         this.aimingUp = false;
         this.aimingLeft = false;
         this.aimingDown = false;
+        this.blockJump = false;
 	},
 
 	/*----------------------------------
@@ -81,16 +83,15 @@ var PlayerEntity = me.ObjectEntity.extend({
         this.jumpForce *= 0.9;
 
         if (me.input.isKeyPressed("jump")) {
-            if (!this.jumping && !this.falling) {
+            if (!this.jumping && !this.falling && !this.blockJump) {
                 this.jumpForce = this.maxVel.y;
                 this.jumping = true;
-                this.updateColRect(20, 28, 38, 70);
             }
+            this.blockJump = true;
         }
         else {
             this.jumpForce = 0;
-            this.updateColRect(20, 34, 38, 70);
-            //this.jumping = false;
+            this.blockJump = false;
         }
         this.vel.y -= this.jumpForce * me.timer.tick;
 
@@ -235,20 +236,6 @@ var BulletEntity = me.ObjectEntity.extend({
     },
 
     update: function(){
-        /*
-        this.flipX(this.goingLeft);
-
-        if (!this.goingUp && !this.goingDown){
-            this.pos.x += this.goingLeft ? -10: 10;
-        }
-        else {
-            this.pos.y += this.goingUp ? -10: 10;
-        }
-
-        this.computeVelocity(this.vel);
-        this.pos.add(this.vel);
-        */
-
 
         if(this.goingUp){
             this.vel.y += -this.accel.y * me.timer.tick;
@@ -260,12 +247,25 @@ var BulletEntity = me.ObjectEntity.extend({
             this.vel.x += (this.goingLeft)? -this.accel.x * me.timer.tick : this.accel.x * me.timer.tick;
         }
 
-        var collision = this.updateMovement();
+        var tempVel = this.vel.clone();
+        var envCol = this.updateMovement();
 
-        if (!this.visible){
+        if (!me.game.viewport.isVisible(this)){
             me.game.remove(this);
         }
-        else if (collision.yprop.isSolid || collision.xprop.isSolid){
+        else if (envCol.yprop.isSolid || envCol.xprop.isSolid){
+            me.game.remove(this);
+        }
+        else if (envCol.yprop.isPlatform || envCol.xprop.isPlatform){
+            this.vel = tempVel;
+            this.computeVelocity(this.vel);
+            this.pos.add(this.vel);
+        }
+
+        var entCol = me.game.collide(this);
+
+        if(entCol){
+            entCol.obj.takeDamage(10);
             me.game.remove(this);
         }
 
