@@ -39,7 +39,16 @@
   </object>
  </objectgroup>
  <objectgroup name="Enemy Layer" width="200" height="50">
-  <object name="enemy_soldier" x="842" y="322" width="369" height="75"/>
   <object name="enemy_soldier" x="1965" y="107" width="806" height="84"/>
+  <object name="enemy_roller" x="1362" y="419" width="663" height="107">
+   <properties>
+    <property name="goingLeft" value="true"/>
+   </properties>
+  </object>
+  <object name="enemy_cannon" x="1097" y="274" width="88" height="114">
+   <properties>
+    <property name="goingLeft" value="true"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

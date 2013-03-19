@@ -8,9 +8,10 @@ var PlayerEntity = me.ObjectEntity.extend({
 		this.parent(x, y, settings);
 
 		// set the default horizontal & vertical speed (accel vector)
-		this.setVelocity(0.5,5.5);
-        this.setMaxVelocity(6,5.5);
-        this.setFriction(0.3, 0);
+		this.setVelocity(0.5,0);
+        this.setMaxVelocity(6,10);
+        this.setFriction(0.25, 0);
+        this.jumpForce = 0;
 
         this.animationspeed = me.sys.fps / 20;
 
@@ -80,7 +81,7 @@ var PlayerEntity = me.ObjectEntity.extend({
             this.aimingDown = false;
         }
 
-        this.jumpForce *= 0.9;
+        this.jumpForce *= 0.7;
 
         if (me.input.isKeyPressed("jump")) {
             if (!this.jumping && !this.falling && !this.blockJump) {
@@ -211,8 +212,8 @@ var BulletEntity = me.ObjectEntity.extend({
 
         //apply settings
         var settings = {
-            name: "bullet",
-            image: "bullet",
+            name: "player_bullet",
+            image: "player_bullet",
             spritewidth: 16,
             spriteheight: 12
         };
@@ -265,8 +266,10 @@ var BulletEntity = me.ObjectEntity.extend({
         var entCol = me.game.collide(this);
 
         if(entCol){
-            entCol.obj.takeDamage(10);
-            me.game.remove(this);
+            if(entCol.obj.type == me.game.ENEMY_OBJECT) {
+                entCol.obj.takeDamage(10);
+                me.game.remove(this);
+            }
         }
 
         return true;

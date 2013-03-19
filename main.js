@@ -25,6 +25,11 @@ var g_resources= [{
     type: "tmx",
     src: "data/maps/test2.tmx"
 }, {
+    name: "test3",
+    type: "tmx",
+    src: "data/maps/test3.tmx"
+},
+   {
 	name: "player_right",
 	type: "image",
 	src: "data/sprites/player_right.png"
@@ -37,17 +42,37 @@ var g_resources= [{
     type: "image",
     src: "data/sprites/player_down.png"
 }, {
-	name: "bullet",
+	name: "player_bullet",
 	type: "image",
-	src: "data/sprites/bullet.png"
+	src: "data/sprites/player_bullet.png"
 }, {
     name: "enemy_soldier",
     type: "image",
     src: "data/sprites/enemy_soldier.png"
+},{
+    name: "enemy_bullet",
+    type: "image",
+    src: "data/sprites/enemy_bullet.png"
 }, {
     name: "enemy_roller",
     type: "image",
     src: "data/sprites/enemy_roller.png"
+}, {
+    name: "enemy_cannon",
+    type: "image",
+    src: "data/sprites/enemy_cannon.png"
+}, {
+    name: "enemy_cannon_plasma",
+    type: "image",
+    src: "data/sprites/enemy_cannon_plasma.png"
+}, {
+    name: "enemy_cannon_rocket",
+    type: "image",
+    src: "data/sprites/enemy_cannon_rocket.png"
+}, {
+    name: "enemy_chopper",
+    type: "image",
+    src: "data/sprites/enemy_chopper.png"
 }];
 
 
@@ -95,6 +120,8 @@ var jsApp	=
 		// add player to entity pool
 		me.entityPool.add("mainPlayer", PlayerEntity);
         me.entityPool.add("enemy_soldier", SoldierEnemy);
+        me.entityPool.add("enemy_roller", RollerEnemy);
+        me.entityPool.add("enemy_cannon", CannonEnemy);
 
 		// enable keyboard
 		me.input.bindKey(me.input.KEY.A, "left");
