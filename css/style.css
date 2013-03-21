@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+body {
+    font-family: Arial, Heltvetica, sans-serif;
+    background-color: #001339;
+}
+
+#container {
+    margin: 10px auto;
+    width: 80%;
+}
+
+h1 {
+    background-color: #525252;
+    border-radius: 10px;
+    padding: 20px;
+    color: #FFF;
+    width: 800px;
+    margin: 10px auto;
+}
+
+#navBar {
+    background-color: #525252;
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: 800px;
+    margin: 13px auto;
+    text-align: center;
+}
+
+ul
+
+li{
+    display: inline;
+}
+
+a:link
+{color: #ffffff};		/* unvisited link */
+a:visited
+{color: #ffffff;} 	/* visited link */
+a:hover
+{color: #579999;}   	/* mouse over link */
+a:active
+{color: #579999;}  	/* selected link */
+
+#game{
+    width: 600px;
+    margin: 10px auto;
+}
+
+
+

@@ -64,7 +64,6 @@ var PlayerEntity = me.ObjectEntity.extend({
             //this.vel.x = 0;
             this.isMoving = false;
         }
-
         if(me.input.isKeyPressed('up')) {
             this.image = me.loader.getImage("player_up");
             this.aimingUp = true;
@@ -214,8 +213,8 @@ var BulletEntity = me.ObjectEntity.extend({
         var settings = {
             name: "player_bullet",
             image: "player_bullet",
-            spritewidth: 16,
-            spriteheight: 12
+            spritewidth: 32,
+            spriteheight: 32
         };
 
         this.parent(x, y, settings); //call the constructor
@@ -226,6 +225,8 @@ var BulletEntity = me.ObjectEntity.extend({
         this.setVelocity(12, 12);   //set the default horizontal & vertical vertical speed (accel vector)
         this.collidable = true;     //set object to be collidable
         this.type = me.game.ACTION_OBJECT;  //set the object type
+        this.updateColRect(8, 12, 10, 12);
+
 
         if (this.goingUp){
             this.angle = -1.570796327;
@@ -234,6 +235,9 @@ var BulletEntity = me.ObjectEntity.extend({
             this.angle = 1.570796327;
         }
 
+        this.addAnimation("flying", [0]);
+        this.addAnimation("explode", [1,2,3]);
+        this.setCurrentAnimation("flying");
     },
 
     update: function(){
@@ -255,7 +259,11 @@ var BulletEntity = me.ObjectEntity.extend({
             me.game.remove(this);
         }
         else if (envCol.yprop.isSolid || envCol.xprop.isSolid){
-            me.game.remove(this);
+            //me.game.remove(this);
+            this.collidable = false;
+            this.setCurrentAnimation("explode", function(){
+                me.game.remove(this);
+            });
         }
         else if (envCol.yprop.isPlatform || envCol.xprop.isPlatform){
             this.vel = tempVel;

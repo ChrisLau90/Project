@@ -476,6 +476,7 @@ var CannonEnemy = me.ObjectEntity.extend({
                 this.fireRocket(this.rocketsFired);
 
                 //this.firePlasma();
+                //this.isFiring = true;
             }
         }
         else if(this.isDelayed && this.hasFired){
@@ -567,6 +568,8 @@ var CannonEnemy = me.ObjectEntity.extend({
         );
 
         this.isFiring = false;
+        this.hasFired = true;
+        this.isDelayed = true;
         //console.log('1 ' + this.isFiring);
 
         me.game.sort();
@@ -630,14 +633,14 @@ var CannonPlasma = me.ObjectEntity.extend({
         this.parent(x, y, settings);
         this.goingLeft = left;
         this.setVelocity(8,8);
+        this.collidable = true;
         this.type = me.game.ACTION_OBJECT;
 
         this.addAnimation("active", [0,1,2]);
+        this.setCurrentAnimation("active");
     },
 
     update: function(){
-
-        this.setCurrentAnimation("active");
 
         this.vel.x += this.vel.x += (this.goingLeft)? -this.accel.x * me.timer.tick : this.accel.x * me.timer.tick;
 
@@ -654,4 +657,64 @@ var CannonPlasma = me.ObjectEntity.extend({
         return true;
 
     }
+});
+
+var ChopperEnemy = me.ObjectEntity.extend({
+    init: function(x, y, settings){
+        settings.image = "enemy_chopper";
+        settings.spritewidth = 62;
+
+        this.parent(x, y, settings);
+
+        this.setVelocity(2,2);
+        this.animationspeed = me.sys.fps / 40;
+        //UPDATE COLRECT
+
+        this.collidable = true;
+        this.type = me.game.ENEMY_OBJECT;
+        this.gravity = 0;
+
+        this.health = 30;
+        this.moveAngle = Math.sin((45).degToRad());
+
+        this.addAnimation("active",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]);
+        this.setCurrentAnimation("active");
+
+    },
+
+    update: function(){
+
+        if(!me.game.viewport.isVisible(this)) {
+            return false;
+        }
+
+        //get player entity
+        var player = me.game.getEntityByName("mainPlayer")[0];
+
+        //create vector based on player's postion
+        var xDir = player.pos.x - this.pos.x;
+        var yDir = player.pos.y - this.pos.y;
+
+        //Decide distance
+        xDir = (Math.abs(xDir) < 8) ? 0 : xDir.clamp(-1,1);
+        yDir = (Math.abs(yDir) < 8) ? 0 : yDir.clamp(-1,1);
+
+        if (xDir && yDir) {
+            xDir *= this.moveAngle;
+            yDir *= this.moveAngle;
+        }
+
+        this.vel.x = this.accel.x * xDir;
+        this.vel.y = this.accel.y * yDir;
+
+        this.updateMovement();
+
+        this.parent();
+        return true;
+
+    }
+});
+
+var WaspEnemy = me.ObjectEntity.extend({
+
 });

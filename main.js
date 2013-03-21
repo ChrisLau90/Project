@@ -44,7 +44,7 @@ var g_resources= [{
 }, {
 	name: "player_bullet",
 	type: "image",
-	src: "data/sprites/player_bullet.png"
+	src: "data/sprites/player_bullet2.png"
 }, {
     name: "enemy_soldier",
     type: "image",
@@ -73,6 +73,18 @@ var g_resources= [{
     name: "enemy_chopper",
     type: "image",
     src: "data/sprites/enemy_chopper.png"
+}, {
+    name: "enemy_wasp",
+    type: "image",
+    src: "data/sprites/enemy_wasp.png"
+}, {
+    name: "enemy_wasp_bomb",
+    type: "image",
+    src: "data/sprites/enemy_wasp_bomb.png"
+}, {
+    name: "explosion",
+    type: "image",
+    src: "data/sprites/explosion.png"
 }];
 
 
@@ -87,7 +99,7 @@ var jsApp	=
 	{
 		
 		// init the video
-		if (!me.video.init('jsapp', 800, 600, false, 1.0))
+		if (!me.video.init('jsapp', 600, 480, false, 1.0))
 		{
 			alert("Sorry but your browser does not support html 5 canvas.");
          	return;
@@ -122,6 +134,7 @@ var jsApp	=
         me.entityPool.add("enemy_soldier", SoldierEnemy);
         me.entityPool.add("enemy_roller", RollerEnemy);
         me.entityPool.add("enemy_cannon", CannonEnemy);
+        me.entityPool.add("enemy_chopper", ChopperEnemy);
 
 		// enable keyboard
 		me.input.bindKey(me.input.KEY.A, "left");

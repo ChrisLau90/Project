@@ -50,5 +50,6 @@
     <property name="goingLeft" value="true"/>
    </properties>
   </object>
+  <object name="enemy_chopper" x="688" y="287" width="91" height="85"/>
  </objectgroup>
 </map>
