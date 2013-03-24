@@ -124,50 +124,6 @@ var SoldierEnemy = me.ObjectEntity.extend({
         var player = me.game.getEntityByName("mainPlayer")[0];
         var angle = this.angleTo(player);
 
-        //console.log(angle);
-        //3.141592653589793
-        //1.570796327
-
-        /*
-        if(this.aimingLeft){
-            if (angle == 3.141592653589793){
-                inSight = true;
-            }
-            else if(angle > 1.57 && angle < 1.8){
-                inSight = true;
-                this.aimingDown = true;
-            }
-            else if(angle > -1.57 && angle < -1.8){
-                inSight = true;
-                this.aimingUp = true;
-            }
-            else {
-                inSight = false;
-                this.aimingDown = false;
-                this.aimingUp = false;
-            }
-        }
-        else {
-            if (angle == 0){
-                inSight = true;
-            }
-            else if (angle < 1.57 && angle > 1.2){
-                inSight = true;
-                this.aimingDown = true;
-            }
-            else if (angle < -1.57 && angle > -1.2){
-                inSight = true;
-                this.aimingUp = true;
-            }
-            else {
-                inSight = false;
-                this.aimingDown = false;
-                this.aimingUp = false;
-            }
-        }
-        */
-
-
         if(this.aimingLeft && angle == 3.141592653589793){
             inSight = true;
         }
@@ -373,13 +329,6 @@ var RollerEnemy = me.ObjectEntity.extend({
             this.die();
         }
 
-        /*
-        if(this.health <= 0){
-            this.alive = false;
-            this.die();
-        }
-        */
-
         this.updateMovement();
         this.checkAnimation();
 
@@ -405,6 +354,7 @@ var RollerEnemy = me.ObjectEntity.extend({
                 new Explosion(this.pos.x + 4, this.pos.y + 4),
                 this.z+1
             )
+            me.game.HUD.updateItemValue("score", 100);
             me.game.sort();
             me.game.remove(this);
 
@@ -423,7 +373,7 @@ var CannonEnemy = me.ObjectEntity.extend({
 
         this.setVelocity(0,5);
         this.animationspeed = me.sys.fps / 20;
-        //UPDATE COLRECT
+        this.updateColRect(46, 56, 22, 118);
 
         this.goingLeft = settings.goingLeft;
         this.collidable = true;
@@ -508,6 +458,7 @@ var CannonEnemy = me.ObjectEntity.extend({
                 new Explosion(this.pos.x + 40, this.pos.y + 80),
                 this.z+1
             )
+            me.game.HUD.updateItemValue("score", 500);
             me.game.sort();
             me.game.remove(this);
         }
@@ -733,6 +684,7 @@ var ChopperEnemy = me.ObjectEntity.extend({
             return true;
         }
         else{
+            me.game.HUD.updateItemValue("score", 100);
             me.game.add(
                 new Explosion(this.pos.x, this.pos.y),
                 this.z+1
@@ -835,6 +787,7 @@ var WaspEnemy = me.ObjectEntity.extend({
                 new Explosion(this.pos.x, this.pos.y),
                 this.z+1
             )
+            me.game.HUD.updateItemValue("score", 300);
             me.game.sort();
             me.game.remove(this);
         }

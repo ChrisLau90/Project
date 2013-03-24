@@ -47,5 +47,16 @@ a:active
     margin: 10px auto;
 }
 
+@font-face {
+    font-family: Vermin_Vibes;
+    src: url('vermin_vibes_1989.ttf');
+}
+
+@font-face {
+    font-family: Press_Start;
+    src: url('prstartk.ttf');
+}
+
+
 
 

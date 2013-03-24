@@ -28,8 +28,7 @@ var g_resources= [{
     name: "test3",
     type: "tmx",
     src: "data/maps/test3.tmx"
-},
-   {
+}, {
 	name: "player_right",
 	type: "image",
 	src: "data/sprites/player_right.png"
@@ -44,7 +43,7 @@ var g_resources= [{
 }, {
 	name: "player_bullet",
 	type: "image",
-	src: "data/sprites/player_bullet2.png"
+	src: "data/sprites/player_bullet.png"
 }, {
     name: "enemy_soldier",
     type: "image",
@@ -85,6 +84,10 @@ var g_resources= [{
     name: "explosion",
     type: "image",
     src: "data/sprites/explosion.png"
+}, {
+    name: "atascii_font",
+    type: "image",
+    src: "data/font/atascii_16px.png"
 }];
 
 
@@ -160,16 +163,17 @@ var PlayScreen = me.ScreenObject.extend(
       	// stuff to reset on state change
       	// load level
       	me.levelDirector.loadLevel("test2");
+        me.game.addHUD(0, 0, 600, 30);
+        me.game.HUD.addItem("score", new ScoreObject(300,10));
+        me.game.sort();
 	},
 	
-	
 	/* ---
-	
 		 action to perform when game is finished (state change)
-		
 		---	*/
 	onDestroyEvent: function()
 	{
+        me.game.disableHUD();
     }
 });
 
