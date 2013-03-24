@@ -132,7 +132,7 @@ var PlayerEntity = me.ObjectEntity.extend({
         }
         else {
             xAdjust += this.aimingLeft ? 5 : 55;
-            yAdjust += 60;
+            yAdjust += 50;
 
         }
 
@@ -259,11 +259,13 @@ var BulletEntity = me.ObjectEntity.extend({
             me.game.remove(this);
         }
         else if (envCol.yprop.isSolid || envCol.xprop.isSolid){
-            //me.game.remove(this);
+            me.game.remove(this);
+            /*
             this.collidable = false;
             this.setCurrentAnimation("explode", function(){
                 me.game.remove(this);
             });
+            */
         }
         else if (envCol.yprop.isPlatform || envCol.xprop.isPlatform){
             this.vel = tempVel;

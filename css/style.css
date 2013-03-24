@@ -28,14 +28,13 @@ h1 {
     text-align: center;
 }
 
-ul
 
 li{
     display: inline;
 }
 
 a:link
-{color: #ffffff};		/* unvisited link */
+{color: #ffffff;}		/* unvisited link */
 a:visited
 {color: #ffffff;} 	/* visited link */
 a:hover

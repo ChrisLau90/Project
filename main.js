@@ -135,6 +135,7 @@ var jsApp	=
         me.entityPool.add("enemy_roller", RollerEnemy);
         me.entityPool.add("enemy_cannon", CannonEnemy);
         me.entityPool.add("enemy_chopper", ChopperEnemy);
+        me.entityPool.add("enemy_wasp", WaspEnemy);
 
 		// enable keyboard
 		me.input.bindKey(me.input.KEY.A, "left");

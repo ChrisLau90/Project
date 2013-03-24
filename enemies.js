@@ -22,10 +22,9 @@ var SoldierEnemy = me.ObjectEntity.extend({
         // make it a enemy object
         this.type = me.game.ENEMY_OBJECT;
 
-        this.health = 30;
+        this.health = 50;
         this.gunTimer = 0;
 
-        this.isActive = false;
         this.isMoving = false;
         this.aimingUp = false;
         this.aimingLeft = true;
@@ -50,12 +49,6 @@ var SoldierEnemy = me.ObjectEntity.extend({
             return false;
         }
 
-        /*
-        if (!this.isActive){
-            this.isActive = true;
-        }
-        */
-
         if(!this.isReady){
             this.readyTimer++;
             if(this.readyTimer == 30){
@@ -73,7 +66,7 @@ var SoldierEnemy = me.ObjectEntity.extend({
                 this.vel.x = 0;
                 this.isMoving = false;
                 this.gunTimer++;
-                if(this.gunTimer % 10 == 0){
+                if(this.gunTimer % 20 == 0){
                     this.shoot();
                 }
             }
@@ -264,7 +257,7 @@ var EnemyBullet = me.ObjectEntity.extend({
         this.goingLeft = left;      //check if player is going left
         this.goingUp = up;          //check if player is looking up
         this.goingDown = down;
-        this.setVelocity(8, 8);   //set the default horizontal & vertical vertical speed (accel vector)
+        this.setVelocity(10, 10);   //set the default horizontal & vertical vertical speed (accel vector)
         this.collidable = true;     //set object to be collidable
         this.type = me.game.ACTION_OBJECT;  //set the object type
 
@@ -357,7 +350,7 @@ var RollerEnemy = me.ObjectEntity.extend({
             return false;
         }
 
-        if(this.alive){
+        if(this.health > 0){
             if (this.goingLeft && this.pos.x > this.startX){
                 this.isMoving = true;
                 this.vel.x -= this.accel.x * me.timer.tick;
@@ -380,10 +373,12 @@ var RollerEnemy = me.ObjectEntity.extend({
             this.die();
         }
 
+        /*
         if(this.health <= 0){
             this.alive = false;
             this.die();
         }
+        */
 
         this.updateMovement();
         this.checkAnimation();
@@ -406,7 +401,13 @@ var RollerEnemy = me.ObjectEntity.extend({
 
     die: function(){
         this.setCurrentAnimation("fall", function(){
+            me.game.add(
+                new Explosion(this.pos.x + 4, this.pos.y + 4),
+                this.z+1
+            )
+            me.game.sort();
             me.game.remove(this);
+
         })
     }
 });
@@ -428,7 +429,7 @@ var CannonEnemy = me.ObjectEntity.extend({
         this.collidable = true;
         this.type = me.game.ENEMY_OBJECT;
 
-        this.health = 100;
+        this.health = 150;
 
         this.idleTimer = 0;
         this.delayTimer = 0;
@@ -454,44 +455,63 @@ var CannonEnemy = me.ObjectEntity.extend({
             return false;
         }
 
-        if(this.isIdle && !this.isOpen){
-            this.idleTimer++;
+        if(this.health > 0){
+            if(this.isIdle && !this.isOpen){
+                this.idleTimer++;
 
-            if(this.idleTimer % 50 == 0 && !this.isDelayed){
-                this.isIdle = false;
-                this.isDelayed = true;
+                if(this.idleTimer % 50 == 0 && !this.isDelayed){
+                    this.isIdle = false;
+                    this.isDelayed = true;
+                }
             }
-        }
-        else if(this.isDelayed && !this.hasFired){
-            this.delayTimer++;
-            if(this.delayTimer % 30 == 0){
-                this.isDelayed = false;
-                //check level + fire
+            else if(this.isDelayed && !this.hasFired){
+                this.delayTimer++;
+                if(this.delayTimer % 30 == 0){
+                    this.isDelayed = false;
+                    //check level + fire
+                }
             }
-        }
-        else if(!this.isDelayed && !this.hasFired){
-            this.firingTimer++;
-            if(this.firingTimer % 50 == 0){
-                this.rocketsFired++;
-                this.fireRocket(this.rocketsFired);
+            else if(!this.isDelayed && !this.hasFired){
+                this.firingTimer++;
+                if(this.firingTimer % 50 == 0){
+                    this.rocketsFired++;
+                    this.fireRocket(this.rocketsFired);
 
-                //this.firePlasma();
-                //this.isFiring = true;
+                    //this.firePlasma();
+                    //this.isFiring = true;
+                }
             }
-        }
-        else if(this.isDelayed && this.hasFired){
-            this.delayTimer++;
-            if(this.delayTimer % 30 == 0){
-                this.isDelayed = false;
+            else if(this.isDelayed && this.hasFired){
+                this.delayTimer++;
+                if(this.delayTimer % 30 == 0){
+                    this.isDelayed = false;
 
+                }
             }
+
+            this.updateMovement();
+            this.checkAnimation();
+
+            this.parent();
+            return true;
+        }
+        else{
+            me.game.add(
+                new Explosion(this.pos.x + 40, this.pos.y + 30),
+                this.z+1
+            )
+            me.game.add(
+                new Explosion(this.pos.x + 40, this.pos.y + 50),
+                this.z+1
+            )
+            me.game.add(
+                new Explosion(this.pos.x + 40, this.pos.y + 80),
+                this.z+1
+            )
+            me.game.sort();
+            me.game.remove(this);
         }
 
-        this.updateMovement();
-        this.checkAnimation();
-
-        this.parent();
-        return true;
     },
 
     checkAnimation: function(){
@@ -550,8 +570,9 @@ var CannonEnemy = me.ObjectEntity.extend({
     },
 
     firePlasma: function(){
+
+
         this.isFiring = true;
-        //console.log('1 ' + this.isFiring);
 
         var xAdjust1 = this.pos.x + 18;
         var xAdjust2 = this.pos.x + 60;
@@ -570,13 +591,13 @@ var CannonEnemy = me.ObjectEntity.extend({
         this.isFiring = false;
         this.hasFired = true;
         this.isDelayed = true;
-        //console.log('1 ' + this.isFiring);
-
         me.game.sort();
+        //console.log('1 ' + this.isFiring);
     },
 
-    checkPlayerLevel: function(){
-        var isLevel = false;
+    takeDamage: function(value){
+        this.health -= value;
+        console.log(value + " damage taken. Health: " + this.health);
     }
 });
 
@@ -674,12 +695,13 @@ var ChopperEnemy = me.ObjectEntity.extend({
         this.type = me.game.ENEMY_OBJECT;
         this.gravity = 0;
 
-        this.health = 30;
+        this.health = 50;
         this.moveAngle = Math.sin((45).degToRad());
 
         this.addAnimation("active",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]);
         this.setCurrentAnimation("active");
 
+        this.player = me.game.getEntityByName("mainPlayer")[0];
     },
 
     update: function(){
@@ -688,33 +710,233 @@ var ChopperEnemy = me.ObjectEntity.extend({
             return false;
         }
 
-        //get player entity
-        var player = me.game.getEntityByName("mainPlayer")[0];
+        if(this.health > 0){
+            //create vector based on player's postion
+            var xDir = this.player.pos.x - this.pos.x;
+            var yDir = this.player.pos.y - this.pos.y;
 
-        //create vector based on player's postion
-        var xDir = player.pos.x - this.pos.x;
-        var yDir = player.pos.y - this.pos.y;
+            //Decide distance
+            xDir = (Math.abs(xDir) < 8) ? 0 : xDir.clamp(-1,1);
+            yDir = (Math.abs(yDir) < 8) ? 0 : yDir.clamp(-1,1);
 
-        //Decide distance
-        xDir = (Math.abs(xDir) < 8) ? 0 : xDir.clamp(-1,1);
-        yDir = (Math.abs(yDir) < 8) ? 0 : yDir.clamp(-1,1);
+            if (xDir && yDir) {
+                xDir *= this.moveAngle;
+                yDir *= this.moveAngle;
+            }
 
-        if (xDir && yDir) {
-            xDir *= this.moveAngle;
-            yDir *= this.moveAngle;
+            this.vel.x = this.accel.x * xDir;
+            this.vel.y = this.accel.y * yDir;
+
+            this.updateMovement();
+
+            this.parent();
+            return true;
         }
+        else{
+            me.game.add(
+                new Explosion(this.pos.x, this.pos.y),
+                this.z+1
+            )
+            me.game.sort();
+            me.game.remove(this);
+        }
+    },
 
-        this.vel.x = this.accel.x * xDir;
-        this.vel.y = this.accel.y * yDir;
-
-        this.updateMovement();
-
-        this.parent();
-        return true;
-
+    takeDamage: function(value){
+        this.health -= value;
+        console.log(value + " damage taken. Health: " + this.health);
     }
 });
 
 var WaspEnemy = me.ObjectEntity.extend({
+    init: function(x, y, settings){
+        settings.image = "enemy_wasp";
+        settings.spritewidth = 90;
 
+        this.parent(x, y, settings);
+
+        this.startX = x;
+        this.endX = x + settings.width - settings.spritewidth;
+
+        this.pos.x = x + settings.width - settings.spritewidth;
+        this.aimingLeft = true;
+
+        this.setVelocity(3, 5);
+        this.animationspeed = me.sys.fps / 20;
+        this.gravity = 0;
+
+        this.collidable = true;
+        this.type = me.game.ENEMY_OBJECT;
+
+        this.health = 30;
+
+        this.idleTimer = 0;
+        this.bombTimer = 0;
+        this.isIdle = false;
+        this.isOpen = true;
+
+        this.addAnimation("idle", [0,1,2]);
+        this.addAnimation("opening", [3,4,5]);
+        this.addAnimation("open", [6,7,8]);
+        this.setCurrentAnimation("idle");
+    },
+
+    update: function(){
+
+        if(!me.game.viewport.isVisible(this)){
+            return false;
+        }
+
+        if(this.health > 0){
+            if(this.aimingLeft && this.pos.x <= this.startX){
+                this.aimingLeft = false;
+            } else if (!this.aimingLeft && this.pos.x >= this.endX){
+                this.aimingLeft = true;
+            }
+
+            this.flipX(!this.aimingLeft);
+            this.vel.x += (this.aimingLeft) ? -this.accel.x * me.timer.tick : this.accel.x * me.timer.tick;
+
+            if(this.isIdle && !this.isOpen){
+                this.idleTimer++;
+
+                if(this.idleTimer % 200 == 0){
+                    this.isIdle = false;
+                }
+            }
+            else if (this.isOpen && !this.isIdle){
+                this.bombTimer++;
+
+                if(this.bombTimer % 20 == 0 && this.bombTimer <= 60){
+                    var xAdjust = (this.aimingLeft) ? this.pos.x + 10 : this.pos.x + 50;
+                    var yAdjust = this.pos.y + 65;
+
+                    me.game.add(
+                        new WaspBomb(xAdjust, yAdjust),
+                        this.z+1
+                    )
+
+                    me.game.sort();
+                }
+                if(this.bombTimer == 70){
+                    this.isIdle = true;
+                    this.bombTimer = 0;
+                }
+            }
+
+            this.checkAnimation();
+            this.updateMovement();
+            this.parent();
+
+            return true;
+        }
+        else {
+            me.game.add(
+                new Explosion(this.pos.x, this.pos.y),
+                this.z+1
+            )
+            me.game.sort();
+            me.game.remove(this);
+        }
+
+
+    },
+
+    checkAnimation: function(){
+        if(this.isIdle && !this.isOpen){
+            this.setCurrentAnimation("idle");
+        }
+        else if(!this.isIdle && !this.isOpen){
+            this.setCurrentAnimation("opening", function(){
+                this.setCurrentAnimation("open");
+                this.isOpen = true;
+            });
+        }
+        else if(this.isOpen && !this.isIdle){
+            this.setCurrentAnimation("open");
+        }
+        else if(this.isIdle && this.isOpen){
+            this.setCurrentAnimation("opening", function(){
+                this.setCurrentAnimation("idle");
+                this.isOpen = false;
+            })
+        }
+    },
+
+    takeDamage: function(value){
+        this.health -= value;
+        console.log(value + " damage taken. Health: " + this.health);
+    }
+});
+
+var WaspBomb = me.ObjectEntity.extend({
+   init: function(x, y){
+
+       var settings = {
+           name: "enemy_wasp_bomb",
+           image: "enemy_wasp_bomb",
+           spritewidth: 28,
+           spriteheight: 24
+       };
+
+       this.parent(x, y, settings);
+       this.setVelocity(0, 9);
+       this.type = me.game.ACTION_OBJECT;
+
+       this.ticker = 0;
+
+       this.addAnimation("off", [0]);
+       this.addAnimation("on", [1,2]);
+   },
+
+   update: function(){
+
+       if(this.falling){
+           this.setCurrentAnimation("off");
+       }
+       else{
+           this.setCurrentAnimation("on");
+           if(this.ticker < 40){
+               this.ticker++;
+           }
+           else{
+               me.game.add(
+                   new Explosion(this.pos.x, this.pos.y - 40),
+                   this.z+1
+               )
+               me.game.sort();
+               me.game.remove(this);
+           }
+       }
+
+       this.updateMovement();
+       this.parent();
+       return true;
+   }
+});
+
+var Explosion = me.ObjectEntity.extend({
+   init: function(x, y){
+       var settings = {
+           name: "explosion",
+           image: "explosion",
+           spritewidth: 64
+       }
+
+       this.parent(x, y, settings);
+       this.gravity = 0;
+       this.collidable = true;
+       this.type = me.game.ACTION_OBJECT;
+       this.animationspeed = me.sys.fps / 22;
+
+       this.addAnimation("explode", [0,1,0,2,3,4,5]);
+   },
+
+    update: function(){
+        this.setCurrentAnimation("explode", function(){
+            me.game.remove(this);
+        })
+        this.parent();
+        return true;
+    }
 });
