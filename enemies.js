@@ -216,6 +216,7 @@ var EnemyBullet = me.ObjectEntity.extend({
         this.setVelocity(10, 10);   //set the default horizontal & vertical vertical speed (accel vector)
         this.collidable = true;     //set object to be collidable
         this.type = me.game.ACTION_OBJECT;  //set the object type
+        this.power = 10;
 
         if (this.goingUp){
             this.angle = -1.570796327;
@@ -288,12 +289,10 @@ var RollerEnemy = me.ObjectEntity.extend({
         this.setVelocity(3,5);
         this.animationspeed = me.sys.fps / 20;
         this.updateColRect(-1, 0, 0, 74);
-
         this.collidable = true;
-
         this.type = me.game.ENEMY_OBJECT;
-
         this.health = 30;
+        this.power = 20;
 
         this.isMoving = false;
 
@@ -380,6 +379,7 @@ var CannonEnemy = me.ObjectEntity.extend({
         this.type = me.game.ENEMY_OBJECT;
 
         this.health = 150;
+        this.power = 20;
 
         this.idleTimer = 0;
         this.delayTimer = 0;
@@ -567,6 +567,7 @@ var CannonRocket = me.ObjectEntity.extend({
         this.setVelocity(9, 0);         //set the default horizontal & vertical vertical speed (accel vector)
         this.collidable = true;         //set object to be collidable
         this.type = me.game.ACTION_OBJECT;
+        this.power = 20;
     },
 
     update: function(){
@@ -645,8 +646,8 @@ var ChopperEnemy = me.ObjectEntity.extend({
         this.collidable = true;
         this.type = me.game.ENEMY_OBJECT;
         this.gravity = 0;
-
         this.health = 50;
+        this.power = 10;
         this.moveAngle = Math.sin((45).degToRad());
 
         this.addAnimation("active",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]);
@@ -721,7 +722,7 @@ var WaspEnemy = me.ObjectEntity.extend({
         this.type = me.game.ENEMY_OBJECT;
 
         this.health = 30;
-
+        this.power = 20;
         this.idleTimer = 0;
         this.bombTimer = 0;
         this.isIdle = false;
@@ -869,7 +870,7 @@ var WaspBomb = me.ObjectEntity.extend({
 });
 
 var Explosion = me.ObjectEntity.extend({
-   init: function(x, y){
+   init: function(x, y, coll){
        var settings = {
            name: "explosion",
            image: "explosion",
@@ -878,9 +879,10 @@ var Explosion = me.ObjectEntity.extend({
 
        this.parent(x, y, settings);
        this.gravity = 0;
-       this.collidable = true;
+       this.collidable = coll;
        this.type = me.game.ACTION_OBJECT;
        this.animationspeed = me.sys.fps / 22;
+       this.power = 10;
 
        this.addAnimation("explode", [0,1,0,2,3,4,5]);
    },

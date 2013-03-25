@@ -19,7 +19,13 @@ var PlayerEntity = me.ObjectEntity.extend({
         this.updateColRect(24, 24, 38, 70);
 
 		// set the display to follow the position on both axis
-		me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
+        this.centerOffsetX = 24;
+        this.centreOffsetY = 40;
+        this.viewChange = 0;
+        this.cameraPos = new me.Vector2d( this.pos.x + this.centerOffsetX, this.pos.y + this.centreOffsetY);
+
+		me.game.viewport.follow(this.cameraPos, me.game.viewport.AXIS.BOTH);
+        me.game.viewport.setDeadzone(0,0);
 
         // set animations
         this.addAnimation("stand", [0]);
@@ -33,19 +39,64 @@ var PlayerEntity = me.ObjectEntity.extend({
         this.addAnimation("damage", [18]);
 
         //variables
+        this.health = 100;
         this.isMoving = false;
         this.aimingUp = false;
         this.aimingLeft = false;
         this.aimingDown = false;
         this.blockJump = false;
+        this.isHurt = false;
+        this.hitLeft = false;
+        this.damageTimer = 0;
 	},
 
-	/*----------------------------------
-		Constructor
-	-----------------------------------*/
 	update: function() {
 
-        this.stateMachine();
+        if(!this.isHurt){
+            this.stateMachine();
+            this.checkInput();
+
+            if(!this.isFlickering()){
+                var entCol = me.game.collide(this);
+                if(entCol){
+                    this.isHurt = true;
+                    this.health -= entCol.obj.power;
+                    if(entCol.obj.pos.x + 12 < this.pos.x){
+                        this.hitLeft = true;
+                    }
+                    else{
+                        this.hitLeft = false;
+                    }
+                    this.flicker(120);
+                    console.log(entCol.obj.power + " damage done. Health: " + this.health);
+                }
+            }
+        }
+        else{
+            this.damageTimer++;
+            this.vel.x += (this.hitLeft) ? this.accel.x * me.timer.tick : -this.accel.x * me.timer.tick;
+            this.setCurrentAnimation("damage");
+            if(this.damageTimer == 20){
+                this.isHurt = false;
+                this.damageTimer = 0;
+            }
+        }
+
+        // check & update player movement
+        this.updateMovement();
+
+        this.centreOffsetY = 40 + this.viewChange;
+        //console.log(this.centreOffsetY);
+        this.cameraPos.x = this.pos.x + this.centerOffsetX;
+        this.cameraPos.y = this.pos.y + this.centreOffsetY;
+        console.log(this.cameraPos.y);
+
+        //call the update
+        this.parent(this);
+        return true;
+    },
+
+    checkInput: function(){
 
         if (me.input.isKeyPressed('left')) {
             // flip the sprite on horizontal axis
@@ -65,20 +116,36 @@ var PlayerEntity = me.ObjectEntity.extend({
             //this.vel.x = 0;
             this.isMoving = false;
         }
+
         if(me.input.isKeyPressed('up')) {
             this.image = me.loader.getImage("player_up");
             this.aimingUp = true;
             this.aimingDown = false;
+            if(this.viewChange > -60){
+                this.viewChange -=4;
+                //console.log(this.viewChange);
+            }
         }
         else if(me.input.isKeyPressed('down')){
             this.image = me.loader.getImage("player_down");
             this.aimingUp = false;
             this.aimingDown = true;
+            if(this.viewChange < 170){
+                this.viewChange += 4;
+                //console.log(this.viewChange);
+            }
         }
         else {
             this.image = me.loader.getImage("player_right");
             this.aimingUp = false;
             this.aimingDown = false;
+            if(this.viewChange > 0){
+                this.viewChange-=4;
+            }
+            else if(this.viewChange < 0){
+                this.viewChange+=4;
+            }
+            //console.log(this.viewChange);
         }
 
         this.jumpForce *= 0.7;
@@ -100,13 +167,6 @@ var PlayerEntity = me.ObjectEntity.extend({
             //SHOOT
             this.shoot();
         }
-
-        // check & update player movement
-        this.updateMovement();
-
-        //call the update
-        this.parent(this);
-        return true;
     },
 
     shoot: function(){
