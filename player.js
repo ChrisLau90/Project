@@ -25,7 +25,7 @@ var PlayerEntity = me.ObjectEntity.extend({
         this.cameraPos = new me.Vector2d( this.pos.x + this.centerOffsetX, this.pos.y + this.centreOffsetY);
 
 		me.game.viewport.follow(this.cameraPos, me.game.viewport.AXIS.BOTH);
-        me.game.viewport.setDeadzone(0,0);
+        me.game.viewport.setDeadzone(0,50);
 
         // set animations
         this.addAnimation("stand", [0]);
@@ -59,16 +59,18 @@ var PlayerEntity = me.ObjectEntity.extend({
             if(!this.isFlickering()){
                 var entCol = me.game.collide(this);
                 if(entCol){
-                    this.isHurt = true;
-                    this.health -= entCol.obj.power;
-                    if(entCol.obj.pos.x + 12 < this.pos.x){
-                        this.hitLeft = true;
+                    if(entCol.obj.type == me.game.ENEMY_OBJECT){
+                        this.isHurt = true;
+                        this.health -= entCol.obj.power;
+                        if(entCol.obj.pos.x + 12 < this.pos.x){
+                            this.hitLeft = true;
+                        }
+                        else{
+                            this.hitLeft = false;
+                        }
+                        this.flicker(100);
+                        console.log(entCol.obj.power + " damage done. Health: " + this.health);
                     }
-                    else{
-                        this.hitLeft = false;
-                    }
-                    this.flicker(120);
-                    console.log(entCol.obj.power + " damage done. Health: " + this.health);
                 }
             }
         }
@@ -86,7 +88,6 @@ var PlayerEntity = me.ObjectEntity.extend({
         this.updateMovement();
 
         this.centreOffsetY = 40 + this.viewChange;
-        //console.log(this.centreOffsetY);
         this.cameraPos.x = this.pos.x + this.centerOffsetX;
         this.cameraPos.y = this.pos.y + this.centreOffsetY;
         console.log(this.cameraPos.y);
@@ -121,7 +122,7 @@ var PlayerEntity = me.ObjectEntity.extend({
             this.image = me.loader.getImage("player_up");
             this.aimingUp = true;
             this.aimingDown = false;
-            if(this.viewChange > -60){
+            if(this.viewChange > -80){
                 this.viewChange -=4;
                 //console.log(this.viewChange);
             }
@@ -130,7 +131,7 @@ var PlayerEntity = me.ObjectEntity.extend({
             this.image = me.loader.getImage("player_down");
             this.aimingUp = false;
             this.aimingDown = true;
-            if(this.viewChange < 170){
+            if(this.viewChange < 140){
                 this.viewChange += 4;
                 //console.log(this.viewChange);
             }
@@ -176,7 +177,7 @@ var PlayerEntity = me.ObjectEntity.extend({
         var yAdjust = this.pos.y;
 
         if(this.aimingUp && this.isMoving){
-            xAdjust += this.aimingLeft ? 24 : 32;
+            xAdjust += this.aimingLeft ? 20 : 36;
             yAdjust += 24;
         }
         else if (this.aimingDown && this.isMoving){
@@ -336,5 +337,9 @@ var BulletEntity = me.ObjectEntity.extend({
         }
 
         return true;
+    },
+
+    onCollision: function(){
+
     }
 });

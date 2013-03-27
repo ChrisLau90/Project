@@ -17,9 +17,7 @@ var SoldierEnemy = me.ObjectEntity.extend({
         this.animationspeed = me.sys.fps / 20;
         this.updateColRect(24, 30, 38, 70);
 
-        // make it collidable
         this.collidable = true;
-        // make it a enemy object
         this.type = me.game.ENEMY_OBJECT;
 
         this.health = 50;
@@ -32,7 +30,7 @@ var SoldierEnemy = me.ObjectEntity.extend({
 
         this.readyTimer = 0;
         this.isReady = false;
-        this.forcedRun = false;
+        this.isActive = false;
 
         // set animations
         this.addAnimation("stand", [0]);
@@ -40,6 +38,7 @@ var SoldierEnemy = me.ObjectEntity.extend({
         this.addAnimation("run", [2,3,4,5,6,7,8,9,10,11]);
         this.addAnimation("aimUp", [12]);
         this.addAnimation("aimDown", [13]);
+        this.addAnimation("damage", [14]);
     },
 
     // manage the enemy movement
@@ -56,9 +55,9 @@ var SoldierEnemy = me.ObjectEntity.extend({
             }
         }
 
-        this.checkAnimation();
+        if (this.health > 0) {
+            this.checkAnimation();
 
-        if (this.alive) {
             if(!this.isReady){
                 this.updateVel();
             }
@@ -66,17 +65,21 @@ var SoldierEnemy = me.ObjectEntity.extend({
                 this.vel.x = 0;
                 this.isMoving = false;
                 this.gunTimer++;
-                if(this.gunTimer % 20 == 0){
+                if(this.gunTimer % 30 == 0){
                     this.shoot();
                 }
             }
             else {
                 this.updateVel();
             }
-
         } else {
-            this.vel.x = 0;
-            this.isMoving = false;
+            me.game.add(
+                new Explosion(this.pos.x + 10, this.pos.y + 20),
+                this.z+1
+            )
+            me.game.HUD.updateItemValue("score", 300);
+            me.game.sort();
+            me.game.remove(this);
         }
 
         // check and update movement
@@ -88,6 +91,14 @@ var SoldierEnemy = me.ObjectEntity.extend({
             return true;
         }
         return false;
+    },
+
+    onCollision: function(res, obj) {
+        // res.y >0 means touched by something on the bottom
+        // which mean at top position for this one
+        if (this.alive && (res.y > 0) && obj.falling) {
+            this.flicker(45);
+        }
     },
 
     checkAnimation: function(){
@@ -215,7 +226,7 @@ var EnemyBullet = me.ObjectEntity.extend({
         this.goingDown = down;
         this.setVelocity(10, 10);   //set the default horizontal & vertical vertical speed (accel vector)
         this.collidable = true;     //set object to be collidable
-        this.type = me.game.ACTION_OBJECT;  //set the object type
+        this.type = me.game.ENEMY_OBJECT;  //set the object type
         this.power = 10;
 
         if (this.goingUp){
@@ -566,7 +577,7 @@ var CannonRocket = me.ObjectEntity.extend({
         this.goingLeft = left;          //check if player is going left
         this.setVelocity(9, 0);         //set the default horizontal & vertical vertical speed (accel vector)
         this.collidable = true;         //set object to be collidable
-        this.type = me.game.ACTION_OBJECT;
+        this.type = me.game.ENEMY_OBJECT;
         this.power = 20;
     },
 
@@ -607,7 +618,7 @@ var CannonPlasma = me.ObjectEntity.extend({
         this.goingLeft = left;
         this.setVelocity(8,8);
         this.collidable = true;
-        this.type = me.game.ACTION_OBJECT;
+        this.type = me.game.ENEMY_OBJECT;
 
         this.addAnimation("active", [0,1,2]);
         this.setCurrentAnimation("active");
@@ -835,7 +846,7 @@ var WaspBomb = me.ObjectEntity.extend({
 
        this.parent(x, y, settings);
        this.setVelocity(0, 9);
-       this.type = me.game.ACTION_OBJECT;
+       this.type = me.game.ENEMY_OBJECT;
 
        this.ticker = 0;
 
@@ -855,7 +866,7 @@ var WaspBomb = me.ObjectEntity.extend({
            }
            else{
                me.game.add(
-                   new Explosion(this.pos.x, this.pos.y - 40),
+                   new Explosion(this.pos.x, this.pos.y - 40, true),
                    this.z+1
                )
                me.game.sort();
@@ -880,7 +891,7 @@ var Explosion = me.ObjectEntity.extend({
        this.parent(x, y, settings);
        this.gravity = 0;
        this.collidable = coll;
-       this.type = me.game.ACTION_OBJECT;
+       this.type = me.game.ENEMY_OBJECT;
        this.animationspeed = me.sys.fps / 22;
        this.power = 10;
 
