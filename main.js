@@ -7,90 +7,6 @@
  *
  **/
 
-// game resources
-var g_resources= [{
-	name: "testTile",
-	type: "image",
-	src: "data/tilesets/testTile.png"
-}, {
-	name: "test1",
-	type: "tmx",
-	src: "data/maps/test1.tmx"
-}, {
-    name: "area01_tiles",
-    type: "image",
-    src: "data/tilesets/area01_tiles.png"
-},{
-    name: "test2",
-    type: "tmx",
-    src: "data/maps/test2.tmx"
-}, {
-    name: "test3",
-    type: "tmx",
-    src: "data/maps/test3.tmx"
-}, {
-	name: "player_right",
-	type: "image",
-	src: "data/sprites/player_right.png"
-}, {
-    name: "player_up",
-    type: "image",
-    src: "data/sprites/player_up.png"
-}, {
-    name: "player_down",
-    type: "image",
-    src: "data/sprites/player_down.png"
-}, {
-	name: "player_bullet",
-	type: "image",
-	src: "data/sprites/player_bullet.png"
-}, {
-    name: "enemy_soldier",
-    type: "image",
-    src: "data/sprites/enemy_soldier.png"
-},{
-    name: "enemy_bullet",
-    type: "image",
-    src: "data/sprites/enemy_bullet.png"
-}, {
-    name: "enemy_roller",
-    type: "image",
-    src: "data/sprites/enemy_roller.png"
-}, {
-    name: "enemy_cannon",
-    type: "image",
-    src: "data/sprites/enemy_cannon.png"
-}, {
-    name: "enemy_cannon_plasma",
-    type: "image",
-    src: "data/sprites/enemy_cannon_plasma.png"
-}, {
-    name: "enemy_cannon_rocket",
-    type: "image",
-    src: "data/sprites/enemy_cannon_rocket.png"
-}, {
-    name: "enemy_chopper",
-    type: "image",
-    src: "data/sprites/enemy_chopper.png"
-}, {
-    name: "enemy_wasp",
-    type: "image",
-    src: "data/sprites/enemy_wasp.png"
-}, {
-    name: "enemy_wasp_bomb",
-    type: "image",
-    src: "data/sprites/enemy_wasp_bomb.png"
-}, {
-    name: "explosion",
-    type: "image",
-    src: "data/sprites/explosion.png"
-}, {
-    name: "atascii_font",
-    type: "image",
-    src: "data/font/atascii_16px.png"
-}];
-
-
 var jsApp	= 
 {	
 	/* ---
@@ -139,6 +55,11 @@ var jsApp	=
         me.entityPool.add("enemy_cannon", CannonEnemy);
         me.entityPool.add("enemy_chopper", ChopperEnemy);
         me.entityPool.add("enemy_wasp", WaspEnemy);
+        me.entityPool.add("pickup_orb", OrbPickup);
+        me.entityPool.add("pickup_orb_large", LargeOrbPickup);
+        me.entityPool.add("pickup_health", HealthPickup);
+        me.entityPool.add("pickup_automatic", AutomaticPickup);
+        me.entityPool.add("pickup_laser", LaserPickup);
 
 		// enable keyboard
 		me.input.bindKey(me.input.KEY.A, "left");
@@ -146,8 +67,8 @@ var jsApp	=
         me.input.bindKey(me.input.KEY.W, "up");
         me.input.bindKey(me.input.KEY.S, "down");
 		me.input.bindKey(me.input.KEY.L, "jump");
-        me.input.bindKey(me.input.KEY.K, "shoot", true);
-      
+        me.input.bindKey(me.input.KEY.K, "shoot");
+
       	// start the game 
 		me.state.change(me.state.PLAY);
 	}
@@ -163,8 +84,10 @@ var PlayScreen = me.ScreenObject.extend(
       	// stuff to reset on state change
       	// load level
       	me.levelDirector.loadLevel("test2");
-        me.game.addHUD(0, 0, 600, 30);
-        me.game.HUD.addItem("score", new ScoreObject(300,10));
+        me.game.addHUD(0, 0, 600, 480);
+        me.game.HUD.addItem("score", new ScoreObject(550 ,10));
+        me.game.HUD.addItem("health", new HealthObject(140,440));
+        me.game.HUD.addItem("ammo", new AmmoObject(550, 440));
         me.game.sort();
 	},
 	

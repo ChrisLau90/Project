@@ -26,6 +26,7 @@ var PlayerEntity = me.ObjectEntity.extend({
 
 		me.game.viewport.follow(this.cameraPos, me.game.viewport.AXIS.BOTH);
         me.game.viewport.setDeadzone(0,50);
+        //me.game.HUD.setItemValue("health", this.health);
 
         // set animations
         this.addAnimation("stand", [0]);
@@ -48,6 +49,10 @@ var PlayerEntity = me.ObjectEntity.extend({
         this.isHurt = false;
         this.hitLeft = false;
         this.damageTimer = 0;
+        this.canFire = true;
+        this.gun = 0;
+        this.gunTimer = 0;
+        this.ammo = 0;
 	},
 
 	update: function() {
@@ -55,9 +60,10 @@ var PlayerEntity = me.ObjectEntity.extend({
         if(!this.isHurt){
             this.stateMachine();
             this.checkInput();
+            var entCol = me.game.collide(this);
 
             if(!this.isFlickering()){
-                var entCol = me.game.collide(this);
+
                 if(entCol){
                     if(entCol.obj.type == me.game.ENEMY_OBJECT){
                         this.isHurt = true;
@@ -69,7 +75,7 @@ var PlayerEntity = me.ObjectEntity.extend({
                             this.hitLeft = false;
                         }
                         this.flicker(100);
-                        console.log(entCol.obj.power + " damage done. Health: " + this.health);
+                        //console.log(entCol.obj.power + " damage done. Health: " + this.health);
                     }
                 }
             }
@@ -90,8 +96,10 @@ var PlayerEntity = me.ObjectEntity.extend({
         this.centreOffsetY = 40 + this.viewChange;
         this.cameraPos.x = this.pos.x + this.centerOffsetX;
         this.cameraPos.y = this.pos.y + this.centreOffsetY;
-        console.log(this.cameraPos.y);
+        //console.log(this.cameraPos.y);
 
+        me.game.HUD.setItemValue("health", this.health);
+        me.game.HUD.setItemValue("ammo", this.ammo);
         //call the update
         this.parent(this);
         return true;
@@ -122,7 +130,7 @@ var PlayerEntity = me.ObjectEntity.extend({
             this.image = me.loader.getImage("player_up");
             this.aimingUp = true;
             this.aimingDown = false;
-            if(this.viewChange > -80){
+            if(this.viewChange > -120){
                 this.viewChange -=4;
                 //console.log(this.viewChange);
             }
@@ -164,13 +172,56 @@ var PlayerEntity = me.ObjectEntity.extend({
         }
         this.vel.y -= this.jumpForce * me.timer.tick;
 
-        if (me.input.isKeyPressed('shoot')){
-            //SHOOT
-            this.shoot();
+        this.checkShoot();
+    },
+
+    checkShoot: function(){
+        switch(this.gun)
+        {
+            case 0:
+                if (me.input.isKeyPressed('shoot') && this.canFire){
+                    //SHOOT
+                    this.canFire = false;
+                    this.shootBullet();
+                }
+                else if(!me.input.isKeyPressed('shoot') && !this.canFire){
+                    this.canFire = true;
+                }
+                break;
+            case 1:
+                if(me.input.isKeyPressed('shoot')){
+                    this.gunTimer++;
+                    if(this.gunTimer % 5 == 0 || this.gunTimer == 1){
+                        this.shootBullet();
+                        this.ammo--;
+                        if(this.ammo == 0){
+                            this.gun = 0;
+                        }
+                    }
+                }
+                else{
+                    this.gunTimer = 0;
+                }
+                break;
+            case 2:
+                if (me.input.isKeyPressed('shoot') && this.canFire){
+                    //SHOOT
+                    this.canFire = false;
+                    this.shootLaser();
+                    this.ammo--;
+                    if(this.ammo == 0){
+                        this.gun = 0;
+                    }
+
+                }
+                else if(!me.input.isKeyPressed('shoot') && !this.canFire){
+                    this.canFire = true;
+                }
+                break;
         }
     },
 
-    shoot: function(){
+    shootBullet: function(){
         //create new bullet
 
         var xAdjust = this.pos.x;
@@ -200,6 +251,41 @@ var PlayerEntity = me.ObjectEntity.extend({
 
         me.game.add(
             new BulletEntity(xAdjust, yAdjust, this.aimingLeft, this.aimingUp, this.aimingDown),
+            this.z
+        );
+        me.game.sort();
+    },
+
+    shootLaser: function(){
+        //create new bullet
+
+        var xAdjust = this.pos.x;
+        var yAdjust = this.pos.y;
+
+        if(this.aimingUp && this.isMoving){
+            xAdjust += this.aimingLeft ? -14 : 0;
+            yAdjust += -10;
+        }
+        else if (this.aimingDown && this.isMoving){
+            xAdjust += this.aimingLeft ? -20 : 10;
+            yAdjust += 90;
+        }
+        else if(this.aimingDown){
+            xAdjust += this.aimingLeft ? -10 : -2;
+            yAdjust += 90;
+        }
+        else if(this.aimingUp){
+            xAdjust += -10;
+            yAdjust += -10;
+        }
+        else {
+            xAdjust += this.aimingLeft ? -50 : 30;
+            yAdjust += 40;
+
+        }
+
+        me.game.add(
+            new LaserEntity(xAdjust, yAdjust, this.aimingLeft, this.aimingUp, this.aimingDown),
             this.z
         );
         me.game.sort();
@@ -337,9 +423,98 @@ var BulletEntity = me.ObjectEntity.extend({
         }
 
         return true;
-    },
-
-    onCollision: function(){
-
     }
 });
+
+var LaserEntity = me.ObjectEntity.extend({
+    init: function(x, y, left, up, down){
+        var settings = {
+            name: "player_laser",
+            image: "player_laser",
+            spritewidth: 86,
+            spriteheight: 48
+        };
+
+        this.parent(x, y, settings);
+        this.gravity = 0;
+        this.goingLeft = left;
+        this.goingUp = up;
+        this.goingDown = down;
+        this.setVelocity(10,10);
+        this.collidable = true;
+        this.type = me.game.ACTION_OBJECT;
+        this.state = 0;
+        this.animationspeed = me.sys.fps / 40;
+        this.updateColRect(46, 16, 10, 6);
+
+        if (this.goingUp){
+            this.angle = -1.570796327;
+        }
+        else if (this.goingDown){
+            this.angle = 1.570796327;
+        }
+
+        this.addAnimation("start", [0,1]);
+        this.addAnimation("fly", [2,3,4,5,4,6]);
+        this.addAnimation("hit", [7,8]);
+        this.flipX(this.goingLeft);
+    },
+
+    update: function(){
+
+        this.checkAnimation();
+
+        if(this.goingUp){
+            this.vel.y += -this.accel.y * me.timer.tick;
+        }
+        else if (this.goingDown){
+            this.vel.y += this.accel.y * me.timer.tick;
+        }
+        else{
+            this.vel.x += (this.goingLeft)? -this.accel.x * me.timer.tick : this.accel.x * me.timer.tick;
+        }
+
+        var tempVel = this.vel.clone();
+        var envCol = this.updateMovement();
+
+        if (!me.game.viewport.isVisible(this)){
+            me.game.remove(this);
+        }
+        else if (envCol.yprop.isSolid || envCol.xprop.isSolid){
+            this.state = 2;
+            //me.game.remove(this);
+        }
+        else if (envCol.yprop.isPlatform || envCol.xprop.isPlatform){
+            this.vel = tempVel;
+            this.computeVelocity(this.vel);
+            this.pos.add(this.vel);
+        }
+
+        var entCol = me.game.collide(this);
+
+        if(entCol){
+            if(entCol.obj.type == me.game.ENEMY_OBJECT) {
+                entCol.obj.takeDamage(30);
+                this.state = 2;
+                me.game.remove(this);
+            }
+        }
+
+        this.parent();
+        return true;
+    },
+
+    checkAnimation: function(){
+        if(this.state == 0){
+            this.setCurrentAnimation("start", function(){
+                this.setCurrentAnimation("fly");
+                this.state = 1;
+            })
+        }
+        else if (this.state == 2){
+            this.setCurrentAnimation("hit", function(){
+                me.game.remove(this);
+            })
+        }
+    }
+})
