@@ -84,6 +84,10 @@ var g_resources= [{
     type: "image",
     src: "data/sprites/explosion.png"
 },{
+    name: "explosion_blue",
+    type: "image",
+    src: "data/sprites/explosion_blue.png"
+},{
     name: "pickup_health",
     type: "image",
     src: "data/sprites/pickup_health.png"

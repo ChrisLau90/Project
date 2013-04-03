@@ -1,50 +1,69 @@
 @charset "UTF-8";
 
 body {
-    font-family: Arial, Heltvetica, sans-serif;
-    background-color: #001339;
+    font-family: Minecraftia;
+    background-color: #000000;
 }
 
 #container {
-    margin: 10px auto;
-    width: 80%;
+    background-color: #1c264f;
+    width: 800px;
+    padding: 10px;
+    margin: 0px auto;
+    border: 2px;
+    border-style: solid;
+    border-color: #76cbff;
+    height: 670px;
 }
 
 h1 {
-    background-color: #525252;
-    border-radius: 10px;
-    padding: 20px;
-    color: #FFF;
     width: 800px;
-    margin: 10px auto;
+    padding: 10px;
+    color: #FFFFFF;
 }
 
-#navBar {
-    background-color: #525252;
-    border-radius: 10px;
-    padding: 10px 20px;
-    width: 800px;
-    margin: 13px auto;
+#navBar ul {
+    margin: 0;
+    border: 2px;
+
+}
+
+#navBar li{
+    float: left;
+    list-style: none;
+}
+
+#navBar a{
+    padding:10px;
+    display:block;
+    width:100px;
+    background-color: #1c264f;
+    margin: 0px 10px;
     text-align: center;
+    border: 2px;
+    border-style: solid;
+    border-color: #76cbff;
 }
 
-
-li{
-    display: inline;
+#game {
+    width: 700px;
+    margin: auto;
+    position: relative;
+    top: 60px;
+    height: 480px;
+    border: 2px;
+    border-style: solid;
+    border-color: #76cbff;
 }
 
-a:link
-{color: #ffffff;}		/* unvisited link */
-a:visited
-{color: #ffffff;} 	/* visited link */
-a:hover
-{color: #579999;}   	/* mouse over link */
-a:active
-{color: #579999;}  	/* selected link */
+#jsapp {
+    position: relative;
+    bottom: 46px;
+}
 
-#game{
-    width: 600px;
-    margin: 10px auto;
+#framecounter {
+    position: absolute;
+    top: 50px;
 }
 
 @font-face {
@@ -56,6 +75,17 @@ a:active
     font-family: Press_Start;
     src: url('prstartk.ttf');
 }
+
+@font-face {
+    font-family: Joystix;
+    src: url('joystix monospace.ttf');
+}
+
+@font-face {
+    font-family: Minecraftia;
+    src: url('Minecraftia.ttf');
+}
+
 
 
 

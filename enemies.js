@@ -21,6 +21,7 @@ var SoldierEnemy = me.ObjectEntity.extend({
         this.type = me.game.ENEMY_OBJECT;
 
         this.health = 50;
+        this.power = 10;
         this.gunTimer = 0;
 
         this.isMoving = false;
@@ -133,30 +134,37 @@ var SoldierEnemy = me.ObjectEntity.extend({
     playerInSight: function(){
         var inSight = false;
         var player = me.game.getEntityByName("mainPlayer")[0];
-        var angle = this.angleTo(player);
 
-        if(this.aimingLeft && angle == 3.141592653589793){
-            inSight = true;
+        if (player){
+            var angle = this.angleTo(player);
+            console.log(angle);
+            if(this.aimingLeft && angle == 3.141592653589793){
+                inSight = true;
+            }
+            else if (!this.aimingLeft && angle == 0 ){
+                inSight = true;
+            }
+            else if (angle < -1.50 && angle > -1.64){
+                inSight = true;
+                this.aimingUp = true;
+                this.isMoving = false;
+            }
+            else if (angle > 1.50 && angle < 1.64){
+                inSight = true;
+                this.aimingDown = true;
+                this.isMoving = false;
+            }
+            else {
+                inSight = false;
+                this.aimingUp = false;
+                this.aimingDown = false;
+            }
         }
-        else if (!this.aimingLeft && angle == 0 ){
-            inSight = true;
-        }
-        else if (angle > -1.50 && angle < -1.64){
-            inSight = true;
-            this.aimingUp = true;
-            this.isMoving = false;
-        }
-        else if (angle > 1.50 && angle < 1.64){
-            inSight = true;
-            this.aimingDown = true;
-            this.isMoving = false;
-        }
-        else {
-            inSight = false;
+        else{
+
             this.aimingUp = false;
             this.aimingDown = false;
         }
-
         return inSight;
     },
 
@@ -299,7 +307,7 @@ var RollerEnemy = me.ObjectEntity.extend({
 
         this.setVelocity(3,5);
         this.animationspeed = me.sys.fps / 20;
-        this.updateColRect(-1, 0, 0, 74);
+        this.updateColRect(12, 52, 0, 74);
         this.collidable = true;
         this.type = me.game.ENEMY_OBJECT;
         this.health = 30;
@@ -664,7 +672,7 @@ var ChopperEnemy = me.ObjectEntity.extend({
         this.addAnimation("active",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]);
         this.setCurrentAnimation("active");
 
-        this.player = me.game.getEntityByName("mainPlayer")[0];
+        //this.player = me.game.getEntityByName("mainPlayer")[0];
     },
 
     update: function(){
@@ -673,25 +681,28 @@ var ChopperEnemy = me.ObjectEntity.extend({
             return false;
         }
 
+        var player = me.game.getEntityByName("mainPlayer")[0];
+
         if(this.health > 0){
-            //create vector based on player's postion
-            var xDir = this.player.pos.x - this.pos.x;
-            var yDir = this.player.pos.y - this.pos.y;
+            if(player){
+                //create vector based on player's postion
+                var xDir = player.pos.x - this.pos.x;
+                var yDir = player.pos.y - this.pos.y;
 
-            //Decide distance
-            xDir = (Math.abs(xDir) < 8) ? 0 : xDir.clamp(-1,1);
-            yDir = (Math.abs(yDir) < 8) ? 0 : yDir.clamp(-1,1);
+                //Decide distance
+                xDir = (Math.abs(xDir) < 8) ? 0 : xDir.clamp(-1,1);
+                yDir = (Math.abs(yDir) < 8) ? 0 : yDir.clamp(-1,1);
 
-            if (xDir && yDir) {
-                xDir *= this.moveAngle;
-                yDir *= this.moveAngle;
+                if (xDir && yDir) {
+                    xDir *= this.moveAngle;
+                    yDir *= this.moveAngle;
+                }
+
+                this.vel.x = this.accel.x * xDir;
+                this.vel.y = this.accel.y * yDir;
+
+                this.updateMovement();
             }
-
-            this.vel.x = this.accel.x * xDir;
-            this.vel.y = this.accel.y * yDir;
-
-            this.updateMovement();
-
             this.parent();
             return true;
         }
@@ -881,11 +892,22 @@ var WaspBomb = me.ObjectEntity.extend({
 });
 
 var Explosion = me.ObjectEntity.extend({
-   init: function(x, y, coll){
-       var settings = {
-           name: "explosion",
-           image: "explosion",
-           spritewidth: 64
+   init: function(x, y, coll, blue){
+       var settings;
+
+       if(!blue){
+           settings = {
+               name: "explosion",
+               image: "explosion",
+               spritewidth: 64
+           }
+       }
+       else {
+           settings = {
+               name: "explosion_blue",
+               image: "explosion_blue",
+               spritewidth: 64
+           }
        }
 
        this.parent(x, y, settings);
@@ -906,3 +928,14 @@ var Explosion = me.ObjectEntity.extend({
         return true;
     }
 });
+
+var MapLimit = me.InvisibleEntity.extend({
+    init: function(x,y,settings){
+        this.parent(x,y,settings);
+        //this.updateColRect(0, settings.width, 0, settings.height);
+    },
+
+    onCollision: function(res, obj){
+        obj.health = 0;
+    }
+})

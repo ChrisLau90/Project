@@ -57,39 +57,54 @@ var PlayerEntity = me.ObjectEntity.extend({
 
 	update: function() {
 
-        if(!this.isHurt){
-            this.stateMachine();
-            this.checkInput();
-            var entCol = me.game.collide(this);
+        if(this.health > 0){
+            if(!this.isHurt){
+                this.stateMachine();
+                this.checkInput();
+                var entCol = me.game.collide(this);
 
-            if(!this.isFlickering()){
+                if(!this.isFlickering()){
 
-                if(entCol){
-                    if(entCol.obj.type == me.game.ENEMY_OBJECT){
-                        this.isHurt = true;
-                        this.health -= entCol.obj.power;
-                        if(entCol.obj.pos.x + 12 < this.pos.x){
-                            this.hitLeft = true;
+                    if(entCol){
+                        if(entCol.obj.type == me.game.ENEMY_OBJECT){
+                            this.isHurt = true;
+                            this.health -= entCol.obj.power;
+                            if(entCol.obj.pos.x + 12 < this.pos.x){
+                                this.hitLeft = true;
+                            }
+                            else{
+                                this.hitLeft = false;
+                            }
+                            this.flicker(100);
+                            //console.log(entCol.obj.power + " damage done. Health: " + this.health);
                         }
-                        else{
-                            this.hitLeft = false;
-                        }
-                        this.flicker(100);
-                        //console.log(entCol.obj.power + " damage done. Health: " + this.health);
                     }
                 }
             }
-        }
-        else{
-            this.damageTimer++;
-            this.vel.x += (this.hitLeft) ? this.accel.x * me.timer.tick : -this.accel.x * me.timer.tick;
-            this.setCurrentAnimation("damage");
-            if(this.damageTimer == 20){
-                this.isHurt = false;
-                this.damageTimer = 0;
+            else{
+                this.damageTimer++;
+                this.vel.x += (this.hitLeft) ? this.accel.x * me.timer.tick : -this.accel.x * me.timer.tick;
+                this.setCurrentAnimation("damage");
+                if(this.damageTimer == 20){
+                    this.isHurt = false;
+                    this.damageTimer = 0;
+                    this.setCurrentAnimation("step", function(){
+                        this.setCurrentAnimation("run");
+                        this.setAnimationFrame();
+                    });
+                }
             }
         }
+        else {
 
+            //this.visible = false;
+            me.game.add(
+                new Explosion(this.pos.x + 10, this.pos.y + 20, false, true),
+                this.z+1
+            )
+            me.game.sort();
+            me.game.remove(this);
+        }
         // check & update player movement
         this.updateMovement();
 
@@ -300,7 +315,6 @@ var PlayerEntity = me.ObjectEntity.extend({
                     this.isCurrentAnimation("run")){
                     this.setCurrentAnimation("jump", function(){
                         this.setCurrentAnimation("jump2");
-                        //this.setAnimationFrame();
                     });
                 }
                 break;
@@ -315,7 +329,6 @@ var PlayerEntity = me.ObjectEntity.extend({
                 break;
             case (this.vel.y == 0):
                 //stand
-                //this.checkAnimation();
                 if (this.isCurrentAnimation("fall") || this.isCurrentAnimation("fall2")){
                     this.setCurrentAnimation("land", this.checkAnimation());
                 }

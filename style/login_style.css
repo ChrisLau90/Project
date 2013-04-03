@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+body {
+    font-family: Minecraftia;
+    color: #FFFFFF;
+    background-color: #000000;
+    height: 100%;
+}
+
+#container {
+    background-color: #1c264f;
+    width: 600px;
+    height: 480px;
+    padding: 10px;
+    margin: auto;
+    border: 2px;
+    border-style: solid;
+    border-color: #76cbff;
+}
+
+#container2 {
+    width: 400px;
+    height: 300px;
+    margin: auto auto;
+    position: relative;
+    top: 100px;
+}
+
+h1{
+    text-align: center;
+}
+
+form {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.input {
+    font-family: Minecraftia;
+    color: #FFFFFF;
+    border: 2px;
+    border-style: solid;
+    color: #FFFFFF;
+    border-color: #76cbff;
+    background-color: #000000;
+}
+
+.button{
+    font-family: Minecraftia;
+    color: #1c264f;
+    background-color: #008ef1;
+    border: 2px;
+    border-style: solid;
+    border-color: #76cbff;
+    position: relative;
+    left: 75px;
+    font-size: 12px;
+}
+
+.button:hover {
+    color: #1c264f;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+#register {
+    text-decoration: none;
+    padding: 2px 4px;
+    position: relative;
+    left: 260px;
+    top: 50px;
+}
+
+@font-face {
+    font-family: Minecraftia;
+    src: url('Minecraftia.ttf');
+}

@@ -16,9 +16,8 @@ var jsApp	=
 		---			*/
 	onload: function()
 	{
-		
 		// init the video
-		if (!me.video.init('jsapp', 600, 480, false, 1.0))
+		if (!me.video.init('jsapp', 700, 480, false, 1.0))
 		{
 			alert("Sorry but your browser does not support html 5 canvas.");
          	return;
@@ -60,6 +59,7 @@ var jsApp	=
         me.entityPool.add("pickup_health", HealthPickup);
         me.entityPool.add("pickup_automatic", AutomaticPickup);
         me.entityPool.add("pickup_laser", LaserPickup);
+        me.entityPool.add("map_limit", MapLimit);
 
 		// enable keyboard
 		me.input.bindKey(me.input.KEY.A, "left");
