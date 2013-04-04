@@ -22,7 +22,7 @@ var jsApp	=
 			alert("Sorry but your browser does not support html 5 canvas.");
          	return;
 		}
-				
+
 		// initialize the "audio"
 		me.audio.init("mp3,ogg");
 		
