@@ -2,17 +2,36 @@
 
 body {
     font-family: Minecraftia;
+    color: #FFFFFF;
     background-color: #000000;
 }
 
-#container {
+.box {
     background-color: #1c264f;
-    width: 800px;
-    padding: 10px;
-    margin: 0px auto;
     border: 2px;
     border-style: solid;
     border-color: #76cbff;
+}
+
+.button{
+    color: #1c264f;
+    background-color: #008ef1;
+    border: 2px;
+    border-style: solid;
+    border-color: #76cbff;
+    font-size: 12px;
+}
+
+.button:hover {
+    color: #1c264f;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+#container {
+    width: 800px;
+    padding: 10px;
+    margin: 0px auto;
     height: 670px;
 }
 
@@ -22,48 +41,56 @@ h1 {
     color: #FFFFFF;
 }
 
-#navBar ul {
-    margin: 0;
-    border: 2px;
-
-}
-
-#navBar li{
-    float: left;
-    list-style: none;
-}
-
-#navBar a{
-    padding:10px;
-    display:block;
-    width:100px;
-    background-color: #1c264f;
-    margin: 0px 10px;
-    text-align: center;
-    border: 2px;
-    border-style: solid;
-    border-color: #76cbff;
-}
-
 #game {
     width: 700px;
     margin: auto;
     position: relative;
-    top: 60px;
     height: 480px;
+}
+
+#levelMenu {
+    width: 700px;
+    height: 480px;
+    margin: auto;
+    background-color: #000000;
+}
+
+#levelSelect {
+    width: 320px;
+    height: 440px;
+    float: left;
+    margin: 10px;
+}
+
+#highscores {
+    width: 320px;
+    float: right;
+    margin: 10px;
+}
+#levelList ul{
+    margin: 0px auto;
+}
+
+#levelList li {
+    list-style: none;
+    width: 150px;
+    margin: 5px;
     border: 2px;
     border-style: solid;
     border-color: #76cbff;
 }
 
+#start {
+    width: 100px;
+}
+
 #jsapp {
     position: relative;
-    bottom: 46px;
 }
 
 #framecounter {
     position: absolute;
-    top: 50px;
+    top: 0px;
 }
 
 @font-face {
