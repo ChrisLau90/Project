@@ -95,3 +95,74 @@ var LaserPickup = me.CollectableEntity.extend({
     }
 });
 
+var MapLimit = me.InvisibleEntity.extend({
+    init: function(x,y,settings){
+        this.parent(x,y,settings);
+        this.isEnd = settings.end;
+        //this.updateColRect(0, settings.width, 0, settings.height);
+    },
+
+    onCollision: function(res, obj){
+        $("#tutorialBox").slideUp();
+
+        if(!this.isEnd){
+            obj.health = 0;
+        }
+        else{
+            me.state.pause();
+            var score = me.game.HUD.getItemValue("score");
+            var time = me.game.HUD.getItemValue("time");
+            var timeBonus = time * 10;
+            var health = obj.health;
+            var healthBonus = health * 20;
+            var ammo = obj.ammo;
+            var ammoBonus = ammo * 30;
+            var totalScore = score + timeBonus + healthBonus + ammoBonus;
+
+            $("#resScore").text(score);
+            $("#resTime").text(time);
+            $("#bonusTime").text(timeBonus);
+            $("#resHealth").text(health);
+            $("#bonusHealth").text(healthBonus);
+            $("#resAmmo").text(ammo);
+            $("#bonusAmmo").text(ammoBonus);
+            $("#resTotal").text(totalScore);
+            $("#levelCompleteMenu").slideDown();
+
+            $("#retry2").click(function(){
+                $("#levelCompleteMenu").slideUp();
+                me.state.change(me.state.PLAY);
+            });
+
+            $("#levelSel2").click(function(){
+                $("#levelCompleteMenu").slideUp();
+                $("#jsapp").fadeOut(function(){
+                    $("#menu").fadeIn();
+                })
+            });
+
+            $("#exit2").click(function(){
+                $("#levelCompleteMenu").slideUp();
+                $("#jsapp").fadeOut(function(){
+                    $("#mainMenu").fadeIn();
+                })
+            });
+        }
+    }
+});
+
+var TutorialPoint = me.InvisibleEntity.extend({
+    init: function(x, y, settings){
+        this.parent(x, y, settings);
+        this.point = settings.number;
+    },
+
+    onCollision: function(res, obj){
+        this.collidable = false;
+        tutPoint = this.point;
+        $("#tutorialBox").slideUp(function(){
+            $("#tutorialBox").text(tutMessages[tutPoint]);
+            $("#tutorialBox").slideDown();
+        });
+    }
+})
