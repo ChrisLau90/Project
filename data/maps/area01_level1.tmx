@@ -60,7 +60,7 @@
   </data>
  </layer>
  <objectgroup color="#00ff22" name="mainPlayer" width="345" height="50">
-  <object name="mainPlayer" x="59" y="429" width="67" height="97">
+  <object name="mainPlayer" x="64" y="423" width="67" height="97">
    <properties>
     <property name="image" value="player_right"/>
     <property name="spriteheight" value="108"/>
@@ -70,6 +70,11 @@
   <object name="map_limit" x="2087" y="831" width="1236" height="13"/>
   <object name="map_limit" x="5575" y="1305" width="2096" height="16"/>
   <object name="map_limit" x="9542" y="1051" width="1204" height="14"/>
+  <object name="map_limit" x="10758" y="650" width="280" height="18">
+   <properties>
+    <property name="end" value="true"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup color="#f1e200" name="Pickup Layer" width="345" height="50">
   <object name="pickup_orb" x="326" y="390" width="22" height="22"/>

@@ -1,32 +1,176 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
-	<head>
-		<title>Game Test</title>
-        <meta name="description" content="Gigaman Game Website"/>
-        <link href="style/style.css" type="text/css" rel="stylesheet">
-    </head>
-	<body>
+<head>
+    <title>Gigaman - Game</title>
+    <meta name="description" content="Gigaman Game Website"/>
+    <link href="style/style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
 
-    <div id="container" class="box">
+<script type="text/javascript" src="lib/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/menu.js"></script>
 
-        <h1>Gigaman</h1>
+<div id="container" class="box">
 
-        <div id="game" class="box">
-            <div id="jsapp">
-                <font color="#FFFFFF" style="font-size: 10px; font-family: Courier New">
-                    <span id="framecounter">(0/0 fps)</span>
-                </font>
-                <script type="text/javascript" src="lib/melonJS-0.9.6.js"></script>
-                <script type="text/javascript" src="js/player.js"></script>
-                <script type="text/javascript" src="js/main.js"></script>
-                <script type="text/javascript" src="js/resources.js"></script>
-                <script type="text/javascript" src="js/enemies.js"></script>
-                <script type="text/javascript" src="js/HUD.js"></script>
-                <script type="text/javascript" src="js/pickups.js"></script>
-                <script type="text/javascript" src="lib/jquery-1.9.1.min.js"></script>
+    <h1>Gigaman</h1>
+
+    <div id="content" class="box">
+
+        <div id="menu">
+
+            <div id="levelSelect">
+
+                <p class="menuBanner">Level Select</p>
+
+                <ul id="levelList">
+                    <li id="level1" class="button">Level 1</li>
+                    <li class="button">Coming Soon!</li>
+                    <li class="button">Coming Soon!</li>
+                    <li class="button">Coming Soon!</li>
+                    <li class="button">Coming Soon!</li>
+                    <li class="button">Coming Soon!</li>
+                </ul>
+
+                <div id="start" class="button">Start</div>
+
             </div>
-        </div>
-    </div>
 
-	</body>
+            <div id="highscores">
+                <p class="menuBanner">High Scores</p>
+                <p id="HSLevel">Level 1</p>
+                <table id="scoreTable">
+                    <tr>
+                        <td class="col1">Rank</td>
+                        <td class="col2">Username</td>
+                        <td class="col3">Score</td>
+                    </tr>
+                    <tr>
+                        <td class="col1">1</td>
+                        <td class="col2">Barry Dave</td>
+                        <td class="col3">99999999</td>
+                    </tr>
+                    <tr>
+                        <td class="col1">2</td>
+                        <td class="col2">0</td>
+                        <td class="col3">0</td>
+                    </tr>
+                    <tr>
+                        <td class="col1">3</td>
+                        <td class="col2">0</td>
+                        <td class="col3">0</td>
+                    </tr>
+                    <tr>
+                        <td class="col1">4</td>
+                        <td class="col2">0</td>
+                        <td class="col3">0</td>
+                    </tr>
+                    <tr>
+                        <td class="col1">5</td>
+                        <td class="col2">0</td>
+                        <td class="col3">0</td>
+                    </tr>
+                    <tr>
+                        <td class="col1">5</td>
+                        <td class="col2">0</td>
+                        <td class="col3">0</td>
+                    </tr>
+                    <tr>
+                        <td class="col1">6</td>
+                        <td class="col2">0</td>
+                        <td class="col3">0</td>
+                    </tr>
+                    <tr>
+                        <td class="col1">7</td>
+                        <td class="col2">0</td>
+                        <td class="col3">0</td>
+                    </tr>
+                    <tr>
+                        <td class="col1">8</td>
+                        <td class="col2">0</td>
+                        <td class="col3">0</td>
+                    </tr>
+                    <tr>
+                        <td class="col1">9</td>
+                        <td class="col2">0</td>
+                        <td class="col3">0</td>
+                    </tr>
+                    <tr>
+                        <td class="col1">10</td>
+                        <td class="col2">0</td>
+                        <td class="col3">0</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+        <div id="jsapp">
+            <font color="#FFFFFF" style="font-size: 10px; font-family: Courier New">
+                <!--span id="framecounter">(0/0 fps)</span-->
+            </font>
+            <script type="text/javascript" src="lib/melonJS-0.9.6.js"></script>
+            <script type="text/javascript" src="js/player.js"></script>
+            <script type="text/javascript" src="js/main.js"></script>
+            <script type="text/javascript" src="js/resources.js"></script>
+            <script type="text/javascript" src="js/enemies.js"></script>
+            <script type="text/javascript" src="js/HUD.js"></script>
+            <script type="text/javascript" src="js/level.js"></script>
+        </div>
+
+        <div id="pauseMenu" class="box">
+            <p id="pauseBanner">Pause</p>
+            <p id="gameOverBanner">Game Over</p>
+            <ul id="options">
+                <li id="resume" class="button">Resume</li>
+                <li id="retry" class="button">Retry</li>
+                <li id="levelSel" class="button">Level Select</li>
+                <li id="exit" class="button">Exit</li>
+            </ul>
+        </div>
+
+        <div id="levelCompleteMenu" class="box">
+            <p id="levelCompleteBanner">Level Complete!</p>
+            <table id="results">
+                <tr>
+                    <td class="LCcol1" class="box"></td>
+                    <td class="LCcol2" class="box"></td>
+                    <td class="LCcol3" class="box"></td>
+                </tr>
+                <tr>
+                    <td class="LCcol1">Score:</td>
+                    <td id="resScore" class="LCcol2">0</td>
+                    <td class="LCcol3">Bonus</td>
+                </tr>
+                <tr>
+                    <td class="LCcol1">Time left:</td>
+                    <td id="resTime" class="LCcol2">0</td>
+                    <td id="bonusTime" class="LCcol3">0</td>
+                </tr>
+                <tr>
+                    <td class="LCcol1">Health left:</td>
+                    <td id="resHealth" class="LCcol2">0</td>
+                    <td id="bonusHealth" class="LCcol3">0</td>
+                </tr>
+                <tr>
+                    <td class="LCcol1">Ammo left:</td>
+                    <td id="resAmmo" class="LCcol2">0</td>
+                    <td id="bonusAmmo" class="LCcol3">0</td>
+                </tr>
+                <tr>
+                    <td class="LCcol1">Total:</td>
+                    <td id="resTotal" class="LCcol2" colspan="2">0</td>
+                </tr>
+            </table>
+
+            <ul id="options2">
+                <li id="retry2" class="button">Retry</li>
+                <li id="levelSel2" class="button">Level Select</li>
+                <li id="exit2" class="button">Exit</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+</body>
 </html>
