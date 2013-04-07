@@ -2,19 +2,33 @@
 <html xmlns="http://www.w3.org/1999/html">
     <head>
         <title>Gigaman - Login</title>
-        <link href="style/login_style.css" type="text/css" rel="stylesheet">
+        <link href="style/style.css" type="text/css" rel="stylesheet">
     </head>
     <body>
-        <div id="container">
-            <div id="container2">
+    <script type="text/javascript" src="lib/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/loginMenu.js"></script>
+        <div id="loginContainer" class="box">
+            <div id="loginForm" class="loginContainer2">
                 <h1>Gigaman</h1>
                 <form action="" method="">
                     <p>Username <input type="text" class="input" name="Username" size="15" maxlength="30"/></p>
                     <p>Password <input type="password" class="input" name="Password" size="15" maxlength="30"/></p>
                     <input type="submit" value="Login" class="button"/>
                 </form>
+                <p id="register" class="button">Register</p>
             </div>
-            <a href="register.html" class="button" id="register">Register</a>
+
+            <div id="regForm" class="loginContainer2">
+                <h1>Gigaman</h1>
+                <form action="" method="">
+                    <p>Username <input type="text" class="input" name="Username" size="15" maxlength="30"/></p>
+                    <p>Email Address <input type="text" class="input" name="email" size="15" maxlength="50"></p>
+                    <p>Password <input type="password" class="input" name="Password" size="15" maxlength="30"/></p>
+                    <p>Confirm Password <input type="password" class="input" name="Password" size="15" maxlength="30"/></p>
+                    <input type="submit" value="Submit" class="button"/>
+                </form>
+                <p id="loginButton" class="button">Login</p>
+            </div>
         </div>
     </body>
 </html>

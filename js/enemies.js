@@ -137,7 +137,7 @@ var SoldierEnemy = me.ObjectEntity.extend({
 
         if (player){
             var angle = this.angleTo(player);
-            console.log(angle);
+
             if(this.aimingLeft && angle == 3.141592653589793){
                 inSight = true;
             }
@@ -209,11 +209,6 @@ var SoldierEnemy = me.ObjectEntity.extend({
 
     takeDamage: function(value){
         this.health -= value;
-        console.log(value + " damage taken. Health: " + this.health);
-    },
-
-    setReady: function(){
-        this.isReady = true;
     }
 });
 
@@ -363,7 +358,6 @@ var RollerEnemy = me.ObjectEntity.extend({
 
     takeDamage: function(value){
         this.health -= value;
-        console.log(value + " damage taken. Health: " + this.health);
     },
 
     die: function(){
@@ -562,12 +556,10 @@ var CannonEnemy = me.ObjectEntity.extend({
         this.hasFired = true;
         this.isDelayed = true;
         me.game.sort();
-        //console.log('1 ' + this.isFiring);
     },
 
     takeDamage: function(value){
         this.health -= value;
-        console.log(value + " damage taken. Health: " + this.health);
     }
 });
 
@@ -637,13 +629,6 @@ var CannonPlasma = me.ObjectEntity.extend({
         this.vel.x += this.vel.x += (this.goingLeft)? -this.accel.x * me.timer.tick : this.accel.x * me.timer.tick;
 
         this.updateMovement();
-
-        /*
-        if(!me.game.viewport.isVisible(this) || envCol.xprop.isSolid){
-            console.log("shit");
-            me.game.remove(this);
-        }
-        */
 
         this.parent();
         return true;
@@ -719,7 +704,6 @@ var ChopperEnemy = me.ObjectEntity.extend({
 
     takeDamage: function(value){
         this.health -= value;
-        console.log(value + " damage taken. Health: " + this.health);
     }
 });
 
@@ -841,7 +825,6 @@ var WaspEnemy = me.ObjectEntity.extend({
 
     takeDamage: function(value){
         this.health -= value;
-        console.log(value + " damage taken. Health: " + this.health);
     }
 });
 
@@ -929,13 +912,3 @@ var Explosion = me.ObjectEntity.extend({
     }
 });
 
-var MapLimit = me.InvisibleEntity.extend({
-    init: function(x,y,settings){
-        this.parent(x,y,settings);
-        //this.updateColRect(0, settings.width, 0, settings.height);
-    },
-
-    onCollision: function(res, obj){
-        obj.health = 0;
-    }
-})

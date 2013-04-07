@@ -20,6 +20,8 @@ body {
     border-style: solid;
     border-color: #76cbff;
     font-size: 12px;
+    margin: 5px;
+    text-align: center;
 }
 
 .button:hover {
@@ -28,10 +30,55 @@ body {
     cursor: pointer;
 }
 
-#container {
-    width: 800px;
+li {
+    list-style: none;
+}
+
+#loginContainer {
+    width: 600px;
+    height: 480px;
     padding: 10px;
-    margin: 0px auto;
+    margin: auto;
+}
+
+.loginContainer2 {
+    width: 400px;
+    height: 300px;
+    margin: auto auto;
+    position: relative;
+    top: 100px;
+}
+
+#regForm {
+    display: none;
+}
+
+form {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.input {
+    font-family: Minecraftia;
+    color: #FFFFFF;
+    border: 2px;
+    border-style: solid;
+    color: #FFFFFF;
+    border-color: #76cbff;
+    background-color: #000000;
+}
+
+#register {
+    width: 100px;
+    position: relative;
+    left: 260px;
+    top: 50px;
+}
+
+#container {
+    padding: 10px;
+    margin: auto;
+    width: 800px;
     height: 670px;
 }
 
@@ -48,25 +95,94 @@ h1 {
     height: 480px;
 }
 
-#levelMenu {
+#content {
     width: 700px;
     height: 480px;
     margin: auto;
     background-color: #000000;
+    position: relative;
+}
+
+#mainMenu {
+    width: 700px;
+    height: 480px;
+    float: left;
+    background-color: #000000;
+}
+
+#title {
+    font-size: 60px;
+    text-align: center;
+}
+
+#mainOptions {
+    width: 200px;
+    position: relative;
+    left: 200px;
+    text-align: center;
+}
+
+#menu {
+    display: none;
+}
+
+.menuBanner {
+    font-size: 22px;
 }
 
 #levelSelect {
-    width: 320px;
+    width: 350px;
     height: 440px;
     float: left;
-    margin: 10px;
+}
+
+#levelList {
+    position: relative;
+    left: 50px;
+    top: 5px;
+}
+
+#start {
+    margin: 0px auto;
+    position: relative;
+    top: 20px;
+}
+
+#back {
+    width: 100px;
+    margin: 0px auto;
+    position: relative;
+    top: 45px;
+}
+
+#menu p {
+    text-align: center;
 }
 
 #highscores {
-    width: 320px;
+    width: 350px;
+    height: 450px;
     float: right;
-    margin: 10px;
 }
+
+#scoreTable {
+    font-size: 12px;
+    margin: 0px auto;
+}
+
+.col1 {
+    text-align: center;
+    width: 60px;
+}
+
+.col2 {
+    width: 160px;
+}
+
+.col3 {
+    width: 100px;
+}
+
 #levelList ul{
     margin: 0px auto;
 }
@@ -91,6 +207,88 @@ h1 {
 #framecounter {
     position: absolute;
     top: 0px;
+}
+
+#pauseMenu {
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    top: 130px;
+    left: 215px;
+    display: none;
+}
+
+#pauseMenu p {
+    text-align: center;
+    display: none;
+}
+
+#options1{
+    width: 130px;
+    position: relative;
+    left: 45px;
+}
+
+#options1 li {
+    margin: 5px;
+    display: none;
+}
+
+#levelCompleteMenu {
+    display: none;
+    width: 400px;
+    height: 315px;
+    position: absolute;
+    top: 80px;
+    left: 150px;
+}
+
+#levelCompleteMenu p {
+    text-align: center;
+}
+
+#results {
+    margin: auto;
+}
+
+#options2 {
+    width: 130px;
+    position: relative;
+    left: 90px;
+}
+
+#options2 li {
+    margin: 5px;
+}
+
+.LCcol1 {
+    width: 120px;
+    text-align: right;
+}
+
+.LCcol2 {
+    width: 120px;
+    text-align: center;
+}
+
+.LCcol3 {
+    text-align: center;
+    width: 120px;
+}
+
+#tutorialBox {
+    display: none;
+    opacity: 0.7;
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+    position: absolute;
+    top: 40px;
+    left: 10px;
+    font-size: 11px;
+}
+
+#tutorialBox p {
 }
 
 @font-face {

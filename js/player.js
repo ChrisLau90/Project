@@ -1,6 +1,7 @@
 /*--------------------------------------
 	Player Entity
 ---------------------------------------*/
+
 var PlayerEntity = me.ObjectEntity.extend({
 
 	init: function(x, y, settings) {
@@ -53,6 +54,20 @@ var PlayerEntity = me.ObjectEntity.extend({
         this.gun = 0;
         this.gunTimer = 0;
         this.ammo = 0;
+
+        var countdown = {
+            "timer" : 0
+        };
+
+        countdown.timer = 700;
+        var cd = new me.Tween(countdown)
+            .to({
+                "timer" : 0
+            }, countdown.timer * 1000)
+            .onUpdate(function onUpdate(value) {
+                // Update the HUD
+                me.game.HUD.setItemValue("time", Math.round(countdown.timer));
+            }).start();
 	},
 
 	update: function() {
@@ -76,7 +91,6 @@ var PlayerEntity = me.ObjectEntity.extend({
                                 this.hitLeft = false;
                             }
                             this.flicker(100);
-                            //console.log(entCol.obj.power + " damage done. Health: " + this.health);
                         }
                     }
                 }
@@ -104,6 +118,7 @@ var PlayerEntity = me.ObjectEntity.extend({
             )
             me.game.sort();
             me.game.remove(this);
+            showGameOverMenu();
         }
         // check & update player movement
         this.updateMovement();
@@ -111,7 +126,6 @@ var PlayerEntity = me.ObjectEntity.extend({
         this.centreOffsetY = 40 + this.viewChange;
         this.cameraPos.x = this.pos.x + this.centerOffsetX;
         this.cameraPos.y = this.pos.y + this.centreOffsetY;
-        //console.log(this.cameraPos.y);
 
         me.game.HUD.setItemValue("health", this.health);
         me.game.HUD.setItemValue("ammo", this.ammo);
@@ -147,7 +161,6 @@ var PlayerEntity = me.ObjectEntity.extend({
             this.aimingDown = false;
             if(this.viewChange > -120){
                 this.viewChange -=4;
-                //console.log(this.viewChange);
             }
         }
         else if(me.input.isKeyPressed('down')){
@@ -156,7 +169,6 @@ var PlayerEntity = me.ObjectEntity.extend({
             this.aimingDown = true;
             if(this.viewChange < 140){
                 this.viewChange += 4;
-                //console.log(this.viewChange);
             }
         }
         else {
@@ -169,7 +181,6 @@ var PlayerEntity = me.ObjectEntity.extend({
             else if(this.viewChange < 0){
                 this.viewChange+=4;
             }
-            //console.log(this.viewChange);
         }
 
         this.jumpForce *= 0.7;
@@ -188,6 +199,24 @@ var PlayerEntity = me.ObjectEntity.extend({
         this.vel.y -= this.jumpForce * me.timer.tick;
 
         this.checkShoot();
+
+        if(me.input.isKeyPressed("pause")){
+            me.state.pause();
+            showPauseMenu();
+
+            $("#resume").click(function(){
+                me.state.resume();
+                hidePauseMenu();
+            });
+            var resume_loop = setInterval(function check_resume() {
+                if (me.input.isKeyPressed("pause")) {
+                    clearInterval(resume_loop);
+                    me.state.resume();
+                    hidePauseMenu();
+                }
+
+            }, 100);
+        }
     },
 
     checkShoot: function(){

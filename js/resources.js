@@ -1,29 +1,21 @@
 // game resources
 var g_resources= [{
-    name: "testTile",
-    type: "image",
-    src: "data/tilesets/testTile.png"
-}, {
-    name: "test1",
-    type: "tmx",
-    src: "data/maps/test1.tmx"
-}, {
     name: "area01_tiles",
     type: "image",
     src: "data/tilesets/area01_tiles.png"
 },{
-    name: "test2",
+    name: "level0",
     type: "tmx",
-    src: "data/maps/test2.tmx"
-}, {
-    name: "test3",
+    src: "data/maps/tutorial.tmx"
+},{
+    name: "level1",
     type: "tmx",
-    src: "data/maps/test3.tmx"
+    src: "data/maps/area01_level1.tmx"
 },{
     name: "area01_background1",
     type: "image",
     src: "data/tilesets/area01_background1.png"
-}, {
+},{
     name: "player_right",
     type: "image",
     src: "data/sprites/player_right.png"

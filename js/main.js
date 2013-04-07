@@ -8,7 +8,7 @@
  **/
 
 var jsApp	= 
-{	
+{
 	/* ---
 	
 		Initialize the jsApp
@@ -60,19 +60,26 @@ var jsApp	=
         me.entityPool.add("pickup_automatic", AutomaticPickup);
         me.entityPool.add("pickup_laser", LaserPickup);
         me.entityPool.add("map_limit", MapLimit);
+        me.entityPool.add("tutorial_point", TutorialPoint);
 
 		// enable keyboard
 		me.input.bindKey(me.input.KEY.A, "left");
+        me.input.bindKey(me.input.KEY.LEFT, "left");
 		me.input.bindKey(me.input.KEY.D, "right");
+        me.input.bindKey(me.input.KEY.RIGHT, "right");
         me.input.bindKey(me.input.KEY.W, "up");
+        me.input.bindKey(me.input.KEY.UP, "up");
         me.input.bindKey(me.input.KEY.S, "down");
+        me.input.bindKey(me.input.KEY.DOWN, "down");
 		me.input.bindKey(me.input.KEY.L, "jump");
+        me.input.bindKey(me.input.KEY.X, "jump");
         me.input.bindKey(me.input.KEY.K, "shoot");
+        me.input.bindKey(me.input.KEY.C, "shoot");
+        me.input.bindKey(me.input.KEY.ESC, "pause", true);
 
       	// start the game 
 		me.state.change(me.state.PLAY);
 	}
-
 }; // jsApp
 
 /* the in game stuff*/
@@ -83,11 +90,12 @@ var PlayScreen = me.ScreenObject.extend(
 	{	
       	// stuff to reset on state change
       	// load level
-      	me.levelDirector.loadLevel("test2");
-        me.game.addHUD(0, 0, 600, 480);
+      	me.levelDirector.loadLevel("level" + level);
+        me.game.addHUD(0, 0, 700, 480);
         me.game.HUD.addItem("score", new ScoreObject(550 ,10));
         me.game.HUD.addItem("health", new HealthObject(140,440));
         me.game.HUD.addItem("ammo", new AmmoObject(550, 440));
+        me.game.HUD.addItem("time", new TimerObject(140, 10));
         me.game.sort();
 	},
 	
@@ -100,8 +108,10 @@ var PlayScreen = me.ScreenObject.extend(
     }
 });
 
-//bootstrap :)
+
+/*
 window.onReady(function() 
 {
 	jsApp.onload();
 });
+*/
