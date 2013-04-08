@@ -28,6 +28,24 @@ window.onload=function(){
         });
     });
 
+    $("#logOut").click(function(){
+        $.ajax({
+            data: {message:"your mum"},
+            type: 'POST',
+            url: '/score',
+            statusCode: {
+                200: function() {
+                },
+                400: function(xhr,textStatus, errorThrown) {
+                    console.log('something went wrong');
+                }
+            },
+            complete: function(xhr, status) {
+
+            }
+        })
+    });
+
     $("#level1").click(function(){
         level = 1;
     });
