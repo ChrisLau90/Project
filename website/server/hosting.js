@@ -13,7 +13,7 @@ app.listen(8888);
 console.log('Listening on port 8888');
 
 var handler = function(req,res) {
-	res.send("hello");
+	res.send(scoreList[0]);
 }
 
 var postHandler = function(req, res) {
@@ -22,5 +22,5 @@ var postHandler = function(req, res) {
 	res.send(200);
 }
 
-app.get("/foo",handler)
-app.post("/score",postHandler)
+app.get("/score",handler);
+app.post("/score",postHandler);
