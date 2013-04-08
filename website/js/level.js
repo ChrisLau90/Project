@@ -129,6 +129,29 @@ var MapLimit = me.InvisibleEntity.extend({
             $("#resTotal").text(totalScore);
             $("#levelCompleteMenu").slideDown();
 
+            $("#submitScore").click(function(){
+                var record = {};
+                record.name = $("#nameInput").val();
+                record.score = totalScore;
+
+                $.ajax({
+                    data: record,
+                    type: 'POST',
+                    url: '/score',
+                    statusCode: {
+                        200: function(){
+                            console.log(record);
+                        },
+                        400: function(xhr, textStatus, errorThrown) {
+                            console.log('Could not post score to database');
+                        }
+                    },
+                    complete: function(xhr, status) {
+
+                    }
+                })
+            });
+
             $("#retry2").click(function(){
                 $("#levelCompleteMenu").slideUp();
                 me.state.change(me.state.PLAY);

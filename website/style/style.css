@@ -262,16 +262,17 @@ form {
 }
 
 #levelCompleteMenu {
-    display: none;
     width: 400px;
-    height: 315px;
     position: absolute;
-    top: 80px;
+    top: 40px;
     left: 150px;
 }
 
 #levelCompleteMenu p {
     text-align: center;
+}
+
+#scoreSubmit {
 }
 
 #results {

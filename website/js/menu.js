@@ -30,8 +30,8 @@ window.onload=function(){
 	
     $("#credits").click(function(){
         $.get('/score', function(data){
-		console.log("this shit retrieved" + data);
-	});
+		    console.log("this shit retrieved" + data);
+	    });
     });
 
     $("#logOut").click(function(){
