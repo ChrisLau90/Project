@@ -63,24 +63,45 @@ var jsApp	=
         me.entityPool.add("tutorial_point", TutorialPoint);
 
 		// enable keyboard
-		me.input.bindKey(me.input.KEY.A, "left");
+		this.bindKeys();
+
+      	// start the game 
+		me.state.change(me.state.PLAY);
+	},
+
+    bindKeys: function(){
+        me.input.bindKey(me.input.KEY.A, "left");
         me.input.bindKey(me.input.KEY.LEFT, "left");
-		me.input.bindKey(me.input.KEY.D, "right");
+        me.input.bindKey(me.input.KEY.D, "right");
         me.input.bindKey(me.input.KEY.RIGHT, "right");
         me.input.bindKey(me.input.KEY.W, "up");
         me.input.bindKey(me.input.KEY.UP, "up");
         me.input.bindKey(me.input.KEY.S, "down");
         me.input.bindKey(me.input.KEY.DOWN, "down");
-		me.input.bindKey(me.input.KEY.L, "jump");
+        me.input.bindKey(me.input.KEY.L, "jump");
         me.input.bindKey(me.input.KEY.X, "jump");
         me.input.bindKey(me.input.KEY.K, "shoot");
         me.input.bindKey(me.input.KEY.C, "shoot");
         me.input.bindKey(me.input.KEY.ESC, "pause", true);
+    },
 
-      	// start the game 
-		me.state.change(me.state.PLAY);
-	}
+    unbindKeys: function(){
+        me.input.unbindKey(me.input.KEY.A, "left");
+        me.input.unbindKey(me.input.KEY.LEFT, "left");
+        me.input.unbindKey(me.input.KEY.D, "right");
+        me.input.unbindKey(me.input.KEY.RIGHT, "right");
+        me.input.unbindKey(me.input.KEY.W, "up");
+        me.input.unbindKey(me.input.KEY.UP, "up");
+        me.input.unbindKey(me.input.KEY.S, "down");
+        me.input.unbindKey(me.input.KEY.DOWN, "down");
+        me.input.unbindKey(me.input.KEY.L, "jump");
+        me.input.unbindKey(me.input.KEY.X, "jump");
+        me.input.unbindKey(me.input.KEY.K, "shoot");
+        me.input.unbindKey(me.input.KEY.C, "shoot");
+        me.input.unbindKey(me.input.KEY.ESC, "pause", true);
+    }
 }; // jsApp
+
 
 /* the in game stuff*/
 var PlayScreen = me.ScreenObject.extend(

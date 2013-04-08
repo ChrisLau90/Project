@@ -17,7 +17,9 @@ var handler = function(req,res) {
 }
 
 var postHandler = function(req, res) {
-	database.submitLevel1Score("bob", 100,function(){});
+    var name = req.param("name");
+    var score = req.param("score");
+	database.submitLevel1Score(name, score, function(){});
 	res.send(200);
 }
 

@@ -262,6 +262,7 @@ form {
 }
 
 #levelCompleteMenu {
+    display: none;
     width: 400px;
     position: absolute;
     top: 40px;
