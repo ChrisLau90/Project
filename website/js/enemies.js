@@ -533,31 +533,6 @@ var CannonEnemy = me.ObjectEntity.extend({
 
     },
 
-    firePlasma: function(){
-
-
-        this.isFiring = true;
-
-        var xAdjust1 = this.pos.x + 18;
-        var xAdjust2 = this.pos.x + 60;
-        var yAdjust = this.pos.x + 64;
-
-        me.game.add(
-            new CannonPlasma(xAdjust1, yAdjust, this.goingLeft),
-            this.z+1
-        );
-
-        me.game.add(
-            new CannonPlasma(xAdjust2, yAdjust, this.goingLeft),
-            this.z+1
-        );
-
-        this.isFiring = false;
-        this.hasFired = true;
-        this.isDelayed = true;
-        me.game.sort();
-    },
-
     takeDamage: function(value){
         this.health -= value;
     }
@@ -602,37 +577,6 @@ var CannonRocket = me.ObjectEntity.extend({
          */
 
         return true;
-    }
-});
-
-var CannonPlasma = me.ObjectEntity.extend({
-    init: function(x, y, left){
-        var settings = {
-            name: "enemy_cannon_plasma",
-            image: "enemy_cannon_plasma",
-            spritewidth: 32,
-            spriteheight: 32
-        };
-
-        this.parent(x, y, settings);
-        this.goingLeft = left;
-        this.setVelocity(8,8);
-        this.collidable = true;
-        this.type = me.game.ENEMY_OBJECT;
-
-        this.addAnimation("active", [0,1,2]);
-        this.setCurrentAnimation("active");
-    },
-
-    update: function(){
-
-        this.vel.x += this.vel.x += (this.goingLeft)? -this.accel.x * me.timer.tick : this.accel.x * me.timer.tick;
-
-        this.updateMovement();
-
-        this.parent();
-        return true;
-
     }
 });
 

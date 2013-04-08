@@ -8,3 +8,9 @@ app.configure(function(){
 
 app.listen(8888);
 console.log('Listening on port 8888');
+
+val handler = function(req,res) {
+	res.send("hello")
+}
+
+app.get("/foo",handler)

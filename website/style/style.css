@@ -39,18 +39,28 @@ li {
     height: 480px;
     padding: 10px;
     margin: auto;
+    position: relative;
 }
 
 .loginContainer2 {
     width: 400px;
     height: 300px;
-    margin: auto auto;
+    margin: auto;
+}
+
+.loginContainer2 h1 {
+    text-align: center;
+}
+
+#loginForm {
     position: relative;
     top: 100px;
 }
 
 #regForm {
     display: none;
+    position: relative;
+    top: 50px;
 }
 
 form {
@@ -68,11 +78,34 @@ form {
     background-color: #000000;
 }
 
-#register {
+#submitLogin {
+    font-family: Minecraftia;
     width: 100px;
+    height: 30px;
+}
+
+#submitReg {
+    font-family: Minecraftia;
+    width: 100px;
+    height: 30px;
+}
+
+#registerButton {
+    width: 96px;
+    height: 24px;
+    margin: auto;
+    padding-top: 3px;
     position: relative;
-    left: 260px;
-    top: 50px;
+    top: 10px;
+}
+
+#loginButton {
+    width: 96px;
+    height: 24px;
+    margin: auto;
+    padding-top: 3px;
+    position: relative;
+    top: 10px;
 }
 
 #container {
@@ -80,12 +113,6 @@ form {
     margin: auto;
     width: 800px;
     height: 670px;
-}
-
-h1 {
-    width: 800px;
-    padding: 10px;
-    color: #FFFFFF;
 }
 
 #game {
