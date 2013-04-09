@@ -15,16 +15,20 @@ db.open(function(err, db) {
 	}
 });
 
-level1scores = db.collection('level1scores');
+scores = db.collection('scores');
 
-exports.submitLevel1Score = function(name, score, callback){
+exports.submitScore = function(level, name, score){
 	var record = {};
+	record.level = level;
 	record.name = name;
 	record.score = score;
-	level1scores.insert(record, {safe:true}, function(err, records){
+	scores.insert(record, {safe:true}, function(err, records){
 		console.log('added a record');
 	});
 }
 
-
-
+exports.getScores = function(levelNo, callback){
+	scores.find({level:levelNo}).toArray(function(err, allScores){
+		console.log(allScores)
+	});
+}

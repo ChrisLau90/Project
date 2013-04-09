@@ -13,13 +13,14 @@ app.listen(8888);
 console.log('Listening on port 8888');
 
 var handler = function(req,res) {
-	res.send(scoreList[0]);
+	database.getScores("1", function(){});
 }
 
 var postHandler = function(req, res) {
+    var level = req.param("level");
     var name = req.param("name");
     var score = req.param("score");
-	database.submitLevel1Score(name, score, function(){});
+	database.submitScore(level, name, score);
 	res.send(200);
 }
 

@@ -133,6 +133,7 @@ var MapLimit = me.InvisibleEntity.extend({
 
             $("#submitScore").click(function(){
                 var record = {};
+		record.level = level;
                 record.name = $("#nameInput").val();
                 record.score = totalScore;
 
@@ -142,7 +143,7 @@ var MapLimit = me.InvisibleEntity.extend({
                     url: '/score',
                     statusCode: {
                         200: function(){
-                            console.log(record + submitted);
+                            console.log(record + " submitted");
                         },
                         400: function(xhr, textStatus, errorThrown) {
                             console.log('Could not post score to database');
