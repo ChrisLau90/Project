@@ -28,7 +28,12 @@ exports.submitScore = function(level, name, score){
 }
 
 exports.getScores = function(levelNo, callback){
+    /*
 	scores.find({level:levelNo}).toArray(function(err, allScores){
 		console.log(allScores)
 	});
+	*/
+
+    var cursor = scores.find({level:levelNo});
+    cursor.sort()
 }

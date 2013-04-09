@@ -458,7 +458,9 @@ var BulletEntity = me.ObjectEntity.extend({
         var entCol = me.game.collide(this);
 
         if(entCol){
-            if(entCol.obj.type == me.game.ENEMY_OBJECT) {
+            if(entCol.obj.type == me.game.ENEMY_OBJECT &&
+                entCol.obj instanceof EnemyBullet == false &&
+                entCol.obj instanceof CannonRocket == false){
                 entCol.obj.takeDamage(10);
                 me.game.remove(this);
             }
@@ -535,7 +537,9 @@ var LaserEntity = me.ObjectEntity.extend({
         var entCol = me.game.collide(this);
 
         if(entCol){
-            if(entCol.obj.type == me.game.ENEMY_OBJECT) {
+            if(entCol.obj.type == me.game.ENEMY_OBJECT &&
+                entCol.obj instanceof EnemyBullet == false &&
+                entCol.obj instanceof CannonRocket == false) {
                 entCol.obj.takeDamage(30);
                 this.state = 2;
                 me.game.remove(this);

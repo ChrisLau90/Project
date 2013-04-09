@@ -4,8 +4,8 @@ var path = require('path');
 var database = require('./database.js');
 
 app.configure(function(){
-  app.use(express.static(path.join(__dirname, '../')))
-  app.use(express.bodyParser())
+    app.use(express.static(path.join(__dirname, '../')));
+    app.use(express.bodyParser());
 	app.use(express.logger('dev'));
 });
 

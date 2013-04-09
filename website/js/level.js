@@ -133,7 +133,7 @@ var MapLimit = me.InvisibleEntity.extend({
 
             $("#submitScore").click(function(){
                 var record = {};
-		record.level = level;
+		        record.level = level;
                 record.name = $("#nameInput").val();
                 record.score = totalScore;
 

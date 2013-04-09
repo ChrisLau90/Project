@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd65c92e-5162-4a2c-b5ae-5c49162ed574" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/js/level.js" afterPath="$PROJECT_DIR$/website/js/level.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/js/main.js" afterPath="$PROJECT_DIR$/website/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/js/player.js" afterPath="$PROJECT_DIR$/website/js/player.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/server/database.js" afterPath="$PROJECT_DIR$/website/server/database.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/server/hosting.js" afterPath="$PROJECT_DIR$/website/server/hosting.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/style/style.css" afterPath="$PROJECT_DIR$/website/style/style.css" />
     </list>
     <ignored path="Project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,28 +28,10 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file leaf-file-name="menu.js" pinned="false" current="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/website/js/menu.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="33" column="11" selection-start="1068" selection-end="1068" vertical-scroll-proportion="0.63461536">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="hosting.js" pinned="false" current="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/website/server/hosting.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="21" column="55" selection-start="557" selection-end="557" vertical-scroll-proportion="0.0">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="database.js" pinned="false" current="false" current-in-tab="false">
+            <file leaf-file-name="database.js" pinned="false" current="true" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/website/server/database.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="28" column="0" selection-start="622" selection-end="622" vertical-scroll-proportion="0.0">
+                  <state line="31" column="36" selection-start="707" selection-end="707" vertical-scroll-proportion="0.59615386">
                     <folding />
                   </state>
                 </provider>
@@ -62,40 +45,20 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="game.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/website/game.html">
+      <file leaf-file-name="menu.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/website/js/menu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="182" column="34" selection-start="7140" selection-end="7151" vertical-scroll-proportion="-6.96">
+            <state line="33" column="11" selection-start="1068" selection-end="1068" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/website/style/style.css">
+      <file leaf-file-name="hosting.js" pinned="false" current="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/website/server/hosting.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="264" column="18" selection-start="3454" selection-end="3454" vertical-scroll-proportion="0.0">
+            <state line="27" column="31" selection-start="682" selection-end="682" vertical-scroll-proportion="0.55785125">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="level.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/website/js/level.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="171" column="33" selection-start="4899" selection-end="4899" vertical-scroll-proportion="3.4504132">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/website/js/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="60" selection-start="3144" selection-end="3144" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -120,15 +83,15 @@
         <option value="$PROJECT_DIR$/login.html" />
         <option value="$PROJECT_DIR$/website/login.html" />
         <option value="$PROJECT_DIR$/website/js/loginMenu.js" />
-        <option value="$PROJECT_DIR$/website/js/player.js" />
         <option value="$PROJECT_DIR$/website/js/enemies.js" />
         <option value="$PROJECT_DIR$/website/game.html" />
-        <option value="$PROJECT_DIR$/website/server/database.js" />
         <option value="$PROJECT_DIR$/website/js/menu.js" />
-        <option value="$PROJECT_DIR$/website/server/hosting.js" />
         <option value="$PROJECT_DIR$/website/style/style.css" />
         <option value="$PROJECT_DIR$/website/js/main.js" />
         <option value="$PROJECT_DIR$/website/js/level.js" />
+        <option value="$PROJECT_DIR$/website/server/hosting.js" />
+        <option value="$PROJECT_DIR$/website/js/player.js" />
+        <option value="$PROJECT_DIR$/website/server/database.js" />
       </list>
     </option>
   </component>
@@ -260,8 +223,8 @@
     <property name="options.lastSelected" value="JavaScript.Libraries" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/jquery-1.9.1.min.js" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -382,18 +345,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/website/js/menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="20" selection-start="183" selection-end="184" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/website/js/loginMenu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="486" selection-end="486" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="19" column="0" selection-start="486" selection-end="486" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/website/js/player.js">
@@ -417,53 +371,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/website/js/enemies.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="549" column="21" selection-start="15271" selection-end="15272" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/website/js/loginMenu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="486" selection-end="486" vertical-scroll-proportion="0.39256197">
-          <folding />
-        </state>
+        <state line="19" column="0" selection-start="486" selection-end="486" vertical-scroll-proportion="0.39256197" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/website/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="23" selection-start="497" selection-end="864" vertical-scroll-proportion="0.3598201">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/website/js/player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="31" selection-start="3953" selection-end="3953" vertical-scroll-proportion="0.02170767">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/website/game.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="182" column="34" selection-start="7140" selection-end="7151" vertical-scroll-proportion="-6.96">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/website/server/database.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="622" selection-end="622" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/website/server/hosting.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="55" selection-start="557" selection-end="557" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="16" column="23" selection-start="497" selection-end="864" vertical-scroll-proportion="0.3598201" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/website/style/style.css">
@@ -473,25 +388,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/website/js/menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="11" selection-start="1068" selection-end="1068" vertical-scroll-proportion="0.63461536">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/website/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="100" column="60" selection-start="3144" selection-end="3144" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/website/js/level.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="171" column="33" selection-start="4899" selection-end="4899" vertical-scroll-proportion="3.4504132">
+        <state line="135" column="16" selection-start="3688" selection-end="3688" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/js/enemies.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="11" selection-start="3844" selection-end="3845" vertical-scroll-proportion="0.95792425">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/js/HUD.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.053719006">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/js/player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="541" column="59" selection-start="16669" selection-end="16669" vertical-scroll-proportion="1.1893408">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/game.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="31" selection-start="1029" selection-end="1030" vertical-scroll-proportion="0.7300151">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/js/menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="11" selection-start="1068" selection-end="1068" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/server/hosting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="31" selection-start="682" selection-end="682" vertical-scroll-proportion="0.55785125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/server/database.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="36" selection-start="707" selection-end="707" vertical-scroll-proportion="0.59615386">
           <folding />
         </state>
       </provider>
