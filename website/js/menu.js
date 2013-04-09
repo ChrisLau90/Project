@@ -1,4 +1,4 @@
-var level = 0;
+var level = 1;
 var isLoaded = false;
 
 var tutPoint = 0;
@@ -29,9 +29,27 @@ window.onload=function(){
     });
 	
     $("#credits").click(function(){
+        /*
         $.get('/score', function(data){
-		    console.log("this shit retrieved" + data);
+		    console.log(data);
 	    });
+        */
+        $.ajax({
+            data: {levelNo: level},
+            type: 'GET',
+            url: '/score',
+            statusCode: {
+                200: function(data){
+                    console.log(data);
+                },
+                400: function(xhr, textStatus, errorThrown) {
+                    console.log('get problem...');
+                }
+            },
+            complete: function(xhr, status) {
+            
+            }
+        })
     });
 
     $("#logOut").click(function(){

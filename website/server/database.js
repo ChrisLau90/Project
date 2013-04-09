@@ -28,12 +28,19 @@ exports.submitScore = function(level, name, score){
 }
 
 exports.getScores = function(levelNo, callback){
-    /*
-	scores.find({level:levelNo}).toArray(function(err, allScores){
-		console.log(allScores)
-	});
-	*/
 
     var cursor = scores.find({level:levelNo});
-    cursor.sort()
+    cursor.sort({"score":-1}).toArray(function(err,results) {
+	if(err){
+		//if there is an error send back an error message
+		callback(err, null);
+	}
+	else {
+		if(results.length > 10){
+			results = results.slice(0,10);
+		}
+		callback(null, results);
+	}
+	console.log(results);
+    })
 }
