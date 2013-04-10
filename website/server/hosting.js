@@ -15,8 +15,10 @@ console.log('Listening on port 8888');
 
 var handler = function(req,res) {
 	
-    var urlParts = url.parse(req.url, true);
-    var levelNo = urlParts.levelNo;
+    //var urlParts = url.parse(req.url, true);
+    var levelNo = req.query['levelNo'];
+    
+    console.log(levelNo);
 
     database.getScores(levelNo, function(err,topScores){
         if(!err) {
