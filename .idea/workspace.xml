@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dd65c92e-5162-4a2c-b5ae-5c49162ed574" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/js/level.js" afterPath="$PROJECT_DIR$/website/js/level.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/js/main.js" afterPath="$PROJECT_DIR$/website/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/js/menu.js" afterPath="$PROJECT_DIR$/website/js/menu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/style/style.css" afterPath="$PROJECT_DIR$/website/style/style.css" />
     </list>
     <ignored path="Project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,19 +26,19 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="true">
+            <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/website/style/style.css">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="276" column="17" selection-start="3614" selection-end="3614" vertical-scroll-proportion="0.42307693">
+                  <state line="276" column="17" selection-start="3614" selection-end="3614" vertical-scroll-proportion="0.0">
                     <folding />
                   </state>
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="menu.js" pinned="false" current="false" current-in-tab="false">
+            <file leaf-file-name="menu.js" pinned="false" current="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/website/js/menu.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="113" column="36" selection-start="3201" selection-end="3201" vertical-scroll-proportion="0.0">
+                  <state line="29" column="7" selection-start="1022" selection-end="1022" vertical-scroll-proportion="-1.3468057">
                     <folding />
                   </state>
                 </provider>
@@ -54,10 +52,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="game.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="game.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/website/game.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="162" column="20" selection-start="6507" selection-end="6507" vertical-scroll-proportion="-14.375">
+            <state line="162" column="20" selection-start="6507" selection-end="6507" vertical-scroll-proportion="3.156749">
               <folding />
             </state>
           </provider>
@@ -66,16 +64,16 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/website/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="1" selection-start="3230" selection-end="3230" vertical-scroll-proportion="0.0">
+            <state line="127" column="5" selection-start="3851" selection-end="3851" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="level.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="level.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/website/js/level.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="183" column="41" selection-start="5344" selection-end="5344" vertical-scroll-proportion="0.3478261">
+            <state line="183" column="41" selection-start="5344" selection-end="5344" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -106,10 +104,10 @@
         <option value="$PROJECT_DIR$/website/js/player.js" />
         <option value="$PROJECT_DIR$/website/server/database.js" />
         <option value="$PROJECT_DIR$/website/game.html" />
-        <option value="$PROJECT_DIR$/website/js/menu.js" />
-        <option value="$PROJECT_DIR$/website/js/main.js" />
         <option value="$PROJECT_DIR$/website/style/style.css" />
         <option value="$PROJECT_DIR$/website/js/level.js" />
+        <option value="$PROJECT_DIR$/website/js/main.js" />
+        <option value="$PROJECT_DIR$/website/js/menu.js" />
       </list>
     </option>
   </component>
@@ -424,37 +422,37 @@
         <state line="25" column="13" selection-start="651" selection-end="651" vertical-scroll-proportion="0.4740533" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/website/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="1" selection-start="3230" selection-end="3230" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/website/js/menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="36" selection-start="3201" selection-end="3201" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/website/game.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="162" column="20" selection-start="6507" selection-end="6507" vertical-scroll-proportion="-14.375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/website/style/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="276" column="17" selection-start="3614" selection-end="3614" vertical-scroll-proportion="0.42307693">
+        <state line="276" column="17" selection-start="3614" selection-end="3614" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="127" column="5" selection-start="3851" selection-end="3851" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/website/js/level.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="183" column="41" selection-start="5344" selection-end="5344" vertical-scroll-proportion="0.3478261">
+        <state line="183" column="41" selection-start="5344" selection-end="5344" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/js/menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="7" selection-start="1022" selection-end="1022" vertical-scroll-proportion="-1.3468057">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/game.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="162" column="20" selection-start="6507" selection-end="6507" vertical-scroll-proportion="3.156749">
           <folding />
         </state>
       </provider>

@@ -24,62 +24,14 @@ window.onload=function(){
     $("#levelSel").click(function(){
         $("#mainMenu").fadeOut(function(){
             level = 1;
+            updateScoreTable();
             $("#menu").fadeIn();
-            $.ajax({
-                data: {levelNo: level},
-                type: 'GET',
-                url: '/score',
-                statusCode: {
-                    200: function(data){
-                        console.log(data);
-                        for(var i = 0; i < data.length; i++){
-                            var tableNo = i + 1;
-                            var nameId = "#hsn" + tableNo;
-                            var scoreId = "#hs" + tableNo;
-
-                            $(nameId).text(data[i].name);
-                            $(scoreId).text(data[i].score);
-                        }
-                    },
-                    400: function(xhr, textStatus, errorThrown) {
-                        console.log('get problem...');
-                    }
-                },
-                complete: function(xhr, status) {
-                }
-            })
         });
-    });
-	
-    $("#credits").click(function(){
-        /*
-        $.get('/score', function(data){
-		    console.log(data);
-	    });
-        */
-
-    });
-
-    $("#logOut").click(function(){
-        $.ajax({
-            data: {message:"your mum"},
-            type: 'POST',
-            url: '/score',
-            statusCode: {
-                200: function() {
-                },
-                400: function(xhr,textStatus, errorThrown) {
-                    console.log('something went wrong');
-                }
-            },
-            complete: function(xhr, status) {
-
-            }
-        })
     });
 
     $("#level1").click(function(){
         level = 1;
+        updateScoreTable();
     });
 
     $("#start").click(function(){
@@ -94,6 +46,32 @@ window.onload=function(){
         });
     });
 };
+
+function updateScoreTable(){
+    $.ajax({
+        data: {levelNo: level},
+        type: 'GET',
+        url: '/score',
+        statusCode: {
+            200: function(data){
+                console.log(data);
+                for(var i = 0; i < data.length; i++){
+                    var tableNo = i + 1;
+                    var nameId = "#hsn" + tableNo;
+                    var scoreId = "#hs" + tableNo;
+
+                    $(nameId).text(data[i].name);
+                    $(scoreId).text(data[i].score);
+                }
+            },
+            400: function(xhr, textStatus, errorThrown) {
+                console.log('get problem...');
+            }
+        },
+        complete: function(xhr, status) {
+        }
+    })
+}
 
 function checkLoad(){
     if(!isLoaded){

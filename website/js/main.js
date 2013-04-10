@@ -111,6 +111,7 @@ var PlayScreen = me.ScreenObject.extend(
       	// stuff to reset on state change
         // enable keyboard
         jsApp.bindKeys();
+
       	// load level
       	me.levelDirector.loadLevel("level" + level);
         me.game.addHUD(0, 0, 700, 480);
@@ -119,7 +120,12 @@ var PlayScreen = me.ScreenObject.extend(
         me.game.HUD.addItem("ammo", new AmmoObject(550, 440));
         me.game.HUD.addItem("time", new TimerObject(140, 10));
         me.game.sort();
-	}
+	},
+
+    onDestroyEvent: function() {
+        // remove the HUD
+        me.game.disableHUD();
+    }
 
 });
 
