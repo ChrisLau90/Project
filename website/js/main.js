@@ -106,7 +106,6 @@ var jsApp	=
 /* the in game stuff*/
 var PlayScreen = me.ScreenObject.extend(
 {
-
    	onResetEvent: function()
 	{	
       	// stuff to reset on state change
@@ -120,21 +119,8 @@ var PlayScreen = me.ScreenObject.extend(
         me.game.HUD.addItem("ammo", new AmmoObject(550, 440));
         me.game.HUD.addItem("time", new TimerObject(140, 10));
         me.game.sort();
-	},
-	
-	/* ---
-		 action to perform when game is finished (state change)
-		---	*/
-	onDestroyEvent: function()
-	{
-        me.game.disableHUD();
-    }
+	}
+
 });
 
 
-/*
-window.onReady(function() 
-{
-	jsApp.onload();
-});
-*/

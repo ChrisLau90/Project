@@ -3,11 +3,11 @@ var isLoaded = false;
 
 var tutPoint = 0;
 var tutMessages = new Array();
-tutMessages[0] = "Use 'A' and 'D' or the LEFT and RIGHT arrow keys to run.";
-tutMessages[1] = "Press 'L' or 'X' to jump.";
+tutMessages[0] = "Use the arrow keys or WASD keys to run and aim.";
+tutMessages[1] = "Use the X and C keys or the L and K keys to jump and fire.";
 tutMessages[2] = "Collect the orbs to gain points.";
-tutMessages[3] = "Press 'K' or 'C' to shoot.";
-tutMessages[4] = "Use 'W' and 'S' or the UP and DOWN arrow keys to aim up and down.";
+tutMessages[3] = "Kill the enemies to gain points.";
+tutMessages[4] = "Points are also awarded for the amount of time, ammo and health left at the end of the round.";
 tutMessages[5] = "Collect this pickup for the Automatic Machine Gun.";
 tutMessages[6] = "Collect this pickup for the Laser Gun.";
 tutMessages[7] = "Collect this pickup to replenish Gigaman's health";

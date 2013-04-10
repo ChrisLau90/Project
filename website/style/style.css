@@ -273,6 +273,10 @@ form {
     text-align: center;
 }
 
+#scoreSubmit {
+    display: none;
+}
+
 #submitScore {
     width: 120px;
     margin: auto;

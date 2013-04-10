@@ -127,6 +127,11 @@ var MapLimit = me.InvisibleEntity.extend({
             $("#resAmmo").text(ammo);
             $("#bonusAmmo").text(ammoBonus);
             $("#resTotal").text(totalScore);
+
+            if(level != 0){
+                $("#scoreSubmit").show();
+            }
+
             $("#levelCompleteMenu").slideDown();
 
             jsApp.unbindKeys();
@@ -162,11 +167,13 @@ var MapLimit = me.InvisibleEntity.extend({
             });
 
             $("#retry2").click(function(){
+                $("#scoreSubmit").hide();
                 $("#levelCompleteMenu").slideUp();
                 me.state.change(me.state.PLAY);
             });
 
             $("#levelSel2").click(function(){
+                $("#scoreSubmit").hide();
                 $("#levelCompleteMenu").slideUp();
                 $("#jsapp").fadeOut(function(){
                     $("#menu").fadeIn();
@@ -174,6 +181,7 @@ var MapLimit = me.InvisibleEntity.extend({
             });
 
             $("#exit2").click(function(){
+                $("#scoreSubmit").hide();
                 $("#levelCompleteMenu").slideUp();
                 $("#jsapp").fadeOut(function(){
                     $("#mainMenu").fadeIn();
