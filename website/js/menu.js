@@ -67,7 +67,7 @@ function updateScoreTable(){
                     console.log(scoreCol);
                     console.log(tableRow);
 
-                    $("#results").append(tableRow);
+                    $("#scoreTable tr:last").after(tableRow);
                 }
 
                 /*
