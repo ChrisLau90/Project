@@ -31,11 +31,13 @@ window.onload=function(){
 
     $("#level1").click(function(){
         level = 1;
+        $("#showAll").show();
         updateScoreTable(1);
     });
 
     $("#showAll").click(function(){
         updateScoreTable(2);
+        $("#showAll").hide();
     });
 
     $("#start").click(function(){
