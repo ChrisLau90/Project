@@ -15,16 +15,16 @@ console.log('Listening on port 8888');
 
 var handler = function(req,res) {
 	
-        var urlParts = url.parse(req.url, true);
-        var levelNo = urlParts.levelNo;
+    var urlParts = url.parse(req.url, true);
+    var levelNo = urlParts.levelNo;
 
-        database.getScores("1", function(err,topScores){
-            if(!err) {
-		res.send(topScores);
-            } else {
-		res.send(400, err);
-            }
-        });
+    database.getScores(levelNo, function(err,topScores){
+        if(!err) {
+            res.send(topScores);
+        } else {
+            res.send(400, err);
+        }
+    });
 }
 
 var postHandler = function(req, res) {
