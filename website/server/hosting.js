@@ -58,6 +58,6 @@ var postHandler = function(req, res) {
     }
 }
 
-app.get("/score",handler);
+app.get("/score1",handler);
 app.get("/score2", handler2);
 app.post("/score",postHandler);
