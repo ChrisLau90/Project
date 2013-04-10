@@ -111,7 +111,7 @@ var PlayScreen = me.ScreenObject.extend(
 	{	
       	// stuff to reset on state change
         // enable keyboard
-        this.bindKeys();
+        jsApp.bindKeys();
       	// load level
       	me.levelDirector.loadLevel("level" + level);
         me.game.addHUD(0, 0, 700, 480);
