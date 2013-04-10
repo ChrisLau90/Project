@@ -175,6 +175,7 @@ var MapLimit = me.InvisibleEntity.extend({
             $("#levelSel2").click(function(){
                 $("#scoreSubmit").hide();
                 $("#levelCompleteMenu").slideUp();
+                level = 1;
                 $("#jsapp").fadeOut(function(){
                     $("#menu").fadeIn();
                 })
