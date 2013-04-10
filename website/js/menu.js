@@ -25,6 +25,29 @@ window.onload=function(){
         $("#mainMenu").fadeOut(function(){
             level = 1;
             $("#menu").fadeIn();
+            $.ajax({
+                data: {levelNo: level},
+                type: 'GET',
+                url: '/score',
+                statusCode: {
+                    200: function(data){
+                        console.log(data);
+                        for(var i = 0; i < data.length; i++){
+                            var tableNo = i + 1;
+                            var nameId = "#hsn" + tableNo;
+                            var scoreId = "#hs" + tableNo;
+
+                            $(nameId).text(data[i].name);
+                            $(scoreId).text(data[i].score);
+                        }
+                    },
+                    400: function(xhr, textStatus, errorThrown) {
+                        console.log('get problem...');
+                    }
+                },
+                complete: function(xhr, status) {
+                }
+            })
         });
     });
 	
@@ -34,22 +57,7 @@ window.onload=function(){
 		    console.log(data);
 	    });
         */
-        $.ajax({
-            data: {levelNo: level},
-            type: 'GET',
-            url: '/score',
-            statusCode: {
-                200: function(data){
-                    console.log(data);
-                },
-                400: function(xhr, textStatus, errorThrown) {
-                    console.log('get problem...');
-                }
-            },
-            complete: function(xhr, status) {
-            
-            }
-        })
+
     });
 
     $("#logOut").click(function(){
