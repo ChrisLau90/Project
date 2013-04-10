@@ -55,6 +55,17 @@ function updateScoreTable(){
         statusCode: {
             200: function(data){
                 console.log(data);
+
+                for(var i = 0; i < data.length; i++){
+                    var numberCol = "<td>" + (i + 1) + "</td>";
+                    var nameCol = "<td>" + data[i].name + "</td>";
+                    var scoreCol = "<td>" + data[i].score + "</td>";
+                    var tableRow = "<tr>" + numberCol + nameCol + scoreCol + "</tr>";
+
+                    $("#results").append(tableRow);
+                }
+
+                /*
                 for(var i = 0; i < data.length; i++){
                     var tableNo = i + 1;
                     var nameId = "#hsn" + tableNo;
@@ -63,6 +74,7 @@ function updateScoreTable(){
                     $(nameId).text(data[i].name);
                     $(scoreId).text(data[i].score);
                 }
+                */
             },
             400: function(xhr, textStatus, errorThrown) {
                 console.log('get problem...');
