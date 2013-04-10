@@ -24,14 +24,18 @@ window.onload=function(){
     $("#levelSel").click(function(){
         $("#mainMenu").fadeOut(function(){
             level = 1;
-            updateScoreTable();
+            updateScoreTable(1);
             $("#menu").fadeIn();
         });
     });
 
     $("#level1").click(function(){
         level = 1;
-        updateScoreTable();
+        updateScoreTable(1);
+    });
+
+    $("#showAll").click(function(){
+        updateScoreTable(2);
     });
 
     $("#start").click(function(){
@@ -47,11 +51,14 @@ window.onload=function(){
     });
 };
 
-function updateScoreTable(){
+function updateScoreTable(urlNo){
+
+    var url = "/score" + urlNo;
+
     $.ajax({
         data: {levelNo: level},
         type: 'GET',
-        url: '/score',
+        url: url,
         statusCode: {
             200: function(data){
                 console.log(data);
@@ -69,17 +76,6 @@ function updateScoreTable(){
 
                     $("#scoreTable tr:last").after(tableRow);
                 }
-
-                /*
-                for(var i = 0; i < data.length; i++){
-                    var tableNo = i + 1;
-                    var nameId = "#hsn" + tableNo;
-                    var scoreId = "#hs" + tableNo;
-
-                    $(nameId).text(data[i].name);
-                    $(scoreId).text(data[i].score);
-                }
-                */
             },
             400: function(xhr, textStatus, errorThrown) {
                 console.log('get problem...');

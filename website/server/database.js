@@ -44,3 +44,19 @@ exports.getScores = function(levelNo, callback){
 	console.log(results);
     })
 }
+
+exports.getAllScores = function(levelNo, callback){
+
+    var cursor = scores.find({level:levelNo});
+    cursor.sort({"score":-1}).toArray(function(err,results) {
+        if(err){
+            //if there is an error send back an error message
+            callback(err, null);
+        }
+        else {
+
+            callback(null, results);
+        }
+        console.log(results);
+    })
+}

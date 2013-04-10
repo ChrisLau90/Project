@@ -29,6 +29,22 @@ var handler = function(req,res) {
     });
 }
 
+var handler2 = function(req,res) {
+
+    //var urlParts = url.parse(req.url, true);
+    var levelNo = req.query['levelNo'];
+
+    console.log(levelNo);
+
+    database.getAllScores(levelNo, function(err,topScores){
+        if(!err) {
+            res.send(topScores);
+        } else {
+            res.send(400, err);
+        }
+    });
+}
+
 var postHandler = function(req, res) {
     var level = req.param("level");
     var name = req.param("name");
@@ -43,4 +59,5 @@ var postHandler = function(req, res) {
 }
 
 app.get("/score",handler);
+app.get("/score2", handler2);
 app.post("/score",postHandler);

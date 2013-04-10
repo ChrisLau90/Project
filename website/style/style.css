@@ -192,6 +192,18 @@ form {
     float: right;
 }
 
+#tableContainer {
+    height: 240px;
+    overflow: scroll;
+}
+
+#showAll {
+    width: 120px;
+    position: relative;
+    top: 20px;
+    margin: auto;
+}
+
 #scoreTable {
     font-size: 12px;
     margin: 0px auto;
