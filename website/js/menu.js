@@ -61,6 +61,11 @@ function updateScoreTable(){
                     var nameCol = "<td>" + data[i].name + "</td>";
                     var scoreCol = "<td>" + data[i].score + "</td>";
                     var tableRow = "<tr>" + numberCol + nameCol + scoreCol + "</tr>";
+                    
+                    console.log(numberCol);
+                    console.log(nameCol);
+                    console.log(scoreCol);
+                    console.log(tableRow);
 
                     $("#results").append(tableRow);
                 }
