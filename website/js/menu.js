@@ -63,18 +63,17 @@ function updateScoreTable(urlNo){
             200: function(data){
                 console.log(data);
 
+                $('#scoreTable tbody').empty();
+
                 for(var i = 0; i < data.length; i++){
                     var numberCol = "<td>" + (i + 1) + "</td>";
                     var nameCol = "<td>" + data[i].name + "</td>";
                     var scoreCol = "<td>" + data[i].score + "</td>";
                     var tableRow = "<tr>" + numberCol + nameCol + scoreCol + "</tr>";
-                    
-                    console.log(numberCol);
-                    console.log(nameCol);
-                    console.log(scoreCol);
-                    console.log(tableRow);
 
-                    $("#scoreTable tr:last").after(tableRow);
+                    //$("#scoreTable tr:last").after(tableRow);
+
+                    $("#scoreTable tbody").append(tableRow);
                 }
             },
             400: function(xhr, textStatus, errorThrown) {
