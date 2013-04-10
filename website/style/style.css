@@ -273,17 +273,23 @@ form {
     text-align: center;
 }
 
-#scoreSubmit {
+#submitScore {
+    width: 120px;
+    margin: auto;
 }
 
 #results {
     margin: auto;
 }
 
+#databaseMessage {
+    display: none;
+}
+
 #options2 {
     width: 130px;
     position: relative;
-    left: 90px;
+    left: 95px;
 }
 
 #options2 li {

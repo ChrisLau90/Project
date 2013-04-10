@@ -137,22 +137,28 @@ var MapLimit = me.InvisibleEntity.extend({
                 record.name = $("#nameInput").val();
                 record.score = totalScore;
 
+                $("#scoreSubmit").slideUp(function(){
+                    $("#databaseMessage").slideDown();
+                });
+
                 $.ajax({
                     data: record,
                     type: 'POST',
                     url: '/score',
                     statusCode: {
                         200: function(){
+                            $("#databaseMessage").text("Score Submitted!");
                             console.log(record + " submitted");
                         },
                         400: function(xhr, textStatus, errorThrown) {
+                            $("#databaseMessage").text("Error! Could not post to database");
                             console.log('Could not post score to database');
                         }
                     },
                     complete: function(xhr, status) {
 
                     }
-                })
+                });
             });
 
             $("#retry2").click(function(){

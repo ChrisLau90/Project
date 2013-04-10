@@ -110,6 +110,8 @@ var PlayScreen = me.ScreenObject.extend(
    	onResetEvent: function()
 	{	
       	// stuff to reset on state change
+        // enable keyboard
+        this.bindKeys();
       	// load level
       	me.levelDirector.loadLevel("level" + level);
         me.game.addHUD(0, 0, 700, 480);
