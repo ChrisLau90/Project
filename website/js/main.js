@@ -10,9 +10,7 @@
 var jsApp	= 
 {
 	/* ---
-	
 		Initialize the jsApp
-		
 		---			*/
 	onload: function()
 	{
@@ -115,10 +113,10 @@ var PlayScreen = me.ScreenObject.extend(
       	// load level
       	me.levelDirector.loadLevel("level" + level);
         me.game.addHUD(0, 0, 700, 480);
-        me.game.HUD.addItem("score", new ScoreObject(550 ,10));
+        me.game.HUD.addItem("score", new ScoreObject(640 ,10));
         me.game.HUD.addItem("health", new HealthObject(140,440));
-        me.game.HUD.addItem("ammo", new AmmoObject(550, 440));
-        me.game.HUD.addItem("time", new TimerObject(140, 10));
+        me.game.HUD.addItem("ammo", new AmmoObject(640, 440));
+        me.game.HUD.addItem("time", new TimerObject(150, 10));
         me.game.sort();
 	},
 

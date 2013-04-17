@@ -3,20 +3,22 @@
 ---------------------------------------*/
 
 var PlayerEntity = me.ObjectEntity.extend({
-
+    /*
+        Initialise the main player
+     */
 	init: function(x, y, settings) {
 		// call the constructor
 		this.parent(x, y, settings);
 
-		// set the default horizontal & vertical speed (accel vector)
+		// set the horizontal & vertical speed (accel vector)
 		this.setVelocity(0.5,0);
         this.setMaxVelocity(5,10);
         this.setFriction(0.25, 0);
-        this.jumpForce = 0;
+
+        this.upThrust = 0;
 
         this.animationspeed = me.sys.fps / 20;
 
-        //this.updateColRect(20, 34, 38, 70);
         this.updateColRect(24, 24, 38, 70);
 
 		// set the display to follow the position on both axis
@@ -27,7 +29,6 @@ var PlayerEntity = me.ObjectEntity.extend({
 
 		me.game.viewport.follow(this.cameraPos, me.game.viewport.AXIS.BOTH);
         me.game.viewport.setDeadzone(0,50);
-        //me.game.HUD.setItemValue("health", this.health);
 
         // set animations
         this.addAnimation("stand", [0]);
@@ -141,6 +142,7 @@ var PlayerEntity = me.ObjectEntity.extend({
             this.flipX(true);
             // update the entity velocity
             this.vel.x -= this.accel.x * me.timer.tick;
+            //update animation variables
             this.isMoving = true;
             this.aimingLeft = true;
         } else if (me.input.isKeyPressed('right')) {
@@ -151,7 +153,6 @@ var PlayerEntity = me.ObjectEntity.extend({
             this.isMoving = true;
             this.aimingLeft = false;
         } else {
-            //this.vel.x = 0;
             this.isMoving = false;
         }
 
@@ -183,20 +184,20 @@ var PlayerEntity = me.ObjectEntity.extend({
             }
         }
 
-        this.jumpForce *= 0.7;
+        this.upThrust *= 0.7;
 
         if (me.input.isKeyPressed("jump")) {
             if (!this.jumping && !this.falling && !this.blockJump) {
-                this.jumpForce = this.maxVel.y;
+                this.upThrust = this.maxVel.y;
                 this.jumping = true;
             }
             this.blockJump = true;
         }
         else {
-            this.jumpForce = 0;
+            this.upThrust = 0;
             this.blockJump = false;
         }
-        this.vel.y -= this.jumpForce * me.timer.tick;
+        this.vel.y -= this.upThrust * me.timer.tick;
 
         this.checkShoot();
 
@@ -336,7 +337,6 @@ var PlayerEntity = me.ObjectEntity.extend({
     },
 
     stateMachine: function(){
-        //var velY = this.vel.y;
         switch (true) {
             case (this.vel.y < 0):
                 //jump
