@@ -1,11 +1,11 @@
-var express = require('express');
-var url = require('url');
-var app = express();
-var path = require('path');
-var database = require('./database.js');
+var express = require('express');           //require Express module
+var app = express();                        //initialise Express module
+var url = require('url');                   //require prased URL object
+var path = require('path');                 //require requested file path from URL
+var database = require('./database.js');    //require database module
 
 app.configure(function(){
-    app.use(express.static(path.join(__dirname, '../')));
+    app.use(express.static(path.join(__dirname, '../'))); //
     app.use(express.bodyParser());
 	app.use(express.logger('dev'));
 });
@@ -13,12 +13,9 @@ app.configure(function(){
 app.listen(8888);
 console.log('Listening on port 8888');
 
-var handler = function(req,res) {
-	
-    //var urlParts = url.parse(req.url, true);
+var getHandler = function(req,res) {
+
     var levelNo = req.query['levelNo'];
-    
-    console.log(levelNo);
 
     database.getScores(levelNo, function(err,topScores){
         if(!err) {
@@ -29,12 +26,10 @@ var handler = function(req,res) {
     });
 }
 
-var handler2 = function(req,res) {
+var getHandler2 = function(req,res) {
 
     //var urlParts = url.parse(req.url, true);
     var levelNo = req.query['levelNo'];
-
-    console.log(levelNo);
 
     database.getAllScores(levelNo, function(err,topScores){
         if(!err) {
@@ -58,6 +53,6 @@ var postHandler = function(req, res) {
     }
 }
 
-app.get("/score1",handler);
-app.get("/score2", handler2);
-app.post("/score",postHandler);
+app.get("/score1",getHandler);
+app.get("/score2", getHandler2);
+app.post("/post",postHandler);

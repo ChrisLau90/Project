@@ -149,7 +149,7 @@ var MapLimit = me.InvisibleEntity.extend({
                 $.ajax({
                     data: record,
                     type: 'POST',
-                    url: '/score',
+                    url: '/post',
                     statusCode: {
                         200: function(){
                             $("#databaseMessage").text("Score Submitted!");
@@ -170,7 +170,7 @@ var MapLimit = me.InvisibleEntity.extend({
                 $("#scoreSubmit").hide();
                 $("#levelCompleteMenu").slideUp();
                 me.state.change(me.state.PLAY);
-            });
+            });''
 
             $("#levelSel2").click(function(){
                 $("#scoreSubmit").hide();
