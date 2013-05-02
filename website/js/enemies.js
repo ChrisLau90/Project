@@ -516,6 +516,7 @@ var CannonEnemy = me.ObjectEntity.extend({
         var yAdjust = this.pos.y + 64;
 
         xAdjust += (this.rocketsFired == 1) ? 18 : 60;
+        me.audio.play("rocket_sound");
 
         me.game.add(
             new CannonRocket(xAdjust, yAdjust, this.goingLeft),
@@ -845,6 +846,7 @@ var Explosion = me.ObjectEntity.extend({
        this.power = 10;
 
        this.addAnimation("explode", [0,1,0,2,3,4,5]);
+       me.audio.play("explosion_sound");
    },
 
     update: function(){

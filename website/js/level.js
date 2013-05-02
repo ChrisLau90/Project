@@ -10,6 +10,7 @@ var OrbPickup = me.CollectableEntity.extend({
 
     onCollision: function(res, obj){
         if (obj instanceof PlayerEntity) {
+            me.audio.play("orb_sound");
             me.game.HUD.updateItemValue("score", 20);
             this.collidable = false;
             me.game.remove(this);
@@ -29,6 +30,7 @@ var LargeOrbPickup = me.CollectableEntity.extend({
 
     onCollision: function(res, obj){
         if (obj instanceof PlayerEntity) {
+            me.audio.play("large_orb_sound");
             me.game.HUD.updateItemValue("score", 100);
             this.collidable = false;
             me.game.remove(this);
@@ -48,6 +50,7 @@ var HealthPickup = me.CollectableEntity.extend({
 
     onCollision: function(res, obj){
         if (obj instanceof PlayerEntity) {
+            me.audio.play("health_sound");
             obj.health += 30;
             this.collidable = false;
             me.game.remove(this);
@@ -67,6 +70,7 @@ var AutomaticPickup = me.CollectableEntity.extend({
 
     onCollision: function(res, obj){
         if (obj instanceof PlayerEntity) {
+            me.audio.play("pickup_sound");
             obj.gun = 1;
             obj.ammo = 100;
             this.collidable = false;
@@ -87,6 +91,7 @@ var LaserPickup = me.CollectableEntity.extend({
 
     onCollision: function(res, obj){
         if (obj instanceof PlayerEntity) {
+            me.audio.play("pickup_sound");
             obj.gun = 2;
             obj.ammo = 20;
             this.collidable = false;
@@ -110,6 +115,8 @@ var MapLimit = me.InvisibleEntity.extend({
         }
         else{
             me.state.pause();
+            me.audio.stopTrack("intro_stage");
+            me.audio.play("level_complete_sound");
             var score = me.game.HUD.getItemValue("score");
             var time = me.game.HUD.getItemValue("time");
             var timeBonus = time * 10;

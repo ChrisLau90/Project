@@ -83,6 +83,7 @@ var PlayerEntity = me.ObjectEntity.extend({
 
                     if(entCol){
                         if(entCol.obj.type == me.game.ENEMY_OBJECT){
+                            me.audio.play("player_hit_sound");
                             this.isHurt = true;
                             this.health -= entCol.obj.power;
                             if(entCol.obj.pos.x + 12 < this.pos.x){
@@ -111,7 +112,10 @@ var PlayerEntity = me.ObjectEntity.extend({
             }
         }
         else {
-
+            me.audio.stopTrack("intro_stage");
+            me.audio.play("player_death_sound", false, function(){
+                me.audio.play("game_over_yeah");
+            });
             //this.visible = false;
             me.game.add(
                 new Explosion(this.pos.x + 10, this.pos.y + 20, false, true),
@@ -188,6 +192,7 @@ var PlayerEntity = me.ObjectEntity.extend({
 
         if (me.input.isKeyPressed("jump")) {
             if (!this.jumping && !this.falling && !this.blockJump) {
+                me.audio.play("player_land_sound");
                 this.upThrust = this.maxVel.y;
                 this.jumping = true;
             }
@@ -203,16 +208,19 @@ var PlayerEntity = me.ObjectEntity.extend({
 
         if(me.input.isKeyPressed("pause")){
             me.state.pause();
+            me.audio.pauseTrack("intro_stage");
             showPauseMenu();
 
             $("#resume").click(function(){
                 me.state.resume();
+                me.audio.resumeTrack("intro_stage");
                 hidePauseMenu();
             });
             var resume_loop = setInterval(function check_resume() {
                 if (me.input.isKeyPressed("pause")) {
                     clearInterval(resume_loop);
                     me.state.resume();
+                    me.audio.resumeTrack("intro_stage");
                     hidePauseMenu();
                 }
 
@@ -228,6 +236,7 @@ var PlayerEntity = me.ObjectEntity.extend({
                     //SHOOT
                     this.canFire = false;
                     this.shootBullet();
+                    me.audio.play("shot_sound");
                 }
                 else if(!me.input.isKeyPressed('shoot') && !this.canFire){
                     this.canFire = true;
@@ -238,6 +247,7 @@ var PlayerEntity = me.ObjectEntity.extend({
                     this.gunTimer++;
                     if(this.gunTimer % 5 == 0 || this.gunTimer == 1){
                         this.shootBullet();
+                        me.audio.play("shot_sound");
                         this.ammo--;
                         if(this.ammo == 0){
                             this.gun = 0;
@@ -253,6 +263,7 @@ var PlayerEntity = me.ObjectEntity.extend({
                     //SHOOT
                     this.canFire = false;
                     this.shootLaser();
+                    me.audio.play("laser_sound");
                     this.ammo--;
                     if(this.ammo == 0){
                         this.gun = 0;
@@ -359,6 +370,7 @@ var PlayerEntity = me.ObjectEntity.extend({
             case (this.vel.y == 0):
                 //stand
                 if (this.isCurrentAnimation("fall") || this.isCurrentAnimation("fall2")){
+                    me.audio.play("player_land_sound");
                     this.setCurrentAnimation("land", this.checkAnimation());
                 }
                 else {
@@ -447,6 +459,7 @@ var BulletEntity = me.ObjectEntity.extend({
             me.game.remove(this);
         }
         else if (envCol.yprop.isSolid || envCol.xprop.isSolid){
+            me.audio.play("wall_hit_sound");
             me.game.remove(this);
         }
         else if (envCol.yprop.isPlatform || envCol.xprop.isPlatform){
@@ -461,6 +474,7 @@ var BulletEntity = me.ObjectEntity.extend({
             if(entCol.obj.type == me.game.ENEMY_OBJECT &&
                 entCol.obj instanceof EnemyBullet == false &&
                 entCol.obj instanceof CannonRocket == false){
+                me.audio.play("enemy_hit_sound");
                 entCol.obj.takeDamage(10);
                 me.game.remove(this);
             }

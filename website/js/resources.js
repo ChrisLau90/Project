@@ -99,7 +99,71 @@ var g_resources= [{
     name: "pickup_automatic",
     type: "image",
     src: "data/sprites/pickup_automatic.png"
-}, {
+},{
+    name: "shot_sound",
+    type: "audio",
+    src: "data/audio/"
+},{
+    name: "explosion_sound",
+    type: "audio",
+    src: "data/audio/"
+},{
+    name: "laser_sound",
+    type: "audio",
+    src: "data/audio/"
+},{
+    name: "intro_stage",
+    type: "audio",
+    src: "data/audio/"
+},{
+    name: "orb_sound",
+    type: "audio",
+    src: "data/audio/"
+},{
+    name: "large_orb_sound",
+    type: "audio",
+    src: "data/audio/"
+},{
+    name: "pickup_sound",
+    type: "audio",
+    src: "data/audio/"
+},{
+    name: "health_sound",
+    type: "audio",
+    src: "data/audio/"
+},{
+    name: "rocket_sound",
+    type: "audio",
+    src: "data/audio/"
+},{
+    name: "wall_hit_sound",
+    type: "audio",
+    src: "data/audio/"
+},{
+    name: "player_hit_sound",
+    type: "audio",
+    src: "data/audio/"
+},{
+    name: "player_death_sound",
+    type: "audio",
+    src: "data/audio/"
+},{
+    name: "player_land_sound",
+    type: "audio",
+    src: "data/audio/"
+},{
+    name: "enemy_hit_sound",
+    type: "audio",
+    src: "data/audio/"
+},{
+    name: "game_over_yeah",
+    type: "audio",
+    src: "data/audio/"
+},{
+    name: "level_complete_sound",
+    type: "audio",
+    src: "data/audio/"
+},{
     name: "atascii_font",
     type: "image",
     src: "data/font/atascii_16px.png"

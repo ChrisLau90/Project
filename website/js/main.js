@@ -22,7 +22,7 @@ var jsApp	=
 		}
 
 		// initialize the "audio"
-		me.audio.init("mp3,ogg");
+		me.audio.init("mp3");
 		
 		// set all resources to be loaded
 		me.loader.onload = this.loaded.bind(this);
@@ -112,6 +112,7 @@ var PlayScreen = me.ScreenObject.extend(
 
       	// load level
       	me.levelDirector.loadLevel("level" + level);
+        me.audio.playTrack("intro_stage");
         me.game.addHUD(0, 0, 700, 480);
         me.game.HUD.addItem("score", new ScoreObject(640 ,10));
         me.game.HUD.addItem("health", new HealthObject(140,440));
