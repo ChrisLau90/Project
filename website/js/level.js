@@ -160,7 +160,6 @@ var MapLimit = me.InvisibleEntity.extend({
                         200: function(){
                             $("#databaseMessage").text("Score Submitted!");
                             console.log(record + " submitted");
-                            record = {};
                         },
                         400: function(xhr, textStatus, errorThrown) {
                             $("#databaseMessage").text("Error! Could not post to database");
@@ -168,7 +167,7 @@ var MapLimit = me.InvisibleEntity.extend({
                         }
                     },
                     complete: function(xhr, status) {
-
+                        $("#submitScore").unbind();
                     }
                 });
             });
