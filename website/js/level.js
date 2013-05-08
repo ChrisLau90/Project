@@ -150,6 +150,7 @@ var MapLimit = me.InvisibleEntity.extend({
                 record.score = totalScore;
 
                 $("#scoreSubmit").slideUp(function(){
+                    $("#databaseMessage").text("Contacting Database...");
                     $("#databaseMessage").slideDown();
                 });
 
@@ -175,12 +176,14 @@ var MapLimit = me.InvisibleEntity.extend({
 
             $("#retry2").click(function(){
                 $("#scoreSubmit").hide();
+                $("#databaseMessage").hide();
                 $("#levelCompleteMenu").slideUp();
                 me.state.change(me.state.PLAY);
             });
 
             $("#levelSel2").click(function(){
                 $("#scoreSubmit").hide();
+                $("#databaseMessage").hide();
                 $("#levelCompleteMenu").slideUp();
                 level = 1;
                 $("#jsapp").fadeOut(function(){
@@ -190,6 +193,7 @@ var MapLimit = me.InvisibleEntity.extend({
 
             $("#exit2").click(function(){
                 $("#scoreSubmit").hide();
+                $("#databaseMessage").hide();
                 $("#levelCompleteMenu").slideUp();
                 $("#jsapp").fadeOut(function(){
                     $("#mainMenu").fadeIn();
