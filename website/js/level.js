@@ -143,6 +143,7 @@ var MapLimit = me.InvisibleEntity.extend({
             jsApp.unbindKeys();
 
             $("#submitScore").click(function(){
+                $("#submitScore").unbind();
                 var record = {};
 		        record.level = level;
                 record.name = $("#nameInput").val();
@@ -167,7 +168,7 @@ var MapLimit = me.InvisibleEntity.extend({
                         }
                     },
                     complete: function(xhr, status) {
-                        $("#submitScore").unbind();
+
                     }
                 });
             });
