@@ -302,7 +302,7 @@ var RollerEnemy = me.ObjectEntity.extend({
 
         this.setVelocity(3,5);
         this.animationspeed = me.sys.fps / 20;
-        this.updateColRect(12, 52, 0, 74);
+        this.updateColRect(16, 48, 10, 64);
         this.collidable = true;
         this.type = me.game.ENEMY_OBJECT;
         this.health = 30;

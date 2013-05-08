@@ -123,6 +123,7 @@ var PlayerEntity = me.ObjectEntity.extend({
             )
             me.game.sort();
             me.game.remove(this);
+            me.state.pause();
             showGameOverMenu();
         }
         // check & update player movement
@@ -172,7 +173,7 @@ var PlayerEntity = me.ObjectEntity.extend({
             this.image = me.loader.getImage("player_down");
             this.aimingUp = false;
             this.aimingDown = true;
-            if(this.viewChange < 140){
+            if(this.viewChange < 150){
                 this.viewChange += 4;
             }
         }

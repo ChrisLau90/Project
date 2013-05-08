@@ -35,6 +35,12 @@ window.onload=function(){
         updateScoreTable(1);
     });
 
+    $("#level2").click(function(){
+        level = 2;
+        $("#showAll").show();
+        updateScoreTable(2);
+    });
+
     $("#showAll").click(function(){
         updateScoreTable(2);
         $("#showAll").hide();
@@ -47,8 +53,8 @@ window.onload=function(){
     });
 
     $("#back").click(function(){
-        $("#menu").slideUp('slow', function(){
-            $("#mainMenu").slideDown();
+        $("#menu").fadeOut('slow', function(){
+            $("#mainMenu").fadeIn();
         });
     });
 };

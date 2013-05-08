@@ -12,6 +12,10 @@ var g_resources= [{
     type: "tmx",
     src: "data/maps/area01_level1.tmx"
 },{
+    name: "level2",
+    type: "tmx",
+    src: "data/maps/area01_level2.tmx"
+},{
     name: "area01_background1",
     type: "image",
     src: "data/tilesets/area01_background1.png"

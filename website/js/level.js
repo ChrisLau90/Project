@@ -104,7 +104,6 @@ var MapLimit = me.InvisibleEntity.extend({
     init: function(x,y,settings){
         this.parent(x,y,settings);
         this.isEnd = settings.end;
-        //this.updateColRect(0, settings.width, 0, settings.height);
     },
 
     onCollision: function(res, obj){
@@ -161,6 +160,7 @@ var MapLimit = me.InvisibleEntity.extend({
                         200: function(){
                             $("#databaseMessage").text("Score Submitted!");
                             console.log(record + " submitted");
+                            record = {};
                         },
                         400: function(xhr, textStatus, errorThrown) {
                             $("#databaseMessage").text("Error! Could not post to database");
@@ -177,7 +177,7 @@ var MapLimit = me.InvisibleEntity.extend({
                 $("#scoreSubmit").hide();
                 $("#levelCompleteMenu").slideUp();
                 me.state.change(me.state.PLAY);
-            });''
+            });
 
             $("#levelSel2").click(function(){
                 $("#scoreSubmit").hide();

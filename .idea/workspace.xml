@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd65c92e-5162-4a2c-b5ae-5c49162ed574" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/website/lib/debugPanel.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/website/lib/melonJS-0.9.6.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/data/tilesets/area01_tiles.png" afterPath="$PROJECT_DIR$/website/data/tilesets/area01_tiles.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/game.html" afterPath="$PROJECT_DIR$/website/game.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/js/enemies.js" afterPath="$PROJECT_DIR$/website/js/enemies.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/js/level.js" afterPath="$PROJECT_DIR$/website/js/level.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/js/main.js" afterPath="$PROJECT_DIR$/website/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/js/menu.js" afterPath="$PROJECT_DIR$/website/js/menu.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/js/player.js" afterPath="$PROJECT_DIR$/website/js/player.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/js/resources.js" afterPath="$PROJECT_DIR$/website/js/resources.js" />
     </list>
@@ -33,7 +32,7 @@
       <file leaf-file-name="game.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/website/game.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="14" selection-start="3142" selection-end="3142" vertical-scroll-proportion="-18.0">
+            <state line="35" column="63" selection-start="1102" selection-end="1102" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -42,7 +41,34 @@
       <file leaf-file-name="player.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/website/js/player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="194" column="51" selection-start="6377" selection-end="6377" vertical-scroll-proportion="-103.84615">
+            <state line="175" column="35" selection-start="5807" selection-end="5807" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="enemies.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/website/js/enemies.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="304" column="33" selection-start="8624" selection-end="8624" vertical-scroll-proportion="-15.884615">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="level.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/website/js/level.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="162" column="40" selection-start="4649" selection-end="4649" vertical-scroll-proportion="0.59917355">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/website/js/menu.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="26" selection-start="1257" selection-end="1257" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -57,46 +83,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/website/js/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="114" column="39" selection-start="3462" selection-end="3462" vertical-scroll-proportion="2.210744">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="resources.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/website/js/resources.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="152" column="21" selection-start="3275" selection-end="3275" vertical-scroll-proportion="0.0">
+            <state line="16" column="28" selection-start="349" selection-end="349" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="enemies.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/website/js/enemies.js">
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/website/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="518" column="38" selection-start="14592" selection-end="14622" vertical-scroll-proportion="-8.961538">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="level.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/website/js/level.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="118" column="33" selection-start="3079" selection-end="3085" vertical-scroll-proportion="-14.730769">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/website/js/menu.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="11" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.0">
+            <state line="22" column="0" selection-start="351" selection-end="351" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -123,14 +122,14 @@
         <option value="$PROJECT_DIR$/website/js/loginMenu.js" />
         <option value="$PROJECT_DIR$/website/server/database.js" />
         <option value="$PROJECT_DIR$/website/style/style.css" />
-        <option value="$PROJECT_DIR$/website/js/menu.js" />
         <option value="$PROJECT_DIR$/website/server/hosting.js" />
-        <option value="$PROJECT_DIR$/website/js/enemies.js" />
         <option value="$PROJECT_DIR$/website/js/main.js" />
-        <option value="$PROJECT_DIR$/website/js/level.js" />
         <option value="$PROJECT_DIR$/website/js/resources.js" />
-        <option value="$PROJECT_DIR$/website/js/player.js" />
         <option value="$PROJECT_DIR$/website/game.html" />
+        <option value="$PROJECT_DIR$/website/js/menu.js" />
+        <option value="$PROJECT_DIR$/website/js/level.js" />
+        <option value="$PROJECT_DIR$/website/js/player.js" />
+        <option value="$PROJECT_DIR$/website/js/enemies.js" />
       </list>
     </option>
   </component>
@@ -244,8 +243,8 @@
     <property name="options.lastSelected" value="JavaScript.Libraries" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/jquery-1.9.1.min.js" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -292,13 +291,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="874" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="22" width="1440" height="874" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15737474" sideWeight="0.6706507" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15737474" sideWeight="0.6706507" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -366,11 +365,16 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/website/style/style.css">
+    <entry file="file://$PROJECT_DIR$/website/js/menu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="14" selection-start="904" selection-end="904" vertical-scroll-proportion="0.0">
+        <state line="28" column="11" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.0">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/style/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="14" selection-start="904" selection-end="904" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/website/js/enemies.js">
@@ -390,9 +394,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/website/style/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="195" column="14" selection-start="2653" selection-end="2653" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="195" column="14" selection-start="2653" selection-end="2653" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/website/server/database.js">
@@ -409,56 +411,54 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/website/js/HUD.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="6" selection-start="796" selection-end="796" vertical-scroll-proportion="0.5576923">
-          <folding />
-        </state>
+        <state line="29" column="6" selection-start="796" selection-end="796" vertical-scroll-proportion="0.5576923" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/website/js/menu.js">
+    <entry file="file://$PROJECT_DIR$/website/game.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="11" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/website/js/enemies.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="518" column="38" selection-start="14592" selection-end="14622" vertical-scroll-proportion="-8.961538">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/website/js/level.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="33" selection-start="3079" selection-end="3085" vertical-scroll-proportion="-14.730769">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/website/js/resources.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="21" selection-start="3275" selection-end="3275" vertical-scroll-proportion="0.0">
+        <state line="35" column="63" selection-start="1102" selection-end="1102" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/website/js/player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="194" column="51" selection-start="6377" selection-end="6377" vertical-scroll-proportion="-103.84615">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/website/game.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="14" selection-start="3142" selection-end="3142" vertical-scroll-proportion="-18.0">
+        <state line="175" column="35" selection-start="5807" selection-end="5807" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/website/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="39" selection-start="3462" selection-end="3462" vertical-scroll-proportion="2.210744">
+        <state line="22" column="0" selection-start="351" selection-end="351" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/js/enemies.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="304" column="33" selection-start="8624" selection-end="8624" vertical-scroll-proportion="-15.884615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/js/menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="26" selection-start="1257" selection-end="1257" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/js/resources.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="28" selection-start="349" selection-end="349" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/js/level.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="162" column="40" selection-start="4649" selection-end="4649" vertical-scroll-proportion="0.59917355">
           <folding />
         </state>
       </provider>
