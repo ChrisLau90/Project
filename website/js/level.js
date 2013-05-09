@@ -104,6 +104,7 @@ var MapLimit = me.InvisibleEntity.extend({
     init: function(x,y,settings){
         this.parent(x,y,settings);
         this.isEnd = settings.end;
+        this.collided = false;
     },
 
     onCollision: function(res, obj){
@@ -112,10 +113,11 @@ var MapLimit = me.InvisibleEntity.extend({
         if(!this.isEnd){
             obj.health = 0;
         }
-        else{
+        else if(!this.collided){
             me.state.pause();
             me.audio.stopTrack("intro_stage");
             me.audio.play("level_complete_sound");
+            this.collided = true;
             var score = me.game.HUD.getItemValue("score");
             var time = me.game.HUD.getItemValue("time");
             var timeBonus = time * 10;
