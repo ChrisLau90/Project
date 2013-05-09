@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd65c92e-5162-4a2c-b5ae-5c49162ed574" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/js/level.js" afterPath="$PROJECT_DIR$/website/js/level.js" />
     </list>
     <ignored path="Project.iws" />
@@ -19,41 +20,22 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="level.js" pinned="false" current="true" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/website/js/level.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="195" column="45" selection-start="5870" selection-end="5870" vertical-scroll-proportion="0.5225464">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/website/style/style.css">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="300" column="5" selection-start="3857" selection-end="3861" vertical-scroll-proportion="-9.653846">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="game.html" pinned="false" current="false" current-in-tab="true">
+      <file leaf-file-name="game.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/website/game.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="128" column="0" selection-start="4996" selection-end="4996" vertical-scroll-proportion="0.32917318">
+            <state line="122" column="8" selection-start="4795" selection-end="4795" vertical-scroll-proportion="-7.1666665">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="level.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/website/js/level.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="176" column="34" selection-start="5160" selection-end="5160" vertical-scroll-proportion="1.0275482">
               <folding />
             </state>
           </provider>
@@ -71,7 +53,7 @@
       <file leaf-file-name="enemies.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/website/js/enemies.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="304" column="33" selection-start="8624" selection-end="8624" vertical-scroll-proportion="-15.884615">
+            <state line="304" column="33" selection-start="8624" selection-end="8624" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -147,7 +129,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="720" />
+    <option name="width" value="1440" />
     <option name="height" value="874" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -195,42 +177,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="website" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="website" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="style" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="website" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -321,13 +267,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="720" height="874" extended-state="6" />
+    <frame x="0" y="22" width="1440" height="874" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2912482" sideWeight="0.6706507" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17148906" sideWeight="0.6706507" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -439,23 +385,9 @@
         <state line="29" column="6" selection-start="796" selection-end="796" vertical-scroll-proportion="0.5576923" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/website/js/player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="175" column="35" selection-start="5807" selection-end="5807" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/website/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="0" selection-start="351" selection-end="351" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/website/js/enemies.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="304" column="33" selection-start="8624" selection-end="8624" vertical-scroll-proportion="-15.884615">
           <folding />
         </state>
       </provider>
@@ -476,21 +408,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/website/style/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="300" column="5" selection-start="3857" selection-end="3861" vertical-scroll-proportion="-9.653846">
+        <state line="300" column="5" selection-start="3857" selection-end="3861" vertical-scroll-proportion="0.33289126" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/js/player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="175" column="35" selection-start="5807" selection-end="5807" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/js/enemies.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="304" column="33" selection-start="8624" selection-end="8624" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/website/game.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="0" selection-start="4996" selection-end="4996" vertical-scroll-proportion="0.32917318">
+        <state line="122" column="8" selection-start="4795" selection-end="4795" vertical-scroll-proportion="-7.1666665">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/website/js/level.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="195" column="45" selection-start="5870" selection-end="5870" vertical-scroll-proportion="0.5225464">
+        <state line="176" column="34" selection-start="5160" selection-end="5160" vertical-scroll-proportion="1.0275482">
           <folding />
         </state>
       </provider>
