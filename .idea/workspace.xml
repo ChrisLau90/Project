@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dd65c92e-5162-4a2c-b5ae-5c49162ed574" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/js/level.js" afterPath="$PROJECT_DIR$/website/js/level.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/js/menu.js" afterPath="$PROJECT_DIR$/website/js/menu.js" />
     </list>
     <ignored path="Project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -19,22 +20,41 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="menu.js" pinned="false" current="true" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/website/js/menu.js">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state line="40" column="35" selection-start="1275" selection-end="1275" vertical-scroll-proportion="0.7287449">
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="game.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="game.html" pinned="false" current="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/website/game.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="122" column="8" selection-start="4795" selection-end="4795" vertical-scroll-proportion="0.0">
+            <state line="34" column="58" selection-start="1026" selection-end="1033" vertical-scroll-proportion="0.19188768">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="level.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="level.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/website/js/level.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="119" column="33" selection-start="3117" selection-end="3117" vertical-scroll-proportion="0.46280992">
+            <state line="120" column="33" selection-start="3166" selection-end="3166" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -53,15 +73,6 @@
         <entry file="file://$PROJECT_DIR$/website/js/enemies.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="304" column="33" selection-start="8624" selection-end="8624" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/website/js/menu.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="26" selection-start="1257" selection-end="1257" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -119,16 +130,16 @@
         <option value="$PROJECT_DIR$/website/js/main.js" />
         <option value="$PROJECT_DIR$/website/js/resources.js" />
         <option value="$PROJECT_DIR$/website/game.html" />
-        <option value="$PROJECT_DIR$/website/js/menu.js" />
         <option value="$PROJECT_DIR$/website/js/player.js" />
         <option value="$PROJECT_DIR$/website/js/enemies.js" />
         <option value="$PROJECT_DIR$/website/js/level.js" />
+        <option value="$PROJECT_DIR$/website/js/menu.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="1440" />
+    <option name="width" value="720" />
     <option name="height" value="874" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -266,13 +277,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="874" extended-state="6" />
+    <frame x="0" y="22" width="720" height="874" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17148906" sideWeight="0.6706507" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.348637" sideWeight="0.6706507" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -391,13 +402,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/website/js/menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="26" selection-start="1257" selection-end="1257" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/website/js/resources.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="28" selection-start="349" selection-end="349" vertical-scroll-proportion="0.0">
@@ -424,16 +428,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/website/game.html">
+    <entry file="file://$PROJECT_DIR$/website/js/level.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="8" selection-start="4795" selection-end="4795" vertical-scroll-proportion="0.0">
+        <state line="120" column="33" selection-start="3166" selection-end="3166" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/website/js/level.js">
+    <entry file="file://$PROJECT_DIR$/website/game.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="33" selection-start="3117" selection-end="3117" vertical-scroll-proportion="0.46280992">
+        <state line="34" column="58" selection-start="1026" selection-end="1033" vertical-scroll-proportion="0.19188768">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/js/menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="35" selection-start="1275" selection-end="1275" vertical-scroll-proportion="0.7287449">
           <folding />
         </state>
       </provider>

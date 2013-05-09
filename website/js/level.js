@@ -113,10 +113,11 @@ var MapLimit = me.InvisibleEntity.extend({
         if(!this.isEnd){
             obj.health = 0;
         }
-        else if(!this.collided){
+        else if (!this.collided){
             me.state.pause();
             me.audio.stopTrack("intro_stage");
             me.audio.play("level_complete_sound");
+            me.state.change(me.state.GAMEOVER);
             this.collided = true;
             var score = me.game.HUD.getItemValue("score");
             var time = me.game.HUD.getItemValue("time");
