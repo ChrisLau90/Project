@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd65c92e-5162-4a2c-b5ae-5c49162ed574" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/js/level.js" afterPath="$PROJECT_DIR$/website/js/level.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/js/menu.js" afterPath="$PROJECT_DIR$/website/js/menu.js" />
-    </list>
+    <list default="true" id="dd65c92e-5162-4a2c-b5ae-5c49162ed574" name="Default" comment="" />
     <ignored path="Project.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,7 +25,7 @@
             <file leaf-file-name="menu.js" pinned="false" current="true" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/website/js/menu.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="40" column="35" selection-start="1275" selection-end="1275" vertical-scroll-proportion="0.7287449">
+                  <state line="40" column="35" selection-start="1275" selection-end="1275" vertical-scroll-proportion="0.3846154">
                     <folding />
                   </state>
                 </provider>
@@ -45,7 +42,7 @@
       <file leaf-file-name="game.html" pinned="false" current="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/website/game.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="58" selection-start="1026" selection-end="1033" vertical-scroll-proportion="0.19188768">
+            <state line="34" column="58" selection-start="1026" selection-end="1033" vertical-scroll-proportion="0.44929796">
               <folding />
             </state>
           </provider>
@@ -437,14 +434,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/website/game.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="58" selection-start="1026" selection-end="1033" vertical-scroll-proportion="0.19188768">
+        <state line="34" column="58" selection-start="1026" selection-end="1033" vertical-scroll-proportion="0.44929796">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/website/js/menu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="35" selection-start="1275" selection-end="1275" vertical-scroll-proportion="0.7287449">
+        <state line="40" column="35" selection-start="1275" selection-end="1275" vertical-scroll-proportion="0.3846154">
           <folding />
         </state>
       </provider>
