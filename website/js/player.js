@@ -310,6 +310,12 @@ var PlayerEntity = me.ObjectEntity.extend({
             new BulletEntity(xAdjust, yAdjust, this.aimingLeft, this.aimingUp, this.aimingDown),
             this.z
         );
+
+        /*
+        console.log(this.aimingDown);
+        var bullet = me.entityPool.newInstanceOf("player_bullet", xAdjust, yAdjust, this.aimingLeft, this.aimingUp, this.aimingDown);
+        me.game.add(bullet, this.z);
+        */
         me.game.sort();
     },
 
@@ -430,6 +436,7 @@ var BulletEntity = me.ObjectEntity.extend({
         this.type = me.game.ACTION_OBJECT;  //set the object type
         this.updateColRect(8, 12, 10, 12);
 
+        this.flipX(left);
 
         if (this.goingUp){
             this.angle = -1.570796327;

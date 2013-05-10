@@ -133,7 +133,7 @@ var SoldierEnemy = me.ObjectEntity.extend({
 
     playerInSight: function(){
         var inSight = false;
-        var player = me.game.getEntityByName("mainPlayer")[0];
+        //var player = me.game.getEntityByName("mainPlayer")[0];
 
         if (player){
             var angle = this.angleTo(player);
@@ -611,7 +611,7 @@ var ChopperEnemy = me.ObjectEntity.extend({
             return false;
         }
 
-        var player = me.game.getEntityByName("mainPlayer")[0];
+        //var player = me.game.getEntityByName("mainPlayer")[0];
 
         if(this.health > 0){
             if(player){

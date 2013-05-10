@@ -9,6 +9,7 @@
 
 var jsApp	= 
 {
+    player: {},
 	/* ---
 		Initialize the jsApp
 		---			*/
@@ -119,6 +120,7 @@ var PlayScreen = me.ScreenObject.extend(
         me.game.HUD.addItem("ammo", new AmmoObject(640, 440));
         me.game.HUD.addItem("time", new TimerObject(150, 10));
         me.game.sort();
+        player = me.game.getEntityByName("mainPlayer")[0];
 	},
 
     onDestroyEvent: function() {
