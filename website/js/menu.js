@@ -52,7 +52,7 @@ window.onload=function(){
         level = 2;
         $("#HSLevel").text("Level 2");
         $("#showAll").show();
-        updateScoreTable(2);
+        updateScoreTable(1);
     });
 
     $("#showAll").click(function(){
