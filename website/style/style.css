@@ -34,33 +34,9 @@ li {
     list-style: none;
 }
 
-#loginContainer {
-    width: 600px;
-    height: 480px;
-    padding: 10px;
-    margin: auto;
+h1 {
     position: relative;
-}
-
-.loginContainer2 {
-    width: 400px;
-    height: 300px;
-    margin: auto;
-}
-
-.loginContainer2 h1 {
-    text-align: center;
-}
-
-#loginForm {
-    position: relative;
-    top: 100px;
-}
-
-#regForm {
-    display: none;
-    position: relative;
-    top: 50px;
+    left: 50px;
 }
 
 form {
@@ -237,6 +213,24 @@ form {
 
 #start {
     width: 100px;
+}
+
+#creditsMenu {
+    display: none;
+    text-align: center;
+    width: 700px;
+    height: 480px;
+    overflow: scroll;
+}
+
+#back2 {
+    width: 100px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.bold {
+    color: #76cbff;
 }
 
 #jsapp {

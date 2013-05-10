@@ -29,6 +29,18 @@ window.onload=function(){
         });
     });
 
+    $("#credits").click(function(){
+        $("#mainMenu").fadeOut(function(){
+            $("#creditsMenu").fadeIn();
+        });
+    });
+
+    $("#back2").click(function(){
+        $("#creditsMenu").fadeOut('slow', function(){
+            $("#mainMenu").fadeIn();
+        });
+    });
+
     $("#level1").click(function(){
         level = 1;
         $("#HSLevel").text("Level 1");
